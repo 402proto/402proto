@@ -1,0 +1,51 @@
+# build artifacts
+target/
+build/
+dist/
+*.egg-info/
+__pycache__/
+*.py[cod]
+node_modules/
+
+# editors
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# env / secrets — never commit
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+wallets/
+keys/
+
+# logs
+*.log
+logs/
+
+# tests
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# rust
+Cargo.lock
+!router-rs/Cargo.lock
+
+# python venv (per-package)
+.venv/
+venv/
+
+# os
+Thumbs.db
+
+# claude preview
+.claude/
