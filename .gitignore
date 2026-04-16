@@ -49,3 +49,6 @@ Thumbs.db
 
 # claude preview
 .claude/
+
+# pytest temp
+.pytest_cache/
