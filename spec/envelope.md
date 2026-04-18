@@ -22,7 +22,7 @@ x-402proto-max-price: 0.005
 
 | header | description |
 |---|---|
-| `x-402proto-version` | spec version. clients MUST send `0.1` for v0.1. |
+| `x-402proto-version` | spec version. clients MUST send the string `0.1` for v0.1. |
 | `x-402proto-client` | client agent string. mirrors http `User-Agent` for protocol clients. |
 | `x-402proto-wallet` | base58 solana pubkey of the wallet that will sign settlement. |
 
