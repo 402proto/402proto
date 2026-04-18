@@ -1,0 +1,37 @@
+[package]
+name = "proto402-router"
+version = "0.1.0"
+edition = "2021"
+description = "402proto quote router with retry and failover"
+license = "MIT"
+repository = "https://github.com/402proto/402proto"
+authors = ["402proto contributors"]
+readme = "README.md"
+keywords = ["proto402", "http-402", "payment", "router", "solana"]
+categories = ["web-programming", "network-programming"]
+
+[lib]
+name = "proto402_router"
+path = "src/lib.rs"
+
+[[bin]]
+name = "proto402-router"
+path = "src/bin/router.rs"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "1.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+ed25519-dalek = "2.1"
+bs58 = "0.5"
+rand = "0.8"
+
+[dev-dependencies]
+proptest = "1.4"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
