@@ -51,7 +51,7 @@ class ProviderError(Proto402Error):
     code = "provider-error"
 
 
-CODE_TO_EXC: dict[str, type[Proto402Error]] = {
+_CODE_TO_EXC: dict[str, type[Proto402Error]] = {
     cls.code: cls
     for cls in [
         BadEnvelope, UnsupportedVersion, QuoteExpired, QuoteUnknown,
@@ -62,5 +62,5 @@ CODE_TO_EXC: dict[str, type[Proto402Error]] = {
 
 
 def from_code(code: str, message: str = "") -> Proto402Error:
-    cls = CODE_TO_EXC.get(code, Proto402Error)
+    cls = _CODE_TO_EXC.get(code, Proto402Error)
     return cls(message or code)
