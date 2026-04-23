@@ -1,4 +1,6 @@
 //! retry policy.
+//!
+//! tuned for solana mainnet typical confirmation times.
 
 use rand::Rng;
 use std::time::Duration;
