@@ -24,7 +24,7 @@ class Envelope:
             "x-402proto-wallet": self.wallet,
         }
         if self.max_price is not None:
-            h["x-402proto-max-price"] = format(self.max_price, "f")
+            h["x-402proto-max-price"] = format(self.max_price, "f").rstrip("0").rstrip(".") or "0"
         if self.idempotency_key is not None:
             h["x-402proto-idempotency-key"] = self.idempotency_key
         return h
