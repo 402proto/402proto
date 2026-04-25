@@ -17,7 +17,7 @@ export class RateLimitedError extends Proto402Error { readonly code = "rate-limi
 export class ProviderErrorError extends Proto402Error { readonly code = "provider-error"; }
 
 export function fromCode(code: string, message = ""): Proto402Error {
-  const map: Record<string, new (m: string) => Proto402Error> = {
+  const map: Record<string,  new (m: string) => Proto402Error> = {
     "bad-envelope": BadEnvelopeError,
     "unsupported-version": UnsupportedVersionError,
     "quote-expired": QuoteExpiredError,
