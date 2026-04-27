@@ -1,0 +1,5 @@
+MIT License — same terms as the root LICENSE. the spec is intentionally MIT
+licensed so any implementer (client, provider, router) can use it without
+royalty or attribution beyond preserving this notice.
+
+Copyright (c) 2026 402proto contributors
