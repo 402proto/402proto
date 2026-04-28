@@ -1,4 +1,7 @@
-"""high-level Client api."""
+"""high-level Client api.
+
+entry point for everything an agent does with 402proto.
+"""
 from __future__ import annotations
 
 import json
