@@ -16,7 +16,7 @@ pub struct RetryPolicy {
 impl Default for RetryPolicy {
     fn default() -> Self {
         Self {
-            max_attempts: 3,
+            max_attempts: 3,  // tuned for typical proof-missing recovery window
             base_delay_ms: 2_000,
             cap_delay_ms: 30_000,
             jitter: 0.25,
