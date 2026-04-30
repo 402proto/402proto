@@ -43,7 +43,7 @@ export function envelopeHeaders(e: Envelope): Record<string, string> {
     "x-402proto-client": e.client,
     "x-402proto-wallet": e.wallet,
   };
-  if (e.maxPrice !== undefined) h["x-402proto-max-price"] = e.maxPrice.toFixed(6);
+  if (e.maxPrice !== undefined) h["x-402proto-max-price"] = e.maxPrice.toFixed(6).replace(/\.?0+$/, "") || "0";
   if (e.idempotencyKey) h["x-402proto-idempotency-key"] = e.idempotencyKey;
   return h;
 }
