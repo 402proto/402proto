@@ -149,6 +149,12 @@ mod tests {
     }
 
     #[test]
+    fn list_returns_all_providers() {
+        let c = Catalog::v01_default();
+        assert!(c.list().iter().any(|p| p.id == "helius.rpc"));
+    }
+
+    #[test]
     fn unknown_provider_is_none() {
         let c = Catalog::v01_default();
         assert!(c.get("nope").is_none());
