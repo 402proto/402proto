@@ -1,0 +1,48 @@
+{
+  "name": "@402proto/mcp",
+  "version": "0.1.0",
+  "description": "402proto MCP server for claude code, cursor, and other agent runtimes",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/402proto/402proto.git",
+    "directory": "mcp-server"
+  },
+  "homepage": "https://402proto.xyz",
+  "bugs": "https://github.com/402proto/402proto/issues",
+  "keywords": [
+    "402proto",
+    "mcp",
+    "model-context-protocol",
+    "claude",
+    "cursor",
+    "agent"
+  ],
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "402proto-mcp": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test --import tsx src/**/*.test.ts",
+    "start": "node dist/cli.js"
+  },
+  "dependencies": {
+    "@402proto/sdk": "workspace:^0.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "tsx": "^4.7.0",
+    "@types/node": "^20.11.0"
+  }
+}
