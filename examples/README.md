@@ -13,6 +13,8 @@ end-to-end recipes that pair 402proto with real-world agent setups.
 
 ## running
 
+set `PROTO402_NETWORK=devnet` to test against devnet.
+
 each python example expects:
 
 ```bash
