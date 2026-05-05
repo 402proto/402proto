@@ -36,7 +36,7 @@ every package has its own README with package-specific instructions.
 
 ## process
 
-1. **issue first.** for anything bigger than a typo, open an issue. tag it with the package (`sdk-py`, `router-rs`, `spec`, etc).
+1. **issue first. small typo prs can skip the issue.** for anything bigger than a typo, open an issue. tag it with the package (`sdk-py`, `router-rs`, `spec`, etc).
 2. **branch from main.** name branches `feat/<short>`, `fix/<short>`, `spec/<short>`.
 3. **conventional commits.** `feat(scope):`, `fix(scope):`, `refactor:`, `docs:`, `test:`, `chore:`, `ci:`. one logical change per commit.
 4. **tests stay green.** every package has its own CI matrix. if you touch `sdk-py/`, run `pytest`. if you touch `router-rs/`, run `cargo test`. ci will yell at you on push if you skip.
