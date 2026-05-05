@@ -1,0 +1,30 @@
+# 402proto code ownership
+#
+# review responsibilities follow this file. spec/ + router-rs/ require two approvals.
+
+# default — lead maintainer reviews anything not claimed below
+*                          @402proto
+
+# spec stays under the lead. two approvals required for any envelope change.
+/spec/                     @402proto @mikrohash
+
+# router (rust) — wire-level retry, failover, signing
+/router-rs/                @0xnova @402proto
+
+# python sdk + cli
+/sdk-py/                   @mikrohash @402proto
+
+# typescript sdk
+/sdk-ts/                   @luka @402proto
+
+# mcp server (node)
+/mcp-server/               @luka @402proto
+
+# landing + console
+/site/                     @luka @402proto
+
+# examples
+/examples/                 @luka @mikrohash
+
+# github infra, ci, release tooling
+/.github/                  @402proto
