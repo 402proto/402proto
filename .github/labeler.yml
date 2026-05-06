@@ -1,0 +1,29 @@
+spec:
+  - spec/**/*
+
+sdk-py:
+  - sdk-py/**/*
+
+sdk-ts:
+  - sdk-ts/**/*
+
+router:
+  - router-rs/**/*
+
+mcp:
+  - mcp-server/**/*
+
+site:
+  - site/**/*
+
+examples:
+  - examples/**/*
+
+ci:
+  - .github/**/*
+  - .editorconfig
+  - .gitignore
+
+docs:
+  - "**/*.md"
+  - "**/*.txt"
