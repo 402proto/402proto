@@ -1,0 +1,24 @@
+name: close stale issues
+on:
+  schedule:
+    - cron: "0 8 * * 1"
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v9
+        with:
+          days-before-stale: 45
+          days-before-close: 14
+          stale-issue-message: |
+            this issue has been quiet for 45 days. closing it in 14 days unless someone picks it back up.
+          stale-pr-message: |
+            this pr has been quiet for 45 days. closing it in 14 days unless someone picks it back up.
+          exempt-issue-labels: "spec,security,provider"
+          exempt-pr-labels: "spec,security"
