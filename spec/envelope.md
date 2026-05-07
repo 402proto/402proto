@@ -91,7 +91,7 @@ the client signs a canonical body derived from the quote (not the http response)
 
 if the provider rejects the request (e.g. quote expired, signature invalid, max-price too low), it responds with a 4xx status and an `x-402proto-error` header. see [errors.md](errors.md).
 
-## backwards-compat rules
+## backwards-compatible rules
 
 - adding a new optional header does not bump the spec version.
 - changing the meaning of an existing header bumps the spec version.
