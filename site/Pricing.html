@@ -1,0 +1,912 @@
+<html lang="en" class="dark"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="/402proto-logo.png">
+<title>Pricing — 402proto</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #05080A;
+}
+/* Custom scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+</style>
+
+<style>
+  .font-geist { font-family: 'Geist', sans-serif !important; }
+</style>
+<style>
+/* Animation Utilities */
+@keyframes reveal { 
+  from { opacity: 0; transform: translateY(20px); filter: blur(8px); } 
+  to { opacity: 1; transform: translateY(0); filter: blur(0); } 
+}
+/* By default, elements are hidden (opacity 0) until the 'is-visible' class is added */
+.reveal-on-scroll { 
+  opacity: 0; 
+  animation: reveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; 
+  animation-play-state: paused; 
+}
+/* Once visible, run the animation */
+.reveal-on-scroll.is-visible { 
+  opacity: 1; 
+  animation-play-state: running; 
+}
+/* Ensure table rows are visible on mobile/small screens or if animation fails */
+.overflow-x-auto.reveal-on-scroll, tr.reveal-on-scroll {
+  opacity: 1 !important;
+  visibility: visible !important;
+  animation: none !important;
+}
+</style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.bottom-0{bottom:0px}.left-0{left:0px}.top-0{top:0px}.left-1\/2{left:50%}.right-0{right:0px}.-bottom-px{bottom:-1px}.-left-px{left:-1px}.-right-px{right:-1px}.-top-3{top:-0.75rem}.-top-px{top:-1px}.z-40{z-index:40}.z-50{z-index:50}.z-10{z-index:10}.z-20{z-index:20}.col-span-3{grid-column:span 3 / span 3}.col-span-4{grid-column:span 4 / span 4}.col-span-6{grid-column:span 6 / span 6}.col-span-12{grid-column:span 12 / span 12}.m-auto{margin:auto}.mx-auto{margin-left:auto;margin-right:auto}.mb-8{margin-bottom:2rem}.mb-10{margin-bottom:2.5rem}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-6{margin-bottom:1.5rem}.mb-2{margin-bottom:0.5rem}.mb-24{margin-bottom:6rem}.mb-4{margin-bottom:1rem}.ml-auto{margin-left:auto}.mr-auto{margin-right:auto}.mt-1{margin-top:0.25rem}.mt-12{margin-top:3rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-auto{margin-top:auto}.ml-1{margin-left:0.25rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-16{height:4rem}.h-4{height:1rem}.h-6{height:1.5rem}.h-full{height:100%}.h-px{height:1px}.h-1\.5{height:0.375rem}.h-32{height:8rem}.h-72{height:18rem}.h-\[400px\]{height:400px}.h-20{height:5rem}.h-\[100px\]{height:100px}.h-\[1px\]{height:1px}.min-h-screen{min-height:100vh}.min-h-\[120px\]{min-height:120px}.min-h-\[400px\]{min-height:400px}.w-4{width:1rem}.w-6{width:1.5rem}.w-80{width:20rem}.w-auto{width:auto}.w-full{width:100%}.w-1\.5{width:0.375rem}.w-32{width:8rem}.w-72{width:18rem}.w-\[1000px\]{width:1000px}.w-10{width:2.5rem}.w-56{width:14rem}.max-w-2xl{max-width:42rem}.max-w-7xl{max-width:80rem}.max-w-4xl{max-width:56rem}.max-w-6xl{max-width:72rem}.max-w-\[200px\]{max-width:200px}.max-w-md{max-width:28rem}.max-w-screen-2xl{max-width:1536px}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.flex-grow{flex-grow:1}.border-collapse{border-collapse:collapse}.-translate-x-full{--tw-translate-x:-100%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;user-select:none}.grid-cols-12{grid-template-columns:repeat(12, minmax(0, 1fr))}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.items-baseline{align-items:baseline}.items-stretch{align-items:stretch}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-4{gap:1rem}.gap-1{gap:0.25rem}.gap-12{gap:3rem}.gap-3{gap:0.75rem}.gap-6{gap:1.5rem}.gap-px{gap:1px}.gap-x-12{column-gap:3rem}.gap-x-4{column-gap:1rem}.gap-x-6{column-gap:1.5rem}.gap-y-12{row-gap:3rem}.gap-y-4{row-gap:1rem}.gap-y-6{row-gap:1.5rem}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.divide-x > :not([hidden]) ~ :not([hidden]){--tw-divide-x-reverse:0;border-right-width:calc(1px * var(--tw-divide-x-reverse));border-left-width:calc(1px * calc(1 - var(--tw-divide-x-reverse)))}.divide-white\/10 > :not([hidden]) ~ :not([hidden]){border-color:rgb(255 255 255 / 0.1)}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.overflow-x-hidden{overflow-x:hidden}.break-all{word-break:break-all}.rounded-md{border-radius:0.375rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded{border-radius:0.25rem}.rounded-none{border-radius:0px}.border{border-width:1px}.border-2{border-width:2px}.border-x{border-left-width:1px;border-right-width:1px}.border-l{border-left-width:1px}.border-r{border-right-width:1px}.border-b{border-bottom-width:1px}.border-b-2{border-bottom-width:2px}.border-l-2{border-left-width:2px}.border-r-2{border-right-width:2px}.border-t{border-top-width:1px}.border-t-2{border-top-width:2px}.border-dashed{border-style:dashed}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-white\/20{border-color:rgb(255 255 255 / 0.2)}.border-\[\#d9f5f6\]{--tw-border-opacity:1;border-color:rgb(217 245 246 / var(--tw-border-opacity, 1))}.border-\[\#d9f5f6\]\/50{border-color:rgb(217 245 246 / 0.5)}.border-\[\#ffffff\]{--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.border-\[\#ffffff\]\/50{border-color:rgb(255 255 255 / 0.5)}.border-black\/10{border-color:rgb(0 0 0 / 0.1)}.bg-\[\#000000\]{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.bg-\[\#05080A\]{--tw-bg-opacity:1;background-color:rgb(5 8 10 / var(--tw-bg-opacity, 1))}.bg-\[\#ffffff\]\/10{background-color:rgb(255 255 255 / 0.1)}.bg-black\/80{background-color:rgb(0 0 0 / 0.8)}.bg-white\/10{background-color:rgb(255 255 255 / 0.1)}.bg-\[\#ffffff\]{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-\[\#ffffff\]\/5{background-color:rgb(255 255 255 / 0.05)}.bg-black\/20{background-color:rgb(0 0 0 / 0.2)}.bg-white\/5{background-color:rgb(255 255 255 / 0.05)}.bg-\[\#d9f5f6\]{--tw-bg-opacity:1;background-color:rgb(217 245 246 / var(--tw-bg-opacity, 1))}.bg-\[\#d9f5f6\]\/10{background-color:rgb(217 245 246 / 0.1)}.bg-transparent{background-color:transparent}.bg-white\/\[0\.02\]{background-color:rgb(255 255 255 / 0.02)}.bg-\[\#0a0f14\]{--tw-bg-opacity:1;background-color:rgb(10 15 20 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.bg-\[radial-gradient\(ellipse_at_top\2c _var\(--tw-gradient-stops\)\)\]{background-image:radial-gradient(ellipse at top, var(--tw-gradient-stops))}.bg-gradient-to-b{background-image:linear-gradient(to bottom, var(--tw-gradient-stops))}.from-transparent{--tw-gradient-from:transparent var(--tw-gradient-from-position);--tw-gradient-to:rgb(0 0 0 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-slate-900\/40{--tw-gradient-from:rgb(15 23 42 / 0.4) var(--tw-gradient-from-position);--tw-gradient-to:rgb(15 23 42 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-\[\#d9f5f6\]\/5{--tw-gradient-from:rgb(217 245 246 / 0.05) var(--tw-gradient-from-position);--tw-gradient-to:rgb(217 245 246 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-slate-800{--tw-gradient-from:#1e293b var(--tw-gradient-from-position);--tw-gradient-to:rgb(30 41 59 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-white\/10{--tw-gradient-to:rgb(255 255 255 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), rgb(255 255 255 / 0.1) var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-\[\#05080A\]{--tw-gradient-to:rgb(5 8 10 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #05080A var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-slate-700{--tw-gradient-to:rgb(51 65 85 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #334155 var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.to-\[\#05080A\]{--tw-gradient-to:#05080A var(--tw-gradient-to-position)}.object-contain{object-fit:contain}.p-2{padding:0.5rem}.p-6{padding:1.5rem}.p-10{padding:2.5rem}.p-4{padding:1rem}.px-4{padding-left:1rem;padding-right:1rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pl-4{padding-left:1rem}.pl-8{padding-left:2rem}.pr-4{padding-right:1rem}.pr-8{padding-right:2rem}.pb-24{padding-bottom:6rem}.pt-24{padding-top:6rem}.pb-10{padding-bottom:2.5rem}.pb-12{padding-bottom:3rem}.pl-6{padding-left:1.5rem}.pr-6{padding-right:1.5rem}.pt-12{padding-top:3rem}.pt-2{padding-top:0.5rem}.pt-20{padding-top:5rem}.pt-6{padding-top:1.5rem}.pt-8{padding-top:2rem}.text-left{text-align:left}.text-center{text-align:center}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-5xl{font-size:3rem;line-height:1}.text-\[10px\]{font-size:10px}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[15px\]{font-size:15px}.text-\[24vw\]{font-size:24vw}.font-medium{font-weight:500}.font-semibold{font-weight:600}.font-light{font-weight:300}.uppercase{text-transform:uppercase}.leading-\[1\.1\]{line-height:1.1}.leading-relaxed{line-height:1.625}.leading-\[0\.75\]{line-height:0.75}.leading-none{line-height:1}.tracking-tight{letter-spacing:-0.025em}.tracking-wide{letter-spacing:0.025em}.tracking-tighter{letter-spacing:-0.05em}.tracking-widest{letter-spacing:0.1em}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-white\/70{color:rgb(255 255 255 / 0.7)}.text-\[\#ffffff\]{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-white\/50{color:rgb(255 255 255 / 0.5)}.text-white\/60{color:rgb(255 255 255 / 0.6)}.text-white\/80{color:rgb(255 255 255 / 0.8)}.text-\[\#d9f5f6\]{--tw-text-opacity:1;color:rgb(217 245 246 / var(--tw-text-opacity, 1))}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.text-black\/50{color:rgb(0 0 0 / 0.5)}.text-black\/80{color:rgb(0 0 0 / 0.8)}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-white\/20{color:rgb(255 255 255 / 0.2)}.text-white\/40{color:rgb(255 255 255 / 0.4)}.text-white\/85{color:rgb(255 255 255 / 0.85)}.text-white\/90{color:rgb(255 255 255 / 0.9)}.opacity-0{opacity:0}.opacity-20{opacity:0.2}.opacity-40{opacity:0.4}.mix-blend-screen{mix-blend-mode:screen}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-black\/20{--tw-shadow-color:rgb(0 0 0 / 0.2);--tw-shadow:var(--tw-shadow-colored)}.blur-\[120px\]{--tw-blur:blur(120px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.selection\:bg-\[\#ffffff\]\/30 *::selection{background-color:rgb(255 255 255 / 0.3)}.selection\:text-\[\#ffffff\] *::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.selection\:bg-\[\#ffffff\]\/30::selection{background-color:rgb(255 255 255 / 0.3)}.selection\:text-\[\#ffffff\]::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:bg-\[\#ffffff\]\/10:hover{background-color:rgb(255 255 255 / 0.1)}.hover\:bg-\[\#ffffff\]\/20:hover{background-color:rgb(255 255 255 / 0.2)}.hover\:bg-white\/10:hover{background-color:rgb(255 255 255 / 0.1)}.hover\:bg-white\/5:hover{background-color:rgb(255 255 255 / 0.05)}.hover\:bg-\[\#d9f5f6\]:hover{--tw-bg-opacity:1;background-color:rgb(217 245 246 / var(--tw-bg-opacity, 1))}.hover\:bg-\[\#d9f5f6\]\/5:hover{background-color:rgb(217 245 246 / 0.05)}.hover\:bg-white:hover{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.hover\:bg-white\/\[0\.02\]:hover{background-color:rgb(255 255 255 / 0.02)}.hover\:bg-white\/\[0\.04\]:hover{background-color:rgb(255 255 255 / 0.04)}.hover\:bg-gray-200:hover{--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1))}.hover\:text-\[\#ffffff\]:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:text-black\/60:hover{color:rgb(0 0 0 / 0.6)}.hover\:text-white\/70:hover{color:rgb(255 255 255 / 0.7)}.hover\:underline:hover{-webkit-text-decoration-line:underline;text-decoration-line:underline}.hover\:opacity-100:hover{opacity:1}.group:hover .group-hover\:-translate-y-2{--tw-translate-y:-0.5rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:translate-x-2{--tw-translate-x:0.5rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:border-\[\#ffffff\]{--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.group:hover .group-hover\:bg-\[\#ffffff\]{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.group:hover .group-hover\:bg-\[\#ffffff\]\/10{background-color:rgb(255 255 255 / 0.1)}.group:hover .group-hover\:text-\[\#ffffff\]{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:opacity-100{opacity:1}@media (min-width: 640px){.sm\:inline{display:inline}.sm\:h-20{height:5rem}.sm\:flex-row{flex-direction:row}.sm\:text-left{text-align:left}.sm\:text-6xl{font-size:3.75rem;line-height:1}.sm\:text-5xl{font-size:3rem;line-height:1}}@media (min-width: 768px){.md\:col-span-4{grid-column:span 4 / span 4}.md\:col-span-10{grid-column:span 10 / span 10}.md\:col-span-2{grid-column:span 2 / span 2}.md\:mb-32{margin-bottom:8rem}.md\:flex{display:flex}.md\:hidden{display:none}.md\:h-48{height:12rem}.md\:h-96{height:24rem}.md\:h-20{height:5rem}.md\:w-48{width:12rem}.md\:w-96{width:24rem}.md\:w-20{width:5rem}.md\:grid-cols-12{grid-template-columns:repeat(12, minmax(0, 1fr))}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.md\:gap-8{gap:2rem}.md\:border-b-0{border-bottom-width:0px}.md\:border-r{border-right-width:1px}.md\:px-10{padding-left:2.5rem;padding-right:2.5rem}.md\:px-12{padding-left:3rem;padding-right:3rem}.md\:py-20{padding-top:5rem;padding-bottom:5rem}.md\:pl-8{padding-left:2rem}.md\:pr-8{padding-right:2rem}.md\:pt-6{padding-top:1.5rem}.md\:text-sm{font-size:0.875rem;line-height:1.25rem}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\:text-5xl{font-size:3rem;line-height:1}.md\:text-7xl{font-size:4.5rem;line-height:1}.md\:text-\[16rem\]{font-size:16rem}.md\:text-base{font-size:1rem;line-height:1.5rem}}@media (min-width: 1024px){.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:text-7xl{font-size:4.5rem;line-height:1}.lg\:text-6xl{font-size:3.75rem;line-height:1}.lg\:text-\[6rem\]{font-size:6rem}}</style></head>
+<body class="bg-[#05080A] min-h-screen flex flex-col overflow-x-hidden selection:bg-[#ffffff]/30 selection:text-[#ffffff] text-white/70">
+    <!-- Navigation -->
+    <header class="border-dashed sticky z-50 bg-[#000000] w-full top-0 backdrop-blur-md">
+      <div class="grid grid-cols-12 h-16 sm:h-20">
+        <div class="col-span-3 md:hidden flex items-center pl-4 border-r border-dashed border-white/10">
+          <button id="mobile-menu-btn" class="p-2 hover:bg-white/10 rounded-md transition-colors" aria-label="Open menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-white"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg>
+          </button>
+        </div>
+        <div class="col-span-4 hidden md:flex items-center">
+          <a href="/Platform.html" class="flex items-center justify-center hover:bg-[#ffffff]/10 transition-colors border-dashed text-xs font-medium text-white tracking-wide font-geist h-full border-white/10 border-r pr-8 pl-8">PLATFORM</a>
+          <a href="/Solution.html" class="flex items-center justify-center hover:bg-[#ffffff]/10 hover:text-white transition-colors border-dashed text-xs font-medium tracking-wide font-geist h-full border-white/10 border-r pr-8 pl-8">SOLUTIONS</a>
+          <a href="/Pricing.html" class="flex items-center justify-center border border-dashed border-white/20 text-white hover:bg-[#ffffff]/20 transition-colors text-xs font-medium tracking-wide font-geist bg-[#ffffff]/10 h-full pr-8 pl-8">PRICING</a>
+        </div>
+        <div class="col-span-6 md:col-span-4 flex relative items-center justify-center">
+          <a href="/" class="inline-flex items-center justify-center gap-2">
+            <img src="402proto-logo.png" alt="402proto" class="h-10 w-auto">
+            <span class="text-white font-geist font-semibold text-lg tracking-tight hidden sm:inline">402PROTO</span>
+          </a>
+        </div>
+        <div class="col-span-3 md:col-span-4 flex items-center justify-end">
+          <a href="/Docs.html" class="hidden md:flex items-center justify-center hover:bg-[#ffffff]/10 hover:text-white transition-colors border-dashed text-xs font-medium tracking-wide font-geist h-full border-white/10 border-r border-l pr-8 pl-8">DOCS</a>
+          <a href="/Enterprise.html" class="hidden md:flex items-center justify-center hover:bg-[#ffffff]/10 hover:text-white transition-colors border-dashed text-xs font-medium tracking-wide font-geist h-full border-white/10 border-r border-l pr-8 pl-8">ENTERPRISE</a>
+          <a href="/Login.html" class="flex items-center justify-center hover:text-[#ffffff] transition-colors gap-2 text-xs font-medium text-white tracking-wide font-geist h-full pr-4 md:pr-8 pl-4 md:pl-8">
+            <span class="hidden sm:inline">LOGIN</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </a>
+        </div>
+      </div>
+      <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+    </header>
+    <div id="mobile-sidebar-overlay" class="fixed inset-0 bg-black/80 z-40 hidden md:hidden" onclick="closeMobileMenu()"></div>
+    <aside id="mobile-sidebar" class="fixed top-0 left-0 w-80 h-full bg-[#05080A] z-50 transform -translate-x-full transition-transform duration-300 md:hidden overflow-y-auto border-r border-white/10">
+      <div class="p-6">
+        <div class="flex items-center justify-between mb-8">
+          <span class="text-white font-semibold">Menu</span>
+          <button onclick="closeMobileMenu()" class="p-2 hover:bg-white/10 rounded-md transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+          </button>
+        </div>
+        <nav class="space-y-2">
+          <a href="/" class="block px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-md transition-colors">Home</a>
+          <a href="/Platform.html" class="block px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-md transition-colors">Platform</a>
+          <a href="/Solution.html" class="block px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-md transition-colors">Solutions</a>
+          <a href="/Pricing.html" class="block px-4 py-3 text-white bg-white/10 rounded-md">Pricing</a>
+          <a href="/Docs.html" class="block px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-md transition-colors">Documentation</a>
+          <a href="/Enterprise.html" class="block px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-md transition-colors">Enterprise</a>
+          <a href="/Login.html" class="block px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-md transition-colors">Login</a>
+        </nav>
+      </div>
+    </aside>
+    <script>
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileSidebar = document.getElementById('mobile-sidebar');
+      const mobileOverlay = document.getElementById('mobile-sidebar-overlay');
+      function openMobileMenu() { mobileSidebar.classList.remove('-translate-x-full'); mobileOverlay.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+      function closeMobileMenu() { mobileSidebar.classList.add('-translate-x-full'); mobileOverlay.classList.add('hidden'); document.body.style.overflow = ''; }
+      window.closeMobileMenu = closeMobileMenu;
+      mobileMenuBtn.addEventListener('click', openMobileMenu);
+    </script>
+
+    <!-- Main Content Wrapper -->
+    <main class="flex-grow flex flex-col">
+      <!-- Pricing Hero Section -->
+      <div class="relative overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900/40 via-[#05080A] to-[#05080A] border-dashed border-white/10 border-b">
+        <!-- Abstract Background shapes -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-[#ffffff]/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-24 text-center">
+          <div class="inline-flex items-center gap-2 mb-6 px-3 py-1 rounded-full border border-white/10 bg-white/5 reveal-on-scroll">
+            <span class="flex h-1.5 w-1.5 rounded-full bg-[#ffffff]"></span>
+            <p class="text-white/80 font-mono text-[10px] tracking-widest uppercase font-geist">
+              Pricing
+            </p>
+          </div>
+
+          <h1 class="text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.1] mb-6 font-geist font-light tracking-tighter reveal-on-scroll">
+            pick how
+            <br>
+            <span class="text-white/50">your fleet pays.</span>
+          </h1>
+
+          <p class="text-lg leading-relaxed max-w-2xl mx-auto mb-10 font-light font-geist text-white/60 reveal-on-scroll">
+            no signup. no monthly bill. no api keys.
+            wallet pays each call. choose the cap that fits.
+          </p>
+
+          <!-- Fee Notice -->
+          <div class="flex items-center justify-center gap-4 mb-12 reveal-on-scroll">
+            <div class="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#ffffff]"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg>
+              <span class="text-sm font-medium text-white/70 font-geist">
+                Non-custodial · open spec · settled in USDC on Solana
+              </span>
+            </div>
+          </div>
+
+          <!-- Dotted Glow Card -->
+          <div class="flex justify-center mb-16 reveal-on-scroll">
+            <div class="relative w-72 h-72 md:w-96 md:h-96 rounded-3xl border border-white/10 overflow-hidden shadow-2xl shadow-black/20" id="dotted-glow-card">
+              <img src="402proto-logo.png" alt="402proto" class="absolute inset-0 z-20 m-auto w-32 h-32 md:w-48 md:h-48 object-contain">
+              <div class="absolute bottom-0 left-0 right-0 z-20 flex justify-between items-center px-4 py-4 backdrop-blur-sm bg-black/20">
+                <p class="text-xs md:text-sm font-medium text-white/80 font-geist">agent payment plan</p>
+                <span class="text-white/60">→</span>
+              </div>
+              <canvas id="dotted-glow-canvas" class="absolute inset-0 w-full h-full" width="768" height="768" style="width: 384px; height: 384px;"></canvas>
+            </div>
+          </div>
+          <script>
+            (function() {
+              const canvas = document.getElementById('dotted-glow-canvas');
+              if (!canvas) return;
+              const ctx = canvas.getContext('2d');
+              let dots = [];
+              const gap = 12;
+              const baseRadius = 1.5;
+              function resize() {
+                const rect = canvas.parentElement.getBoundingClientRect();
+                canvas.width = rect.width * 2;
+                canvas.height = rect.height * 2;
+                canvas.style.width = rect.width + 'px';
+                canvas.style.height = rect.height + 'px';
+                ctx.scale(2, 2);
+                initDots(rect.width, rect.height);
+              }
+              function initDots(w, h) {
+                dots = [];
+                for (let x = gap; x < w; x += gap) {
+                  for (let y = gap; y < h; y += gap) {
+                    dots.push({ x, y, speed: 0.3 + Math.random() * 1.3, phase: Math.random() * Math.PI * 2 });
+                  }
+                }
+              }
+              function draw(time) {
+                const w = canvas.width / 2, h = canvas.height / 2;
+                ctx.clearRect(0, 0, w, h);
+                const cx = w / 2, cy = h / 2;
+                const maxDist = Math.sqrt(cx * cx + cy * cy);
+                dots.forEach(dot => {
+                  const dist = Math.sqrt((dot.x - cx) ** 2 + (dot.y - cy) ** 2);
+                  const glow = Math.sin(time * 0.001 * dot.speed + dot.phase) * 0.5 + 0.5;
+                  const fade = 1 - (dist / maxDist) * 0.7;
+                  const alpha = 0.15 + glow * 0.4 * fade;
+                  const r = baseRadius + glow * 0.8;
+                  ctx.beginPath();
+                  ctx.arc(dot.x, dot.y, r, 0, Math.PI * 2);
+                  ctx.fillStyle = `rgba(217, 245, 246, ${alpha})`;
+                  ctx.fill();
+                });
+                requestAnimationFrame(draw);
+              }
+              resize();
+              window.addEventListener('resize', resize);
+              requestAnimationFrame(draw);
+            })();
+          </script>
+
+          <!-- Pricing Grid -->
+          <div class="max-w-6xl mr-auto ml-auto pr-6 pl-6">
+          
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full mr-auto ml-auto gap-x-6 gap-y-6">
+  <!-- Vault 1: Conservative -->
+  <div class="flex flex-col group hover:bg-white/[0.04] transition-colors duration-300 h-full border-white/10 border rounded-none p-10 relative reveal-on-scroll">
+    <div class="absolute -top-px -left-px w-4 h-4 border-t-2 border-l-2 border-[#ffffff] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    <div class="absolute -top-px -right-px w-4 h-4 border-t-2 border-r-2 border-[#ffffff] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    <div class="absolute -bottom-px -left-px w-4 h-4 border-b-2 border-l-2 border-[#ffffff] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    <div class="absolute -bottom-px -right-px w-4 h-4 border-b-2 border-r-2 border-[#ffffff] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+    <div class="mb-8">
+      <span class="inline-block px-3 py-1 text-xs font-medium text-slate-300 border border-white/10 rounded bg-white/5 group-hover:text-[#ffffff] group-hover:border-[#ffffff] group-hover:bg-[#ffffff]/10 transition-colors duration-300 font-geist">
+        Conservative
+      </span>
+    </div>
+    <div class="mb-2 flex items-baseline gap-1">
+      <span class="text-5xl font-medium text-white tracking-tight font-geist">
+        10%
+      </span>
+      <span class="text-lg text-white/70 font-geist">
+        perf. fee
+      </span>
+    </div>
+    <p class="text-white/70 text-sm mb-8 font-geist font-light">
+      Low-risk strategies. Stable returns.
+    </p>
+    <button class="w-full py-4 mb-10 rounded-lg border border-white/10 bg-transparent text-white group-hover:bg-[#ffffff] group-hover:text-black group-hover:border-[#ffffff] transition-all duration-300 text-sm font-medium font-geist">
+      Deposit Now
+    </button>
+    <div class="mt-auto">
+      <h4 class="text-white font-medium mb-6 font-geist text-sm">
+        Strategy Details
+      </h4>
+      <ul class="space-y-4">
+        <li class="flex items-start gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-white/70 flex-shrink-0"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span class="text-white/70 text-sm font-light font-geist">Per-call USDC</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-white/70 flex-shrink-0"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span class="text-white/70 text-sm font-light font-geist">no monthly fee</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-white/70 flex-shrink-0"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span class="text-white/70 text-sm font-light font-geist">all 72+ providers</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Vault 2: Balanced -->
+  <div class="flex flex-col group hover:bg-white/[0.04] transition-colors duration-300 h-full border-[#ffffff]/50 border-2 rounded-none p-10 relative reveal-on-scroll">
+    <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-[#ffffff] text-black text-xs font-medium font-geist">POPULAR</div>
+    <div class="absolute -top-px -left-px w-4 h-4 border-t-2 border-l-2 border-[#ffffff]"></div>
+    <div class="absolute -top-px -right-px w-4 h-4 border-t-2 border-r-2 border-[#ffffff]"></div>
+    <div class="absolute -bottom-px -left-px w-4 h-4 border-b-2 border-l-2 border-[#ffffff]"></div>
+    <div class="absolute -bottom-px -right-px w-4 h-4 border-b-2 border-r-2 border-[#ffffff]"></div>
+
+    <div class="mb-8">
+      <span class="inline-block px-3 py-1 text-xs font-medium text-[#ffffff] border border-[#ffffff] rounded bg-[#ffffff]/10 font-geist">
+        Balanced
+      </span>
+    </div>
+    <div class="mb-2 flex items-baseline gap-1">
+      <span class="text-5xl font-medium text-white tracking-tight font-geist">15%</span>
+      <span class="text-lg text-white/70 font-geist">cost basis</span>
+    </div>
+    <p class="text-white/70 text-sm mb-8 font-geist font-light">
+      Optimal risk-reward ratio.
+    </p>
+    <button class="w-full py-4 mb-10 rounded-lg bg-[#ffffff] text-black border-[#ffffff] transition-all duration-300 text-sm font-medium font-geist hover:bg-[#d9f5f6]">
+      Deposit Now
+    </button>
+    <div class="mt-auto">
+      <h4 class="text-white font-medium mb-6 font-geist text-sm">Plan Details</h4>
+      <ul class="space-y-4">
+        <li class="flex items-start gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#ffffff] flex-shrink-0"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span class="text-white/70 text-sm font-light font-geist">Capped daily spend</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#ffffff] flex-shrink-0"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span class="text-white/70 text-sm font-light font-geist">hard cap enforced</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#ffffff] flex-shrink-0"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span class="text-white/70 text-sm font-light font-geist">team wallets + alerts</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Vault 3: Aggressive -->
+  <div class="flex flex-col group hover:bg-white/[0.04] transition-colors duration-300 h-full border-white/10 border rounded-none p-10 relative reveal-on-scroll">
+    <div class="absolute -top-px -left-px w-4 h-4 border-t-2 border-l-2 border-[#ffffff] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    <div class="absolute -top-px -right-px w-4 h-4 border-t-2 border-r-2 border-[#ffffff] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    <div class="absolute -bottom-px -left-px w-4 h-4 border-b-2 border-l-2 border-[#ffffff] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    <div class="absolute -bottom-px -right-px w-4 h-4 border-b-2 border-r-2 border-[#ffffff] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+    <div class="mb-8">
+      <span class="inline-block px-3 py-1 text-xs font-medium text-slate-300 border border-white/10 rounded bg-white/5 group-hover:text-[#ffffff] group-hover:border-[#ffffff] group-hover:bg-[#ffffff]/10 transition-colors duration-300 font-geist">
+        Aggressive
+      </span>
+    </div>
+    <div class="mb-2 flex items-baseline gap-1">
+      <span class="text-5xl font-medium text-white tracking-tight font-geist">20%</span>
+      <span class="text-lg text-white/70 font-geist">cost basis</span>
+    </div>
+    <p class="text-white/70 text-sm mb-8 font-geist font-light">
+      Maximum alpha. Higher volatility.
+    </p>
+    <button class="w-full py-4 mb-10 rounded-lg border border-white/10 bg-transparent text-white group-hover:bg-[#ffffff] group-hover:text-black group-hover:border-[#ffffff] transition-all duration-300 text-sm font-medium font-geist">
+      Deposit Now
+    </button>
+    <div class="mt-auto">
+      <h4 class="text-white font-medium mb-6 font-geist text-sm">Plan Details</h4>
+      <ul class="space-y-4">
+        <li class="flex items-start gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-white/70 flex-shrink-0"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span class="text-white/70 text-sm font-light font-geist">Pre-paid pool</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-white/70 flex-shrink-0"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span class="text-white/70 text-sm font-light font-geist">volume tier rates</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-white/70 flex-shrink-0"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span class="text-white/70 text-sm font-light font-geist">dedicated rpc + ai pool</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Vault 4: 402PROTO Holder -->
+  <div class="flex flex-col group hover:bg-[#d9f5f6]/5 transition-colors duration-300 h-full border-[#d9f5f6]/50 border-2 rounded-none p-10 relative reveal-on-scroll bg-gradient-to-b from-[#d9f5f6]/5 to-transparent">
+    <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-[#d9f5f6] text-black text-xs font-medium font-geist">50% OFF</div>
+    <div class="absolute -top-px -left-px w-4 h-4 border-t-2 border-l-2 border-[#d9f5f6]"></div>
+    <div class="absolute -top-px -right-px w-4 h-4 border-t-2 border-r-2 border-[#d9f5f6]"></div>
+    <div class="absolute -bottom-px -left-px w-4 h-4 border-b-2 border-l-2 border-[#d9f5f6]"></div>
+    <div class="absolute -bottom-px -right-px w-4 h-4 border-b-2 border-r-2 border-[#d9f5f6]"></div>
+
+    <div class="mb-8">
+      <span class="inline-block px-3 py-1 text-xs font-medium text-[#d9f5f6] border border-[#d9f5f6] rounded bg-[#d9f5f6]/10 font-geist">
+        402PROTO Holder
+      </span>
+    </div>
+    <div class="mb-2 flex items-baseline gap-1">
+      <span class="text-5xl font-medium text-[#d9f5f6] tracking-tight font-geist">5%</span>
+      <span class="text-lg text-white/70 font-geist">cost basis</span>
+    </div>
+    <p class="text-white/70 text-sm mb-8 font-geist font-light">
+      Hold 402PROTO tokens. Pay half the fees.
+    </p>
+    <a href="/ComingSoon" class="w-full py-4 mb-10 rounded-lg bg-[#d9f5f6] text-black border-[#d9f5f6] transition-all duration-300 text-sm font-medium font-geist hover:bg-white block text-center">
+      Get 402PROTO
+    </a>
+    <div class="mt-auto">
+      <h4 class="text-white font-medium mb-6 font-geist text-sm">402proto token perks</h4>
+      <ul class="space-y-4">
+        <li class="flex items-start gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#d9f5f6] flex-shrink-0"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span class="text-white/70 text-sm font-light font-geist">50% off every call</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#d9f5f6] flex-shrink-0"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span class="text-white/70 text-sm font-light font-geist">priority quote routing</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#d9f5f6] flex-shrink-0"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span class="text-white/70 text-sm font-light font-geist">governance + rate-card votes</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+        </div>
+        </div>
+      </div>
+
+      <!-- Trust Marquee -->
+      <div class="border-dashed bg-[#05080A] border-white/10 border-b group/footer">
+        <div class="max-w-screen-2xl mr-auto ml-auto">
+          <div class="grid grid-cols-1 md:grid-cols-12">
+            <div class="col-span-12 md:col-span-2 py-8 px-6 md:px-10 border-b md:border-b-0 md:border-r border-dashed border-white/10 flex items-center bg-[#05080A] relative z-20 reveal-on-scroll">
+              <span class="text-xs font-medium tracking-widest text-slate-500 uppercase font-geist">
+                INTEGRATED PROTOCOLS
+              </span>
+            </div>
+            <div class="col-span-12 md:col-span-10 relative overflow-hidden h-20 flex items-center reveal-on-scroll" style="mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);">
+              <div class="animate-marquee">
+                <!-- Set 1 -->
+                <div class="w-56 h-20 flex-shrink-0 flex items-center justify-center border-r border-dashed border-white/10 opacity-40 hover:opacity-100 transition-opacity">
+                  <img src="solana-white.png" alt="Solana" class="h-20 w-auto">
+                </div>
+                <div class="w-56 h-20 flex-shrink-0 flex items-center justify-center border-r border-dashed border-white/10 opacity-40 hover:opacity-100 transition-opacity">
+                  <img src="1.png" alt="Protocol" class="h-20 w-auto">
+                </div>
+                <div class="w-56 h-20 flex-shrink-0 flex items-center justify-center border-r border-dashed border-white/10 opacity-40 hover:opacity-100 transition-opacity">
+                  <img src="2.png" alt="Protocol" class="h-20 w-auto">
+                </div>
+                <div class="w-56 h-20 flex-shrink-0 flex items-center justify-center border-r border-dashed border-white/10 opacity-40 hover:opacity-100 transition-opacity">
+                  <img src="3.png" alt="Protocol" class="h-20 w-auto">
+                </div>
+                <div class="w-56 h-20 flex-shrink-0 flex items-center justify-center border-r border-dashed border-white/10 opacity-40 hover:opacity-100 transition-opacity">
+                  <img src="4.png" alt="Protocol" class="h-20 w-auto">
+                </div>
+                <div class="w-56 h-20 flex-shrink-0 flex items-center justify-center border-r border-dashed border-white/10 opacity-40 hover:opacity-100 transition-opacity">
+                  <img src="5.png" alt="Protocol" class="h-20 w-auto">
+                </div>
+                <div class="w-56 h-20 flex-shrink-0 flex items-center justify-center border-r border-dashed border-white/10 opacity-40 hover:opacity-100 transition-opacity">
+                  <img src="6.png" alt="Protocol" class="h-20 w-auto">
+                </div>
+                <div class="w-56 h-20 flex-shrink-0 flex items-center justify-center border-r border-dashed border-white/10 opacity-40 hover:opacity-100 transition-opacity">
+                  <img src="7.png" alt="Protocol" class="h-20 w-auto">
+                </div>
+                <!-- Set 2 -->
+                <div class="w-56 h-20 flex-shrink-0 flex items-center justify-center border-r border-dashed border-white/10 opacity-40 hover:opacity-100 transition-opacity">
+                  <img src="solana-white.png" alt="Solana" class="h-20 w-auto">
+                </div>
+                <div class="w-56 h-20 flex-shrink-0 flex items-center justify-center border-r border-dashed border-white/10 opacity-40 hover:opacity-100 transition-opacity">
+                  <img src="1.png" alt="Protocol" class="h-20 w-auto">
+                </div>
+                <div class="w-56 h-20 flex-shrink-0 flex items-center justify-center border-r border-dashed border-white/10 opacity-40 hover:opacity-100 transition-opacity">
+                  <img src="2.png" alt="Protocol" class="h-20 w-auto">
+                </div>
+                <div class="w-56 h-20 flex-shrink-0 flex items-center justify-center border-r border-dashed border-white/10 opacity-40 hover:opacity-100 transition-opacity">
+                  <img src="3.png" alt="Protocol" class="h-20 w-auto">
+                </div>
+                <div class="w-56 h-20 flex-shrink-0 flex items-center justify-center border-r border-dashed border-white/10 opacity-40 hover:opacity-100 transition-opacity">
+                  <img src="4.png" alt="Protocol" class="h-20 w-auto">
+                </div>
+                <div class="w-56 h-20 flex-shrink-0 flex items-center justify-center border-r border-dashed border-white/10 opacity-40 hover:opacity-100 transition-opacity">
+                  <img src="5.png" alt="Protocol" class="h-20 w-auto">
+                </div>
+                <div class="w-56 h-20 flex-shrink-0 flex items-center justify-center border-r border-dashed border-white/10 opacity-40 hover:opacity-100 transition-opacity">
+                  <img src="6.png" alt="Protocol" class="h-20 w-auto">
+                </div>
+                <div class="w-56 h-20 flex-shrink-0 flex items-center justify-center border-r border-dashed border-white/10 opacity-40 hover:opacity-100 transition-opacity">
+                  <img src="7.png" alt="Protocol" class="h-20 w-auto">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <style>
+          @keyframes marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+          .animate-marquee { display: flex; width: fit-content; animation: marquee-scroll 80s linear infinite; }
+          .group\/footer:hover .animate-marquee { animation-play-state: paused; }
+        </style>
+      </div>
+
+      <!-- Feature Comparison Table -->
+      <section class="border-dashed bg-[#05080A] border-white/10 border-b pt-24 pb-24">
+        <div class="max-w-6xl mr-auto ml-auto pr-6 pl-6">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl text-white font-light tracking-tighter mb-4 font-geist reveal-on-scroll">
+              Compare plans
+            </h2>
+            <p class="text-white/60 font-geist reveal-on-scroll">
+              what each tier ships, side-by-side.
+            </p>
+          </div>
+
+          <div class="overflow-x-auto reveal-on-scroll">
+            <table class="w-full text-left border-collapse font-geist">
+              <thead>
+                <tr class="border-b border-dashed border-white/10">
+                  <th class="py-6 px-4 text-sm font-medium text-white/50">Features</th>
+                  <th class="py-6 px-4 text-sm font-medium text-white text-center">Pay-go</th>
+                  <th class="py-6 px-4 text-sm font-medium text-[#ffffff] text-center">Capped</th>
+                  <th class="py-6 px-4 text-sm font-medium text-white text-center">Reserved</th>
+                  <th class="py-6 px-4 text-sm font-medium text-[#d9f5f6] text-center">402PROTO Holder</th>
+                </tr>
+              </thead>
+              <tbody class="text-sm text-white/80">
+                <tr class="bg-white/[0.02]">
+                  <td colspan="5" class="py-3 px-4 text-xs font-semibold text-white/40 uppercase tracking-widest pt-8">Strategy Parameters</td>
+                </tr>
+                <tr class="border-b border-dashed border-white/10 group hover:bg-white/[0.02] transition-colors">
+                  <td class="py-4 px-4">Markup over provider</td>
+                  <td class="py-4 px-4 text-center">10%</td>
+                  <td class="py-4 px-4 text-center">15%</td>
+                  <td class="py-4 px-4 text-center">20%</td>
+                  <td class="py-4 px-4 text-center text-[#d9f5f6] font-medium">5%</td>
+                </tr>
+                <tr class="border-b border-dashed border-white/10 group hover:bg-white/[0.02] transition-colors">
+                  <td class="py-4 px-4">Bill cadence</td>
+                  <td class="py-4 px-4 text-center">per call</td>
+                  <td class="py-4 px-4 text-center">per call + daily cap</td>
+                  <td class="py-4 px-4 text-center">prepaid pool</td>
+                  <td class="py-4 px-4 text-center text-[#d9f5f6]">per call</td>
+                </tr>
+                <tr class="border-b border-dashed border-white/10 group hover:bg-white/[0.02] transition-colors">
+                  <td class="py-4 px-4">Spend cap</td>
+                  <td class="py-4 px-4 text-center">manual</td>
+                  <td class="py-4 px-4 text-center">team-wide</td>
+                  <td class="py-4 px-4 text-center">pool-bound</td>
+                  <td class="py-4 px-4 text-center text-[#d9f5f6]">any plan</td>
+                </tr>
+                <tr class="border-b border-dashed border-white/10 group hover:bg-white/[0.02] transition-colors">
+                  <td class="py-4 px-4">Retry policy</td>
+                  <td class="py-4 px-4 text-center">one retry</td>
+                  <td class="py-4 px-4 text-center">smart failover</td>
+                  <td class="py-4 px-4 text-center">automatic failover</td>
+                  <td class="py-4 px-4 text-center text-[#d9f5f6]">automatic failover</td>
+                </tr>
+                <tr class="bg-white/[0.02]">
+                  <td colspan="5" class="py-3 px-4 text-xs font-semibold text-white/40 uppercase tracking-widest pt-8">Provider Access</td>
+                </tr>
+                <tr class="border-b border-dashed border-white/10 group hover:bg-white/[0.02] transition-colors">
+                  <td class="py-4 px-4">RPC + AI</td>
+                  <td class="py-4 px-4 text-center">all 72+ providers</td>
+                  <td class="py-4 px-4 text-center">all 72+ providers</td>
+                  <td class="py-4 px-4 text-center">all + dedicated</td>
+                  <td class="py-4 px-4 text-center text-[#d9f5f6]">priority routing</td>
+                </tr>
+                <tr class="border-b border-dashed border-white/10 group hover:bg-white/[0.02] transition-colors">
+                  <td class="py-4 px-4">Oracles &amp; Data</td>
+                  <td class="py-4 px-4 text-center text-white/20"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></td>
+                  <td class="py-4 px-4 text-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-[#ffffff]"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                  <td class="py-4 px-4 text-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-[#ffffff]"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                  <td class="py-4 px-4 text-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-[#d9f5f6]"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                </tr>
+                <tr class="bg-white/[0.02]">
+                  <td colspan="5" class="py-3 px-4 text-xs font-semibold text-white/40 uppercase tracking-widest pt-8">Controls &amp; Limits</td>
+                </tr>
+                <tr class="border-b border-dashed border-white/10 group hover:bg-white/[0.02] transition-colors">
+                  <td class="py-4 px-4">Top-up size</td>
+                  <td class="py-4 px-4 text-center">no limit</td>
+                  <td class="py-4 px-4 text-center">$5K / day</td>
+                  <td class="py-4 px-4 text-center">$50K min</td>
+                  <td class="py-4 px-4 text-center text-[#d9f5f6]">any size</td>
+                </tr>
+                <tr class="border-b border-dashed border-white/10 group hover:bg-white/[0.02] transition-colors">
+                  <td class="py-4 px-4">Priority routing</td>
+                  <td class="py-4 px-4 text-center text-white/20"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></td>
+                  <td class="py-4 px-4 text-center text-white/20"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></td>
+                  <td class="py-4 px-4 text-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-[#ffffff]"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                  <td class="py-4 px-4 text-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-[#d9f5f6]"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                </tr>
+                <tr class="border-b border-dashed border-white/10 group hover:bg-white/[0.02] transition-colors">
+                  <td class="py-4 px-4">Audit logs export</td>
+                  <td class="py-4 px-4 text-center text-white/20"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></td>
+                  <td class="py-4 px-4 text-center text-white/20"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></td>
+                  <td class="py-4 px-4 text-center text-white/20"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></td>
+                  <td class="py-4 px-4 text-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-[#d9f5f6]"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="border-dashed bg-[#05080A] border-white/10 border-b pt-24 pb-24">
+        <div class="max-w-4xl mx-auto px-6">
+          <h2 class="text-3xl md:text-4xl text-white font-light tracking-tighter mb-12 font-geist text-center reveal-on-scroll">
+            Frequently asked questions
+          </h2>
+
+          <div class="space-y-4">
+            <div class="group border border-white/10 rounded-lg p-6 bg-white/[0.02] hover:bg-white/[0.04] transition-colors reveal-on-scroll cursor-pointer">
+              <div class="flex justify-between items-start">
+                <h3 class="text-white font-medium font-geist pr-8">
+                  Can I switch plans anytime?
+                </h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-white/50 group-hover:text-[#ffffff] transition-colors">
+                  <path d="m6 9 6 6 6-6"></path>
+                </svg>
+              </div>
+              <p class="mt-4 text-sm text-white/60 font-geist leading-relaxed">
+                yes. swap plans by changing your wallet config. no lock-up, no penalty.
+                a reserved pool can be drained back to your wallet anytime.
+              </p>
+            </div>
+
+            <div class="group border border-white/10 rounded-lg p-6 bg-white/[0.02] hover:bg-white/[0.04] transition-colors reveal-on-scroll cursor-pointer">
+              <div class="flex justify-between items-start">
+                <h3 class="text-white font-medium font-geist pr-8">
+                  How is the markup calculated?
+                </h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-white/50 group-hover:text-[#ffffff] transition-colors">
+                  <path d="m6 9 6 6 6-6"></path>
+                </svg>
+              </div>
+              <p class="mt-4 text-sm text-white/60 font-geist leading-relaxed">
+                a small percent on top of the provider's quote, shown before you sign.
+                no monthly fee. you stop calling, you stop paying.
+              </p>
+            </div>
+
+            <div class="group border border-white/10 rounded-lg p-6 bg-white/[0.02] hover:bg-white/[0.04] transition-colors reveal-on-scroll cursor-pointer">
+              <div class="flex justify-between items-start">
+                <h3 class="text-white font-medium font-geist pr-8">
+                  What does my wallet need?
+                </h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-white/50 group-hover:text-[#ffffff] transition-colors">
+                  <path d="m6 9 6 6 6-6"></path>
+                </svg>
+              </div>
+              <p class="mt-4 text-sm text-white/60 font-geist leading-relaxed">
+                a standard solana wallet (phantom, solflare, hardware, custom signer).
+                hold usdc to spend and a little sol for gas. that's it.
+              </p>
+            </div>
+            <div class="group border border-white/10 rounded-lg p-6 bg-white/[0.02] hover:bg-white/[0.04] transition-colors reveal-on-scroll cursor-pointer">
+              <div class="flex justify-between items-start">
+                <h3 class="text-white font-medium font-geist pr-8">
+                  Is the protocol open?
+                </h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-white/50 group-hover:text-[#ffffff] transition-colors">
+                  <path d="m6 9 6 6 6-6"></path>
+                </svg>
+              </div>
+              <p class="mt-4 text-sm text-white/60 font-geist leading-relaxed">
+                yes. the spec is mit-licensed, the settlement contracts are deployed
+                on solana mainnet and publicly inspectable. wallets stay non-custodial.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials retained (High value for pricing) -->
+      <section class="border-dashed bg-[#05080A] border-white/10 border-b pt-24 pb-24">
+        <div class="max-w-6xl mr-auto ml-auto pr-6 pl-6">
+          <div class="mb-16 relative">
+            <h2 class="text-4xl md:text-5xl lg:text-6xl text-white font-light tracking-tighter mb-4 font-geist leading-[1.1] reveal-on-scroll">
+              builders
+              <span class="text-white/50">love</span>
+              the simplicity.
+            </h2>
+            <p class="text-lg font-geist max-w-md text-white/70 reveal-on-scroll">
+              what teams say after shipping 402proto to their agent fleets.
+            </p>
+            <div class="mt-12 h-[1px] w-full bg-gradient-to-r from-slate-800 via-slate-700 to-transparent"></div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10 font-geist items-stretch">
+            <!-- Card 1 -->
+            <div class="group relative flex h-full flex-col bg-[#05080A] reveal-on-scroll">
+              <div class="relative flex-1 flex flex-col p-10">
+                <div class="flex items-center gap-2 text-white/90">
+                  <span class="text-sm font-semibold tracking-wide">
+                    solana_dev.sol
+                  </span>
+                </div>
+                <p class="mt-6 text-[15px] leading-relaxed text-white/85 min-h-[120px]">
+                  "we were paying for api keys we forgot existed. swapped them
+                  for one wallet, one router. our billing ops team has nothing
+                  left to chase."
+                </p>
+              </div>
+              <div class="grid grid-cols-2 border-t border-white/10 divide-x divide-white/10 h-[100px]">
+                <div class="p-6 flex flex-col justify-center">
+                  <div class="text-2xl font-semibold tracking-tight text-white">
+                    $0.40
+                  </div>
+                  <div class="mt-1 text-[10px] font-medium text-white/70">
+                    avg spend / day
+                  </div>
+                </div>
+                <div class="p-6 flex flex-col justify-center">
+                  <div class="text-2xl font-semibold tracking-tight text-white">
+                    8.4k
+                  </div>
+                  <div class="mt-1 text-[10px] font-medium text-white/70">
+                    calls last week
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="group relative flex h-full flex-col bg-[#05080A] reveal-on-scroll">
+              <div class="relative flex-1 flex flex-col p-10">
+                <div class="flex items-center gap-2 text-white/90">
+                  <span class="text-sm font-semibold tracking-wide">
+                    api_builder.sol
+                  </span>
+                </div>
+                <p class="mt-6 text-[15px] leading-relaxed text-white/85 min-h-[120px]">
+                  "shipped 402proto on a sunday afternoon. our agents stopped
+                  throwing 429s because the router falls over to whichever
+                  provider had headroom left."
+                </p>
+              </div>
+              <div class="grid grid-cols-2 border-t border-white/10 divide-x divide-white/10 h-[100px]">
+                <div class="p-6 flex flex-col justify-center">
+                  <div class="text-2xl font-semibold tracking-tight text-white">
+                    72+
+                  </div>
+                  <div class="mt-1 text-[10px] font-medium text-white/70">
+                    providers wired
+                  </div>
+                </div>
+                <div class="p-6 flex flex-col justify-center">
+                  <div class="text-2xl font-semibold tracking-tight text-white">
+                    0
+                  </div>
+                  <div class="mt-1 text-[10px] font-medium text-white/70">
+                    api keys to rotate
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="group relative flex h-full flex-col bg-[#05080A] reveal-on-scroll">
+              <div class="relative flex-1 flex flex-col p-10">
+                <div class="flex items-center gap-2 text-white/90">
+                  <span class="text-sm font-semibold tracking-wide">
+                    agent_ops.sol
+                  </span>
+                </div>
+                <p class="mt-6 text-[15px] leading-relaxed text-white/85 min-h-[120px]">
+                  "managing 10+ api budgets across our agent fleet was a
+                  spreadsheet job. 402proto daily cap killed the spreadsheet —
+                  i just watch the burn rate."
+                </p>
+              </div>
+              <div class="grid grid-cols-2 border-t border-white/10 divide-x divide-white/10 h-[100px]">
+                <div class="p-6 flex flex-col justify-center">
+                  <div class="text-2xl font-semibold tracking-tight text-white">
+                    $890
+                  </div>
+                  <div class="mt-1 text-[10px] font-medium text-white/70">
+                    monthly api spend
+                  </div>
+                </div>
+                <div class="p-6 flex flex-col justify-center">
+                  <div class="text-2xl font-semibold tracking-tight text-white">
+                    &lt;50ms
+                  </div>
+                  <div class="mt-1 text-[10px] font-medium text-white/70">
+                    quote latency
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="border-dashed bg-[#05080A] border-white/10 border-t pt-20 pb-10">
+      <div class="max-w-6xl mx-auto w-full flex flex-col font-geist">
+        <!-- Top Section -->
+        <div class="relative bg-[#ffffff] text-black w-full overflow-hidden border-x border-t border-dashed border-white/10">
+          <!-- Grid Pattern Overlay -->
+          <div class="absolute inset-0 grid grid-cols-4 w-full h-full pointer-events-none">
+            <div class="border-r border-dashed border-black/10 h-full"></div>
+            <div class="border-r border-dashed border-black/10 h-full"></div>
+            <div class="border-r border-dashed border-black/10 h-full"></div>
+            <div class="h-full"></div>
+          </div>
+
+          <div class="relative z-10 px-6 py-16 md:px-12 md:py-20 flex flex-col justify-between min-h-[400px]">
+            <!-- Large Email Header -->
+            <a href="mailto:hello@402proto.xyz" class="group flex items-start justify-between w-full mb-24 md:mb-32 reveal-on-scroll">
+              <span class="text-3xl sm:text-5xl md:text-7xl lg:text-[6rem] leading-none font-semibold tracking-tighter break-all">
+                HELLO@402PROTO.XYZ
+              </span>
+              <div class="pt-2 md:pt-6">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 md:w-20 md:h-20 transform group-hover:-translate-y-2 group-hover:translate-x-2 transition-transform duration-300">
+                  <path d="M7 7h10v10"></path>
+                  <path d="M7 17 17 7"></path>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Info Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 md:text-base leading-relaxed z-20 text-sm font-medium relative gap-x-12 gap-y-12">
+              <!-- Col 1: Contact -->
+              <div class="flex flex-col gap-x-4 gap-y-4">
+                <p class="font-semibold reveal-on-scroll">402proto</p>
+                <p class="max-w-[200px] text-black/80 reveal-on-scroll">
+                  agent payments on solana. http 402 settled in usdc.
+                </p>
+              </div>
+
+              <!-- Col 2: Product -->
+              <div class="flex flex-col gap-4">
+                <span class="block text-black/50 font-semibold tracking-tight reveal-on-scroll">
+                  Product
+                </span>
+                <div class="flex flex-col gap-2">
+                  <a href="/Platform.html" class="hover:text-black/60 transition-colors reveal-on-scroll">
+                    Platform
+                  </a>
+                  <a href="/Pricing.html" class="hover:text-black/60 transition-colors reveal-on-scroll">
+                    Pricing
+                  </a>
+                  <a href="/Docs.html" class="hover:text-black/60 transition-colors reveal-on-scroll">
+                    Documentation
+                  </a>
+                </div>
+              </div>
+
+              <!-- Col 3: Legal -->
+              <div class="flex flex-col gap-4">
+                <span class="block text-black/50 font-semibold tracking-tight reveal-on-scroll">
+                  Legal
+                </span>
+                <div class="flex flex-col gap-2">
+                  <a href="/Terms.html" class="hover:text-black/60 transition-colors reveal-on-scroll">
+                    Terms of Service
+                  </a>
+                  <a href="/Privacy.html" class="hover:text-black/60 transition-colors reveal-on-scroll">
+                    Privacy Policy
+                  </a>
+                </div>
+              </div>
+
+              <!-- Col 4: Social -->
+              <div class="flex flex-col gap-4">
+                <span class="block text-black/50 font-semibold tracking-tight reveal-on-scroll">
+                  Connect
+                </span>
+                <div class="flex flex-col gap-2">
+                  <a href="https://x.com/402proto" target="_blank" class="hover:text-black/60 transition-colors reveal-on-scroll">
+                    X
+                  </a>
+                  <a href="https://github.com/402proto/402proto" target="_blank" class="hover:text-black/60 transition-colors reveal-on-scroll">
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Section: Black -->
+        <div class="relative bg-[#05080A] text-white w-full overflow-hidden border-x border-b border-dashed border-white/10">
+          <!-- Grid Pattern Overlay -->
+          <div class="absolute inset-0 grid grid-cols-4 w-full h-full pointer-events-none opacity-20">
+            <div class="border-r border-dashed border-white/20 h-full"></div>
+            <div class="border-r border-dashed border-white/20 h-full"></div>
+            <div class="border-r border-dashed border-white/20 h-full"></div>
+            <div class="h-full"></div>
+          </div>
+
+          <!-- Massive Brand Text -->
+          <div class="relative z-10 w-full flex justify-center items-end leading-none select-none pt-12">
+            <h1 class="text-[24vw] md:text-[16rem] font-semibold tracking-tighter text-center leading-[0.75] mix-blend-screen text-white reveal-on-scroll">
+              402PROTO
+            </h1>
+          </div>
+        </div>
+        <div class="text-center pb-12 pt-6 text-lg text-white font-geist">
+          Powered by <a href="https://solana.com" target="_blank" class="text-white hover:text-white/70 transition-colors">Solana</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      lucide.createIcons();
+      
+      document.addEventListener("DOMContentLoaded", function() {
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        const elements = document.querySelectorAll('.reveal-on-scroll');
+        elements.forEach(el => observer.observe(el));
+      });
+    </script>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 p-4 bg-[#0a0f14] border-t border-white/10">
+      <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-white/70 font-geist text-center sm:text-left">
+          We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+          <a href="/Privacy.html" class="text-white hover:underline ml-1">Learn more</a>
+        </p>
+        <div class="flex gap-3">
+          <button onclick="declineCookies()" class="px-4 py-2 text-sm text-white/50 hover:text-white transition-colors font-geist">Decline</button>
+          <button onclick="acceptCookies()" class="px-6 py-2 bg-white text-black text-sm font-medium font-geist hover:bg-gray-200 transition-colors">Accept</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function acceptCookies() {
+        localStorage.setItem('cookieConsent', 'accepted');
+        document.getElementById('cookie-banner').classList.add('hidden');
+      }
+      function declineCookies() {
+        localStorage.setItem('cookieConsent', 'declined');
+        document.getElementById('cookie-banner').classList.add('hidden');
+      }
+      if (!localStorage.getItem('cookieConsent')) {
+        document.getElementById('cookie-banner').classList.remove('hidden');
+      }
+    </script>
+</body></html>
