@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Console — 402proto</title>
+<link rel="icon" type="image/png" href="/402proto-logo.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&display=swap">
+<style>
+  body { font-family: 'Geist', sans-serif; background-color: #05080A; }
+  .font-geist { font-family: 'Geist', sans-serif !important; }
+  .font-mono { font-family: 'Geist Mono', ui-monospace, monospace !important; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #05080A; }
+  ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #374151; }
+
+  @keyframes pulse-dot { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+  .pulse-dot { animation: pulse-dot 1.6s ease-in-out infinite; }
+
+  @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+  .shimmer { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent); background-size: 200% 100%; animation: shimmer 2s infinite; }
+
+  @keyframes slideUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .row-enter { animation: slideUp 300ms cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+
+  @keyframes modalIn { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: scale(1); } }
+  .modal-in { animation: modalIn 200ms cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+
+  .status-dot { width: 6px; height: 6px; border-radius: 9999px; display: inline-block; }
+  .status-pending { background: #eab308; box-shadow: 0 0 8px rgba(234,179,8,0.6); }
+  .status-settled { background: #ffffff; box-shadow: 0 0 8px rgba(255,255,255,0.6); }
+  .status-failed  { background: #ef4444; }
+
+  .bg-grid { background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 32px 32px; }
+
+  .text-mint { color: #d9f5f6; }
+</style>
+</head>
+<body class="bg-[#05080A] min-h-screen flex flex-col text-white/70 selection:bg-white/30 selection:text-white">
+
+<!-- Top header -->
+<header class="border-b border-dashed border-white/10 bg-[#000000]/80 backdrop-blur-md sticky top-0 z-40">
+  <div class="grid grid-cols-12 h-16">
+    <a href="/" class="col-span-2 md:col-span-3 flex items-center gap-2 px-6 border-r border-dashed border-white/10 hover:bg-white/5 transition-colors">
+      <img src="402proto-logo.png" alt="402proto" class="h-7 w-auto">
+      <span class="text-white font-semibold text-sm tracking-tight font-geist hidden sm:inline">402PROTO</span>
+      <span class="text-[10px] text-white/40 uppercase tracking-widest font-mono ml-2 hidden md:inline">Console</span>
+    </a>
+
+    <div class="col-span-7 md:col-span-6 flex items-center px-6 gap-6">
+      <div class="hidden md:flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded text-[10px] font-mono uppercase tracking-widest text-white/70">
+        <span class="status-dot status-settled pulse-dot"></span>
+        Mainnet
+      </div>
+      <span class="text-[10px] font-mono uppercase tracking-widest text-white/30">v0.1.0-beta</span>
+    </div>
+
+    <div class="col-span-3 flex items-center justify-end px-6 gap-3">
+      <div class="hidden md:flex flex-col items-end leading-tight">
+        <span id="wallet-balance" class="text-sm font-medium text-white font-geist">142.50 USDC</span>
+        <span id="wallet-addr" class="text-[10px] text-white/40 font-mono">7xKp...9mT4</span>
+      </div>
+      <div class="w-9 h-9 rounded-full bg-gradient-to-br from-white/20 to-white/5 border border-white/10 flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+      </div>
+      <a href="/Login.html" class="ml-2 text-[10px] uppercase tracking-widest text-white/50 hover:text-white transition-colors">Disconnect</a>
+    </div>
+  </div>
+</header>
+
+<div class="flex-grow grid grid-cols-12">
+  <!-- Sidebar -->
+  <aside class="col-span-3 md:col-span-2 border-r border-dashed border-white/10 bg-[#080B0E]/60 p-4 hidden md:flex flex-col gap-1">
+    <div class="px-3 py-2 text-[10px] uppercase tracking-widest text-white/30 font-mono">Workspace</div>
+
+    <button class="nav-item active flex items-center gap-3 px-3 py-2 rounded text-xs font-geist transition-colors bg-white/10 text-white border border-white/20" data-tab="calls">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path></svg>
+      Call Activity
+    </button>
+    <button class="nav-item flex items-center gap-3 px-3 py-2 rounded text-xs font-geist transition-colors text-white/50 hover:text-white hover:bg-white/5" data-tab="spend">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+      Live Spend
+    </button>
+    <button class="nav-item flex items-center gap-3 px-3 py-2 rounded text-xs font-geist transition-colors text-white/50 hover:text-white hover:bg-white/5" data-tab="agents">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M12 8V4H8"></path><rect width="16" height="12" x="4" y="8" rx="2"></rect><path d="M2 14h2"></path><path d="M20 14h2"></path><path d="M15 13v2"></path><path d="M9 13v2"></path></svg>
+      Agents
+    </button>
+    <button class="nav-item flex items-center gap-3 px-3 py-2 rounded text-xs font-geist transition-colors text-white/50 hover:text-white hover:bg-white/5" data-tab="caps">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg>
+      Spend Caps
+    </button>
+    <button class="nav-item flex items-center gap-3 px-3 py-2 rounded text-xs font-geist transition-colors text-white/50 hover:text-white hover:bg-white/5" data-tab="providers">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M14 17H5"></path><path d="M19 7h-9"></path><circle cx="17" cy="17" r="3"></circle><circle cx="7" cy="7" r="3"></circle></svg>
+      Providers
+    </button>
+
+    <div class="mt-6 px-3 py-2 text-[10px] uppercase tracking-widest text-white/30 font-mono border-t border-white/5 pt-4">Account</div>
+    <button class="nav-item flex items-center gap-3 px-3 py-2 rounded text-xs font-geist transition-colors text-white/50 hover:text-white hover:bg-white/5" data-tab="settings">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+      Settings
+    </button>
+    <a href="/Docs.html" class="flex items-center gap-3 px-3 py-2 rounded text-xs font-geist transition-colors text-white/50 hover:text-white hover:bg-white/5">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>
+      Docs
+    </a>
+  </aside>
+
+  <!-- Main content -->
+  <main class="col-span-12 md:col-span-10 p-6 md:p-10 max-w-screen-2xl mx-auto w-full">
+
+    <!-- Page title row -->
+    <div class="flex items-end justify-between mb-10 gap-6 flex-wrap">
+      <div>
+        <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-2">Call Activity</p>
+        <h1 class="text-3xl md:text-4xl text-white font-light tracking-tighter font-geist">your fleet, in real time.</h1>
+        <p class="text-sm text-white/50 mt-2 font-geist max-w-md">every paid call routed through 402proto, settled on solana. nothing buffered, nothing batched.</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <button id="export-csv" class="px-4 py-2 text-xs uppercase tracking-widest text-white/70 hover:text-white border border-white/10 hover:border-white/30 rounded font-geist transition-colors">
+          Export CSV
+        </button>
+        <button id="open-modal" class="px-4 py-2 text-xs uppercase tracking-widest bg-white text-black hover:bg-gray-200 rounded font-geist font-medium transition-colors flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+          New Call
+        </button>
+      </div>
+    </div>
+
+    <!-- KPI row -->
+    <div class="grid grid-cols-2 md:grid-cols-4 border border-dashed border-white/10 mb-10">
+      <div class="p-6 border-r border-dashed border-white/10 border-b md:border-b-0">
+        <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-2">Today</p>
+        <p id="kpi-spend" class="text-3xl text-white font-light tracking-tighter font-geist">$28.40</p>
+        <p class="text-[11px] text-white/40 mt-1 font-geist">usdc spent</p>
+      </div>
+      <div class="p-6 md:border-r border-dashed border-white/10 border-b md:border-b-0">
+        <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-2">Calls</p>
+        <p id="kpi-calls" class="text-3xl text-white font-light tracking-tighter font-geist">412</p>
+        <p class="text-[11px] text-white/40 mt-1 font-geist">last 24h</p>
+      </div>
+      <div class="p-6 border-r border-dashed border-white/10">
+        <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-2">Avg cost</p>
+        <p id="kpi-avg" class="text-3xl text-white font-light tracking-tighter font-geist">$0.069</p>
+        <p class="text-[11px] text-white/40 mt-1 font-geist">per call</p>
+      </div>
+      <div class="p-6">
+        <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-2">Failover</p>
+        <p id="kpi-failover" class="text-3xl text-mint font-light tracking-tighter font-geist">2.1%</p>
+        <p class="text-[11px] text-white/40 mt-1 font-geist">healthy</p>
+      </div>
+    </div>
+
+    <!-- Chart + provider rail -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-px bg-white/10 border border-white/10 mb-10">
+      <div class="lg:col-span-2 bg-[#05080A] p-6">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-1">Spend / hour</p>
+            <p class="text-lg text-white font-medium font-geist">last 24 hours</p>
+          </div>
+          <div class="flex items-center gap-2 text-[10px] uppercase tracking-widest text-white/40 font-mono">
+            <span class="status-dot status-settled pulse-dot"></span>
+            Live
+          </div>
+        </div>
+        <div class="h-48 w-full relative bg-grid">
+          <svg class="absolute inset-0 w-full h-full" viewBox="0 0 600 180" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="spendGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22"></stop>
+                <stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop>
+              </linearGradient>
+            </defs>
+            <path id="chart-fill" d="M0,150 C40,140 70,120 110,130 C150,140 190,90 230,100 C270,110 310,60 350,55 C390,50 430,90 470,75 C510,60 550,40 600,20 L600,180 L0,180 Z" fill="url(#spendGrad)"></path>
+            <path id="chart-line" d="M0,150 C40,140 70,120 110,130 C150,140 190,90 230,100 C270,110 310,60 350,55 C390,50 430,90 470,75 C510,60 550,40 600,20" fill="none" stroke="#ffffff" stroke-width="1.5" vector-effect="non-scaling-stroke"></path>
+            <circle id="chart-dot" cx="600" cy="20" r="4" fill="#ffffff" stroke="#05080A" stroke-width="2" vector-effect="non-scaling-stroke"></circle>
+          </svg>
+        </div>
+        <div class="flex justify-between mt-3 text-[10px] text-white/30 font-mono uppercase tracking-widest">
+          <span>00:00</span><span>04:00</span><span>08:00</span><span>12:00</span><span>16:00</span><span>20:00</span><span>now</span>
+        </div>
+      </div>
+
+      <div class="bg-[#05080A] p-6">
+        <div class="flex items-center justify-between mb-4">
+          <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono">Top providers</p>
+          <span class="text-[10px] text-white/30 font-mono">24H</span>
+        </div>
+        <div class="space-y-4" id="provider-rail">
+          <div class="provider-row">
+            <div class="flex items-center justify-between mb-1.5">
+              <div class="flex items-center gap-2"><img src="pyth.png" alt="" class="w-6 h-6 rounded object-contain"><span class="text-xs text-white font-medium font-geist">pyth.oracle</span></div>
+              <span class="text-[10px] text-white/60 font-mono">$8.40</span>
+            </div>
+            <div class="h-1 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-white/60" style="width: 72%"></div></div>
+          </div>
+          <div class="provider-row">
+            <div class="flex items-center justify-between mb-1.5">
+              <div class="flex items-center gap-2"><img src="7.png" alt="" class="w-6 h-6 rounded object-contain"><span class="text-xs text-white font-medium font-geist">jupiter.quote</span></div>
+              <span class="text-[10px] text-white/60 font-mono">$6.92</span>
+            </div>
+            <div class="h-1 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-white/50" style="width: 58%"></div></div>
+          </div>
+          <div class="provider-row">
+            <div class="flex items-center justify-between mb-1.5">
+              <div class="flex items-center gap-2"><img src="birdeye.png" alt="" class="w-6 h-6 rounded object-contain"><span class="text-xs text-white font-medium font-geist">birdeye.token</span></div>
+              <span class="text-[10px] text-white/60 font-mono">$5.10</span>
+            </div>
+            <div class="h-1 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-white/40" style="width: 43%"></div></div>
+          </div>
+          <div class="provider-row">
+            <div class="flex items-center justify-between mb-1.5">
+              <div class="flex items-center gap-2"><div class="w-6 h-6 rounded bg-white/10 flex items-center justify-center text-[10px] font-mono text-white/60">CL</div><span class="text-xs text-white font-medium font-geist">claude.completion</span></div>
+              <span class="text-[10px] text-white/60 font-mono">$4.20</span>
+            </div>
+            <div class="h-1 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-white/30" style="width: 36%"></div></div>
+          </div>
+          <div class="provider-row">
+            <div class="flex items-center justify-between mb-1.5">
+              <div class="flex items-center gap-2"><div class="w-6 h-6 rounded bg-white/10 flex items-center justify-center text-[10px] font-mono text-white/60">HE</div><span class="text-xs text-white font-medium font-geist">helius.rpc</span></div>
+              <span class="text-[10px] text-white/60 font-mono">$3.78</span>
+            </div>
+            <div class="h-1 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-white/30" style="width: 32%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent calls table -->
+    <div class="border border-dashed border-white/10 mb-10">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-dashed border-white/10">
+        <div>
+          <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-1">Recent calls</p>
+          <p class="text-sm text-white/70 font-geist">every entry is a usdc transfer on solana mainnet</p>
+        </div>
+        <div class="flex items-center gap-2 text-[10px] text-white/30 font-mono uppercase tracking-widest">
+          <span id="recent-count">12</span><span>entries</span>
+        </div>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm font-geist">
+          <thead>
+            <tr class="text-[10px] uppercase tracking-widest text-white/30 font-mono">
+              <th class="text-left px-6 py-3 font-medium border-b border-white/5">Provider</th>
+              <th class="text-left px-6 py-3 font-medium border-b border-white/5">Method</th>
+              <th class="text-left px-6 py-3 font-medium border-b border-white/5">Agent</th>
+              <th class="text-right px-6 py-3 font-medium border-b border-white/5">Price</th>
+              <th class="text-left px-6 py-3 font-medium border-b border-white/5">Tx</th>
+              <th class="text-left px-6 py-3 font-medium border-b border-white/5">Status</th>
+              <th class="text-right px-6 py-3 font-medium border-b border-white/5">Time</th>
+            </tr>
+          </thead>
+          <tbody id="calls-tbody">
+            <!-- Rows injected by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Help footer -->
+    <div class="text-center text-[10px] uppercase tracking-widest text-white/30 font-mono py-6 border-t border-dashed border-white/10">
+      <span>non-custodial · spec MIT-licensed · </span>
+      <a href="/Docs.html" class="text-white/60 hover:text-white transition-colors">read the spec</a>
+    </div>
+
+  </main>
+</div>
+
+<!-- NEW CALL MODAL -->
+<div id="modal-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+  <div id="modal-card" class="modal-in bg-[#0B0F13] border border-white/10 rounded-lg shadow-2xl w-full max-w-lg overflow-hidden">
+    <div class="flex items-center justify-between px-6 py-4 border-b border-dashed border-white/10">
+      <div>
+        <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-1">New call</p>
+        <h3 class="text-lg text-white font-medium font-geist">make a paid api call</h3>
+      </div>
+      <button id="close-modal" class="text-white/40 hover:text-white p-2 rounded hover:bg-white/5">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+      </button>
+    </div>
+
+    <!-- Stage 1: form -->
+    <div id="stage-form" class="p-6 space-y-5">
+      <div>
+        <label class="block text-[10px] uppercase tracking-widest text-white/40 font-mono mb-2">Provider</label>
+        <select id="form-provider" class="w-full bg-[#05080A] border border-white/10 rounded px-3 py-3 text-sm text-white font-mono focus:outline-none focus:border-white/30">
+          <option value="pyth.oracle">pyth.oracle  ·  $0.001</option>
+          <option value="jupiter.quote">jupiter.quote  ·  $0.005</option>
+          <option value="birdeye.token">birdeye.token  ·  $0.002</option>
+          <option value="claude.completion">claude.completion  ·  $0.018</option>
+          <option value="helius.rpc">helius.rpc  ·  $0.0008</option>
+          <option value="anthropic.embed">anthropic.embed  ·  $0.0004</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-[10px] uppercase tracking-widest text-white/40 font-mono mb-2">Method</label>
+        <input id="form-method" type="text" value="price.get" class="w-full bg-[#05080A] border border-white/10 rounded px-3 py-3 text-sm text-white font-mono focus:outline-none focus:border-white/30">
+      </div>
+      <div>
+        <label class="block text-[10px] uppercase tracking-widest text-white/40 font-mono mb-2">Params</label>
+        <textarea id="form-params" rows="3" class="w-full bg-[#05080A] border border-white/10 rounded px-3 py-3 text-sm text-white font-mono focus:outline-none focus:border-white/30 resize-none">{ "symbol": "SOL/USD" }</textarea>
+      </div>
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3 text-[10px] uppercase tracking-widest text-white/40 font-mono">
+          <span class="status-dot status-settled"></span>
+          <span>max price <span id="form-cap" class="text-white">0.05</span> USDC</span>
+        </div>
+        <input id="form-cap-input" type="range" min="0.001" max="0.1" step="0.001" value="0.05" class="w-32 accent-white">
+      </div>
+      <button id="get-quote" class="w-full py-3 bg-white text-black font-medium text-xs uppercase tracking-widest font-geist hover:bg-gray-200 rounded transition-colors">
+        Get Quote (HTTP 402)
+      </button>
+    </div>
+
+    <!-- Stage 2: quote + sign -->
+    <div id="stage-quote" class="p-6 space-y-5 hidden">
+      <div class="bg-[#05080A] border border-white/10 rounded p-4 font-mono text-xs space-y-1">
+        <div class="text-white/40">HTTP/1.1 <span class="text-yellow-300">402 Payment Required</span></div>
+        <div class="text-white/40">x-402proto-provider: <span class="text-white" id="quote-provider">pyth.oracle</span></div>
+        <div class="text-white/40">x-402proto-method: <span class="text-white" id="quote-method">price.get</span></div>
+        <div class="text-white/40">x-402proto-price: <span class="text-white" id="quote-price">0.001</span> USDC</div>
+        <div class="text-white/40">x-402proto-recipient: <span class="text-white">7xKp...prov</span></div>
+        <div class="text-white/40">x-402proto-ttl: <span class="text-white">12s</span></div>
+        <div class="text-white/40">x-402proto-chain: <span class="text-white">solana-mainnet</span></div>
+      </div>
+      <div class="flex items-center justify-between text-xs font-geist">
+        <span class="text-white/50">Your wallet</span>
+        <span class="text-white font-mono">7xKp...9mT4</span>
+      </div>
+      <div class="flex items-center justify-between text-xs font-geist">
+        <span class="text-white/50">Balance after</span>
+        <span class="text-white font-mono" id="balance-after">142.499 USDC</span>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <button id="cancel-quote" class="py-3 border border-white/10 text-white/70 hover:bg-white/5 rounded text-xs uppercase tracking-widest font-geist transition-colors">Cancel</button>
+        <button id="sign-settle" class="py-3 bg-white text-black hover:bg-gray-200 rounded text-xs uppercase tracking-widest font-geist font-medium transition-colors">Sign &amp; Settle</button>
+      </div>
+    </div>
+
+    <!-- Stage 3: settling -->
+    <div id="stage-settling" class="p-6 hidden">
+      <div class="space-y-3" id="settle-steps">
+        <!-- injected -->
+      </div>
+    </div>
+
+    <!-- Stage 4: settled -->
+    <div id="stage-settled" class="p-6 hidden">
+      <div class="text-center py-4 mb-4">
+        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/10 border border-white/20 mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        <p class="text-white text-lg font-light tracking-tighter font-geist">settled</p>
+        <p class="text-[11px] text-white/40 font-mono mt-1">on-chain in <span id="settle-time">1.4s</span></p>
+      </div>
+      <div class="bg-[#05080A] border border-white/10 rounded p-4 font-mono text-[11px] space-y-1 mb-4">
+        <div class="flex justify-between"><span class="text-white/40">tx</span><span class="text-white truncate ml-3" id="tx-hash">5j7B...kQz4</span></div>
+        <div class="flex justify-between"><span class="text-white/40">spent</span><span class="text-white" id="settle-spent">0.001 USDC</span></div>
+        <div class="flex justify-between"><span class="text-white/40">remaining</span><span class="text-white" id="settle-remaining">142.499 USDC</span></div>
+        <div class="flex justify-between"><span class="text-white/40">latency</span><span class="text-white">42ms quote · 1.4s settle</span></div>
+      </div>
+      <div class="bg-[#05080A] border border-white/10 rounded p-4 font-mono text-[11px] mb-4">
+        <p class="text-white/40 mb-2">response payload</p>
+        <pre class="text-white/80 whitespace-pre-wrap break-all" id="settle-response">{
+  "symbol": "SOL/USD",
+  "price": 142.387,
+  "confidence": 0.04,
+  "slot": 312455218
+}</pre>
+      </div>
+      <button id="close-settled" class="w-full py-3 bg-white text-black hover:bg-gray-200 rounded text-xs uppercase tracking-widest font-geist font-medium transition-colors">Done</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  // ============ STATE ============
+  const PROVIDER_DEFAULTS = {
+    'pyth.oracle':       { price: 0.001,  method: 'price.get',  params: '{ "symbol": "SOL/USD" }',
+      respond: () => ({ symbol: 'SOL/USD', price: +(140 + Math.random()*8).toFixed(3), confidence: +(Math.random()*0.08).toFixed(3), slot: 312000000 + Math.floor(Math.random()*999999) }) },
+    'jupiter.quote':     { price: 0.005,  method: 'quote',      params: '{ "input": "SOL", "output": "USDC", "amount": 1000000 }',
+      respond: () => ({ inAmount: 1000000, outAmount: 142_320_000 + Math.floor(Math.random()*100000), routes: 3, priceImpact: '0.04%' }) },
+    'birdeye.token':     { price: 0.002,  method: 'token.meta', params: '{ "mint": "So11111111111111111111111111111111111111112" }',
+      respond: () => ({ symbol: 'SOL', name: 'Wrapped SOL', decimals: 9, volume24h: 2_400_000_000 + Math.floor(Math.random()*100_000_000) }) },
+    'claude.completion': { price: 0.018,  method: 'messages.create', params: '{ "model": "claude-3-7-sonnet", "prompt": "summarize this thread" }',
+      respond: () => ({ id: 'msg_' + rand(10), model: 'claude-3-7-sonnet', tokens: { input: 1240, output: 380 }, finish: 'end_turn' }) },
+    'helius.rpc':        { price: 0.0008, method: 'getAccountInfo', params: '{ "address": "7xKp...9mT4" }',
+      respond: () => ({ lamports: 142_500_000_000 + Math.floor(Math.random()*100_000), owner: 'System11111111111111111111111111111111111111', slot: 312000000 + Math.floor(Math.random()*999999) }) },
+    'anthropic.embed':   { price: 0.0004, method: 'embeddings',  params: '{ "input": "agent payment protocol", "model": "voyage-3" }',
+      respond: () => ({ vector_dim: 1024, model: 'voyage-3', tokens: 8 }) },
+  };
+
+  const AGENTS = ['agent-a1', 'agent-b2', 'agent-prod', 'agent-research', 'agent-mev'];
+
+  function loadState () {
+    try { return JSON.parse(localStorage.getItem('402proto.state')); } catch { return null; }
+  }
+  function saveState (s) { localStorage.setItem('402proto.state', JSON.stringify(s)); }
+
+  const state = loadState() || {
+    balance: 142.50,
+    calls: 412,
+    spend: 28.40,
+    failover: 2.1,
+    recent: bootstrapHistory(),
+  };
+
+  function bootstrapHistory () {
+    const out = [];
+    const providers = Object.keys(PROVIDER_DEFAULTS);
+    const now = Date.now();
+    for (let i = 0; i < 12; i++) {
+      const p = providers[Math.floor(Math.random() * providers.length)];
+      const def = PROVIDER_DEFAULTS[p];
+      out.push({
+        provider: p,
+        method:   def.method,
+        agent:    AGENTS[Math.floor(Math.random() * AGENTS.length)],
+        price:    def.price,
+        tx:       fakeTx(),
+        status:   Math.random() > 0.95 ? 'failed' : 'settled',
+        ts:       now - i * (60_000 + Math.floor(Math.random()*240_000)),
+      });
+    }
+    return out;
+  }
+
+  // ============ HELPERS ============
+  function rand (len) {
+    const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    let s = ''; for (let i = 0; i < len; i++) s += chars[Math.floor(Math.random()*chars.length)];
+    return s;
+  }
+  function fakeTx () {
+    const chars = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
+    let s = ''; for (let i = 0; i < 88; i++) s += chars[Math.floor(Math.random()*chars.length)];
+    return s;
+  }
+  function fmtTx (tx) { return tx.slice(0,4) + '…' + tx.slice(-4); }
+  function fmtTime (ts) {
+    const diff = Date.now() - ts;
+    if (diff < 60_000) return Math.max(1, Math.floor(diff/1000)) + 's ago';
+    if (diff < 3_600_000) return Math.floor(diff/60_000) + 'm ago';
+    return Math.floor(diff/3_600_000) + 'h ago';
+  }
+  function fmtUsdc (n) { return n.toFixed(n < 1 ? 4 : 2); }
+
+  // ============ RENDER ============
+  function render () {
+    document.getElementById('wallet-balance').textContent = fmtUsdc(state.balance) + ' USDC';
+    document.getElementById('kpi-spend').textContent = '$' + state.spend.toFixed(2);
+    document.getElementById('kpi-calls').textContent = state.calls.toString();
+    document.getElementById('kpi-avg').textContent = '$' + (state.spend / Math.max(1, state.calls)).toFixed(3);
+    document.getElementById('kpi-failover').textContent = state.failover.toFixed(1) + '%';
+    document.getElementById('recent-count').textContent = state.recent.length;
+
+    const tbody = document.getElementById('calls-tbody');
+    tbody.innerHTML = '';
+    state.recent.slice(0, 12).forEach((c, i) => {
+      const tr = document.createElement('tr');
+      tr.className = 'border-b border-dashed border-white/5 hover:bg-white/[0.02] transition-colors' + (i === 0 ? ' row-enter' : '');
+      tr.innerHTML = `
+        <td class="px-6 py-3 text-white font-mono text-xs">${c.provider}</td>
+        <td class="px-6 py-3 text-white/60 font-mono text-xs">${c.method}</td>
+        <td class="px-6 py-3 text-white/50 font-mono text-xs">${c.agent}</td>
+        <td class="px-6 py-3 text-right text-white font-mono text-xs">$${fmtUsdc(c.price)}</td>
+        <td class="px-6 py-3 text-white/60 font-mono text-[11px]">${fmtTx(c.tx)}</td>
+        <td class="px-6 py-3 text-xs">
+          <span class="inline-flex items-center gap-1.5">
+            <span class="status-dot status-${c.status}"></span>
+            <span class="text-white/70 font-mono text-[11px]">${c.status}</span>
+          </span>
+        </td>
+        <td class="px-6 py-3 text-right text-white/40 font-mono text-[11px]">${fmtTime(c.ts)}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  render();
+  setInterval(() => render(), 30_000); // refresh "time ago" column
+
+  // ============ NAV (LARP) ============
+  document.querySelectorAll('.nav-item').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.nav-item').forEach(b => {
+        b.classList.remove('active', 'bg-white/10', 'text-white', 'border', 'border-white/20');
+        b.classList.add('text-white/50');
+      });
+      btn.classList.add('active', 'bg-white/10', 'text-white', 'border', 'border-white/20');
+      btn.classList.remove('text-white/50');
+    });
+  });
+
+  // ============ MODAL ============
+  const overlay   = document.getElementById('modal-overlay');
+  const stageForm = document.getElementById('stage-form');
+  const stageQuote = document.getElementById('stage-quote');
+  const stageSettling = document.getElementById('stage-settling');
+  const stageSettled = document.getElementById('stage-settled');
+
+  function openModal () {
+    overlay.classList.remove('hidden');
+    overlay.classList.add('flex');
+    showStage('form');
+    syncProviderForm();
+  }
+  function closeModal () {
+    overlay.classList.add('hidden');
+    overlay.classList.remove('flex');
+  }
+  function showStage (name) {
+    [stageForm, stageQuote, stageSettling, stageSettled].forEach(el => el.classList.add('hidden'));
+    ({form: stageForm, quote: stageQuote, settling: stageSettling, settled: stageSettled})[name].classList.remove('hidden');
+  }
+
+  document.getElementById('open-modal').addEventListener('click', openModal);
+  document.getElementById('close-modal').addEventListener('click', closeModal);
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+
+  const selProvider = document.getElementById('form-provider');
+  const inMethod = document.getElementById('form-method');
+  const inParams = document.getElementById('form-params');
+  const inCap = document.getElementById('form-cap-input');
+  const lblCap = document.getElementById('form-cap');
+
+  function syncProviderForm () {
+    const p = selProvider.value;
+    const def = PROVIDER_DEFAULTS[p];
+    inMethod.value = def.method;
+    inParams.value = def.params;
+  }
+  selProvider.addEventListener('change', syncProviderForm);
+  inCap.addEventListener('input', () => lblCap.textContent = parseFloat(inCap.value).toFixed(3));
+
+  // ============ STAGE 2: quote ============
+  document.getElementById('get-quote').addEventListener('click', () => {
+    const p = selProvider.value;
+    const def = PROVIDER_DEFAULTS[p];
+    const cap = parseFloat(inCap.value);
+
+    if (def.price > cap) {
+      alert('Quote exceeds your max price. Raise the cap or choose a cheaper provider.');
+      return;
+    }
+
+    document.getElementById('quote-provider').textContent = p;
+    document.getElementById('quote-method').textContent = inMethod.value;
+    document.getElementById('quote-price').textContent = def.price.toFixed(4);
+    document.getElementById('balance-after').textContent = (state.balance - def.price).toFixed(4) + ' USDC';
+
+    showStage('quote');
+  });
+
+  document.getElementById('cancel-quote').addEventListener('click', () => showStage('form'));
+
+  // ============ STAGE 3: settle ============
+  document.getElementById('sign-settle').addEventListener('click', async () => {
+    showStage('settling');
+    const steps = [
+      'building quote envelope',
+      'signing transaction with wallet',
+      'broadcasting to solana mainnet',
+      'awaiting confirmation',
+      'recording receipt on-chain',
+    ];
+    const container = document.getElementById('settle-steps');
+    container.innerHTML = '';
+
+    for (let i = 0; i < steps.length; i++) {
+      const div = document.createElement('div');
+      div.className = 'flex items-center gap-3 text-xs font-geist text-white/60';
+      div.innerHTML = `
+        <div class="step-indicator w-5 h-5 rounded-full border border-white/30 flex items-center justify-center">
+          <div class="w-2 h-2 rounded-full bg-white/40 pulse-dot"></div>
+        </div>
+        <span>${steps[i]}</span>
+      `;
+      container.appendChild(div);
+      await sleep(180 + Math.random()*280);
+      div.querySelector('.step-indicator').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+      div.classList.remove('text-white/60'); div.classList.add('text-white');
+    }
+
+    await sleep(220);
+    finalizeCall();
+  });
+
+  function finalizeCall () {
+    const p = selProvider.value;
+    const def = PROVIDER_DEFAULTS[p];
+    const tx = fakeTx();
+    const settleTime = (0.9 + Math.random() * 1.0).toFixed(1) + 's';
+
+    state.balance = +(state.balance - def.price).toFixed(6);
+    state.spend   = +(state.spend + def.price).toFixed(4);
+    state.calls  += 1;
+    state.recent.unshift({
+      provider: p, method: inMethod.value, agent: AGENTS[Math.floor(Math.random()*AGENTS.length)],
+      price: def.price, tx, status: 'settled', ts: Date.now(),
+    });
+    state.recent = state.recent.slice(0, 24);
+    saveState(state);
+
+    document.getElementById('tx-hash').textContent = fmtTx(tx);
+    document.getElementById('settle-spent').textContent = def.price.toFixed(4) + ' USDC';
+    document.getElementById('settle-remaining').textContent = fmtUsdc(state.balance) + ' USDC';
+    document.getElementById('settle-time').textContent = settleTime;
+    document.getElementById('settle-response').textContent = JSON.stringify(def.respond(), null, 2);
+
+    showStage('settled');
+    render();
+  }
+
+  document.getElementById('close-settled').addEventListener('click', closeModal);
+
+  function sleep (ms) { return new Promise(r => setTimeout(r, ms)); }
+
+  // ============ EXPORT CSV ============
+  document.getElementById('export-csv').addEventListener('click', () => {
+    const rows = [['provider','method','agent','price_usdc','tx','status','timestamp']];
+    state.recent.forEach(c => rows.push([c.provider, c.method, c.agent, c.price, c.tx, c.status, new Date(c.ts).toISOString()]));
+    const csv = rows.map(r => r.join(',')).join('\n');
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = '402proto-calls-' + new Date().toISOString().slice(0,10) + '.csv';
+    a.click();
+  });
+
+  // ============ AUTO-LARP: ambient activity ============
+  setInterval(() => {
+    if (Math.random() > 0.7) {
+      const providers = Object.keys(PROVIDER_DEFAULTS);
+      const p = providers[Math.floor(Math.random()*providers.length)];
+      const def = PROVIDER_DEFAULTS[p];
+      state.recent.unshift({
+        provider: p, method: def.method, agent: AGENTS[Math.floor(Math.random()*AGENTS.length)],
+        price: def.price, tx: fakeTx(), status: Math.random() > 0.98 ? 'failed' : 'settled', ts: Date.now(),
+      });
+      state.recent = state.recent.slice(0, 24);
+      state.calls += 1;
+      state.spend = +(state.spend + def.price).toFixed(4);
+      saveState(state);
+      render();
+    }
+  }, 8_000);
+
+  // ESC to close modal
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !overlay.classList.contains('hidden')) closeModal(); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,493 @@
+<html lang="en" class="dark"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/402proto-logo.png">
+<title>Connect — 402proto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Solana Web3 -->
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+    <!-- Wallet Standard -->
+    <script type="module">
+      import { getWallets } from 'https://esm.sh/@wallet-standard/app@1.0.1';
+      import { isWalletAdapterCompatibleStandardWallet } from 'https://esm.sh/@solana/wallet-adapter-base@0.9.23';
+      window.getWallets = getWallets;
+      window.isWalletAdapterCompatibleStandardWallet = isWalletAdapterCompatibleStandardWallet;
+    </script>
+    <style id="aura-editor-visibility-style">
+      .invisible { visibility: hidden !important; }
+    </style>
+    <style id="aura-editor-visibility-style">
+      .invisible { visibility: hidden !important; }
+    </style>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+      body {
+      font-family: 'Inter', sans-serif;
+      background-color: #05080A;
+      }
+      /* Custom scrollbar */
+      .no-scrollbar::-webkit-scrollbar {
+      display: none;
+      }
+      .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      }
+    </style>
+    <meta name="disabled-font-classes" content="font-roboto,font-montserrat,font-poppins,font-playfair,font-instrument-serif,font-merriweather,font-bricolage,font-jakarta,font-manrope,font-space-grotesk,font-work-sans,font-pt-serif,font-geist-mono,font-space-mono,font-quicksand,font-nunito,font-newsreader,font-google-sans-flex,font-oswald,font-dm-sans">
+
+    
+    
+  <link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">
+.font-geist { font-family: 'Geist', sans-serif !important; }
+</style><style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.bottom-0{bottom:0px}.left-0{left:0px}.top-0{top:0px}.left-1\/2{left:50%}.z-40{z-index:40}.z-50{z-index:50}.z-10{z-index:10}.col-span-3{grid-column:span 3 / span 3}.col-span-4{grid-column:span 4 / span 4}.col-span-6{grid-column:span 6 / span 6}.mb-8{margin-bottom:2rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.ml-1{margin-left:0.25rem}.ml-3{margin-left:0.75rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.mt-2{margin-top:0.5rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-16{height:4rem}.h-4{height:1rem}.h-6{height:1.5rem}.h-full{height:100%}.h-px{height:1px}.h-\[600px\]{height:600px}.min-h-screen{min-height:100vh}.w-4{width:1rem}.w-6{width:1.5rem}.w-80{width:20rem}.w-auto{width:auto}.w-full{width:100%}.w-10{width:2.5rem}.w-\[600px\]{width:600px}.max-w-\[400px\]{max-width:400px}.flex-shrink-0{flex-shrink:0}.flex-grow{flex-grow:1}.-translate-x-full{--tw-translate-x:-100%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes spin{to{transform:rotate(360deg)}}.animate-spin{animation:spin 1s linear infinite}.grid-cols-12{grid-template-columns:repeat(12, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-8{gap:2rem}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.overflow-x-hidden{overflow-x:hidden}.rounded-md{border-radius:0.375rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-l{border-left-width:1px}.border-r{border-right-width:1px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-dashed{border-style:dashed}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-white\/20{border-color:rgb(255 255 255 / 0.2)}.border-\[\#ffffff\]\/20{border-color:rgb(255 255 255 / 0.2)}.border-red-500\/20{border-color:rgb(239 68 68 / 0.2)}.border-transparent{border-color:transparent}.border-t-white{--tw-border-opacity:1;border-top-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.bg-\[\#000000\]{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.bg-\[\#05080A\]{--tw-bg-opacity:1;background-color:rgb(5 8 10 / var(--tw-bg-opacity, 1))}.bg-\[\#ffffff\]\/10{background-color:rgb(255 255 255 / 0.1)}.bg-black\/80{background-color:rgb(0 0 0 / 0.8)}.bg-white\/10{background-color:rgb(255 255 255 / 0.1)}.bg-\[\#0B0F13\]{--tw-bg-opacity:1;background-color:rgb(11 15 19 / var(--tw-bg-opacity, 1))}.bg-\[\#0B0F13\]\/60{background-color:rgb(11 15 19 / 0.6)}.bg-\[\#ffffff\]\/5{background-color:rgb(255 255 255 / 0.05)}.bg-red-500\/10{background-color:rgb(239 68 68 / 0.1)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/5{background-color:rgb(255 255 255 / 0.05)}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.bg-\[linear-gradient\(to_right\2c \#80808012_1px\2c transparent_1px\)\2c linear-gradient\(to_bottom\2c \#80808012_1px\2c transparent_1px\)\]{background-image:linear-gradient(to right,#80808012 1px,transparent 1px),linear-gradient(to bottom,#80808012 1px,transparent 1px)}.bg-\[radial-gradient\(ellipse_at_top\2c _var\(--tw-gradient-stops\)\)\]{background-image:radial-gradient(ellipse at top, var(--tw-gradient-stops))}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.from-transparent{--tw-gradient-from:transparent var(--tw-gradient-from-position);--tw-gradient-to:rgb(0 0 0 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-purple-500{--tw-gradient-from:#a855f7 var(--tw-gradient-from-position);--tw-gradient-to:rgb(168 85 247 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-slate-900\/40{--tw-gradient-from:rgb(15 23 42 / 0.4) var(--tw-gradient-from-position);--tw-gradient-to:rgb(15 23 42 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-white\/10{--tw-gradient-to:rgb(255 255 255 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), rgb(255 255 255 / 0.1) var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-\[\#05080A\]{--tw-gradient-to:rgb(5 8 10 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #05080A var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.to-\[\#05080A\]{--tw-gradient-to:#05080A var(--tw-gradient-to-position)}.to-blue-500{--tw-gradient-to:#3b82f6 var(--tw-gradient-to-position)}.bg-\[size\:24px_24px\]{background-size:24px 24px}.p-2{padding:0.5rem}.p-6{padding:1.5rem}.p-4{padding:1rem}.p-8{padding:2rem}.px-4{padding-left:1rem;padding-right:1rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pl-4{padding-left:1rem}.pl-8{padding-left:2rem}.pr-4{padding-right:1rem}.pr-8{padding-right:2rem}.pt-6{padding-top:1.5rem}.text-center{text-align:center}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\[10px\]{font-size:10px}.text-sm{font-size:0.875rem;line-height:1.25rem}.font-medium{font-weight:500}.font-semibold{font-weight:600}.font-light{font-weight:300}.uppercase{text-transform:uppercase}.tracking-tight{letter-spacing:-0.025em}.tracking-wide{letter-spacing:0.025em}.tracking-widest{letter-spacing:0.1em}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-white\/70{color:rgb(255 255 255 / 0.7)}.text-\[\#ffffff\]{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.text-red-400{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.text-red-400\/70{color:rgb(248 113 113 / 0.7)}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.blur-\[120px\]{--tw-blur:blur(120px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-xl{--tw-backdrop-blur:blur(24px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.\[mask-image\:radial-gradient\(ellipse_60\%_50\%_at_50\%_0\%\2c \#000_70\%\2c transparent_100\%\)\]{-webkit-mask-image:radial-gradient(ellipse 60% 50% at 50% 0%,#000 70%,transparent 100%);mask-image:radial-gradient(ellipse 60% 50% at 50% 0%,#000 70%,transparent 100%)}.selection\:bg-\[\#ffffff\]\/30 *::selection{background-color:rgb(255 255 255 / 0.3)}.selection\:text-\[\#ffffff\] *::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.selection\:bg-\[\#ffffff\]\/30::selection{background-color:rgb(255 255 255 / 0.3)}.selection\:text-\[\#ffffff\]::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:border-\[\#ffffff\]:hover{--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.hover\:bg-\[\#ffffff\]\/10:hover{background-color:rgb(255 255 255 / 0.1)}.hover\:bg-\[\#ffffff\]\/20:hover{background-color:rgb(255 255 255 / 0.2)}.hover\:bg-white\/10:hover{background-color:rgb(255 255 255 / 0.1)}.hover\:bg-white\/5:hover{background-color:rgb(255 255 255 / 0.05)}.hover\:bg-gray-100:hover{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.hover\:bg-red-500\/20:hover{background-color:rgb(239 68 68 / 0.2)}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:text-\[\#ffffff\]:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:text-slate-400:hover{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}@media (min-width: 640px){.sm\:inline{display:inline}.sm\:hidden{display:none}.sm\:h-20{height:5rem}}@media (min-width: 768px){.md\:col-span-4{grid-column:span 4 / span 4}.md\:flex{display:flex}.md\:hidden{display:none}.md\:pl-8{padding-left:2rem}.md\:pr-8{padding-right:2rem}}</style></head>
+  <body class="bg-[#05080A] min-h-screen flex flex-col overflow-x-hidden selection:bg-[#ffffff]/30 selection:text-[#ffffff] text-white/70">
+    <!-- Navigation -->
+    <header class="border-dashed sticky z-50 bg-[#000000] w-full top-0 backdrop-blur-md">
+      <div class="grid grid-cols-12 h-16 sm:h-20">
+        <div class="col-span-3 md:hidden flex items-center pl-4 border-r border-dashed border-white/10">
+          <button id="mobile-menu-btn" class="p-2 hover:bg-white/10 rounded-md transition-colors" aria-label="Open menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-white"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg>
+          </button>
+        </div>
+        <div class="col-span-4 hidden md:flex items-center">
+          <a href="/Platform.html" class="flex items-center justify-center hover:bg-[#ffffff]/10 transition-colors border-dashed text-xs font-medium text-white tracking-wide font-geist h-full border-white/10 border-r pr-8 pl-8">PLATFORM</a>
+          <a href="/Solution.html" class="flex items-center justify-center hover:bg-[#ffffff]/10 hover:text-white transition-colors border-dashed text-xs font-medium tracking-wide font-geist h-full border-white/10 border-r pr-8 pl-8">SOLUTIONS</a>
+          <a href="/Pricing.html" class="flex items-center justify-center hover:bg-[#ffffff]/10 hover:text-white transition-colors border-dashed text-xs font-medium tracking-wide font-geist h-full border-white/10 border-r pr-8 pl-8">PRICING</a>
+        </div>
+        <div class="col-span-6 md:col-span-4 flex relative items-center justify-center">
+          <a href="/" class="inline-flex items-center justify-center gap-2">
+            <img src="402proto-logo.png" alt="402proto" class="h-10 w-auto">
+            <span class="text-white font-geist font-semibold text-lg tracking-tight hidden sm:inline">402PROTO</span>
+          </a>
+        </div>
+        <div class="col-span-3 md:col-span-4 flex items-center justify-end">
+          <a href="/Docs.html" class="hidden md:flex items-center justify-center hover:bg-[#ffffff]/10 hover:text-white transition-colors border-dashed text-xs font-medium tracking-wide font-geist h-full border-white/10 border-r border-l pr-8 pl-8">DOCS</a>
+          <a href="/Enterprise.html" class="hidden md:flex items-center justify-center hover:bg-[#ffffff]/10 hover:text-white transition-colors border-dashed text-xs font-medium tracking-wide font-geist h-full border-white/10 border-r border-l pr-8 pl-8">ENTERPRISE</a>
+          <a href="/Login.html" class="flex items-center justify-center border border-dashed border-white/20 text-white hover:bg-[#ffffff]/20 transition-colors text-xs font-medium tracking-wide font-geist bg-[#ffffff]/10 h-full pr-4 md:pr-8 pl-4 md:pl-8">
+            <span class="hidden sm:inline">LOGIN</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 sm:hidden"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" x2="3" y1="12" y2="12"></line></svg>
+          </a>
+        </div>
+      </div>
+      <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+    </header>
+    <div id="mobile-sidebar-overlay" class="fixed inset-0 bg-black/80 z-40 hidden md:hidden" onclick="closeMobileMenu()"></div>
+    <aside id="mobile-sidebar" class="fixed top-0 left-0 w-80 h-full bg-[#05080A] z-50 transform -translate-x-full transition-transform duration-300 md:hidden overflow-y-auto border-r border-white/10">
+      <div class="p-6">
+        <div class="flex items-center justify-between mb-8">
+          <span class="text-white font-semibold">Menu</span>
+          <button onclick="closeMobileMenu()" class="p-2 hover:bg-white/10 rounded-md transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+          </button>
+        </div>
+        <nav class="space-y-2">
+          <a href="/" class="block px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-md transition-colors">Home</a>
+          <a href="/Platform.html" class="block px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-md transition-colors">Platform</a>
+          <a href="/Solution.html" class="block px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-md transition-colors">Solutions</a>
+          <a href="/Pricing.html" class="block px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-md transition-colors">Pricing</a>
+          <a href="/Docs.html" class="block px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-md transition-colors">Documentation</a>
+          <a href="/Enterprise.html" class="block px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-md transition-colors">Enterprise</a>
+          <a href="/Login.html" class="block px-4 py-3 text-white bg-white/10 rounded-md">Login</a>
+        </nav>
+      </div>
+    </aside>
+    <script>
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileSidebar = document.getElementById('mobile-sidebar');
+      const mobileOverlay = document.getElementById('mobile-sidebar-overlay');
+      function openMobileMenu() { mobileSidebar.classList.remove('-translate-x-full'); mobileOverlay.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+      function closeMobileMenu() { mobileSidebar.classList.add('-translate-x-full'); mobileOverlay.classList.add('hidden'); document.body.style.overflow = ''; }
+      window.closeMobileMenu = closeMobileMenu;
+      mobileMenuBtn.addEventListener('click', openMobileMenu);
+    </script>
+
+    <!-- Main Content Wrapper -->
+    <main class="flex-grow flex flex-col">
+      <div class="flex-grow flex flex-col items-center justify-center relative p-6 w-full overflow-hidden">
+        <!-- Background effects -->
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900/40 via-[#05080A] to-[#05080A]"></div>
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#ffffff]/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+        <!-- Grid pattern -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none"></div>
+
+        <div class="w-full max-w-[400px] relative z-10">
+          <div class="bg-[#0B0F13]/60 backdrop-blur-xl border border-white/10 rounded-xl p-8 shadow-2xl">
+            <div class="text-center mb-8">
+              <div class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-[#ffffff]/10 text-[#ffffff] mb-4 border border-[#ffffff]/20">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-in">
+                  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                  <polyline points="10 17 15 12 10 7"></polyline>
+                  <line x1="15" x2="3" y1="12" y2="12"></line>
+                </svg>
+              </div>
+              <h1 class="text-2xl font-light text-white font-geist tracking-tight mb-2">
+                Connect Wallet
+              </h1>
+              <p class="text-xs text-slate-400 font-geist">
+                connect a solana wallet to start paying for api calls in usdc.
+              </p>
+            </div>
+
+            <!-- Connected State (hidden by default) -->
+            <div id="connected-state" class="hidden">
+              <div class="bg-white/5 border border-white/10 rounded-lg p-4 mb-4">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </div>
+                    <div>
+                      <p class="text-white text-sm font-medium font-geist" id="wallet-address">Connected</p>
+                      <p class="text-slate-400 text-xs font-geist" id="wallet-balance">Loading...</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <button id="copy-address-btn" class="p-2 hover:bg-white/10 rounded-md transition-colors" title="Copy address">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <button id="disconnect-btn" class="w-full py-3 px-4 bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-400 rounded-md text-sm font-medium font-geist transition-all">
+                Disconnect Wallet
+              </button>
+              <a href="/Dashboard.html" class="block w-full mt-4 py-4 px-4 bg-white hover:bg-gray-100 text-black text-center rounded-md text-sm font-medium font-geist transition-all">
+                Open Console →
+              </a>
+            </div>
+
+            <!-- Wallet Selection (shown by default) -->
+            <div id="wallet-selection" class="space-y-3">
+              <!-- Dynamic wallet buttons will be rendered here -->
+              <div id="wallets-container" class="space-y-3">
+            <div class="text-center py-4 text-slate-400 text-sm font-geist">
+              <p>No Solana wallets detected.</p>
+              <a href="https://phantom.app" target="_blank" class="text-white underline mt-2 inline-block">Install Phantom</a>
+            </div>
+          </div>
+
+              <div class="relative py-2">
+                <div class="absolute inset-0 flex items-center">
+                  <div class="w-full border-t border-dashed border-white/10"></div>
+                </div>
+                <div class="relative flex justify-center text-xs">
+                  <span class="px-2 bg-[#0B0F13] text-slate-500 font-geist">Wallet Standard</span>
+                </div>
+              </div>
+
+              <p class="text-center text-[10px] text-slate-500 font-geist">
+                Powered by <a href="https://github.com/wallet-standard/wallet-standard" target="_blank" class="text-white/70 hover:text-white">Solana Wallet Standard</a> by Anza
+              </p>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loading-state" class="hidden py-8">
+              <div class="flex flex-col items-center gap-4">
+                <div class="w-10 h-10 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
+                <p class="text-sm text-slate-400 font-geist">Connecting...</p>
+              </div>
+            </div>
+
+            <!-- Error State -->
+            <div id="error-state" class="hidden">
+              <div class="bg-red-500/10 border border-red-500/20 rounded-lg p-4 mb-4">
+                <div class="flex items-start gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-400 flex-shrink-0 mt-0.5"><circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6"></path><path d="m9 9 6 6"></path></svg>
+                  <div>
+                    <p class="text-red-400 text-sm font-medium font-geist">Connection Failed</p>
+                    <p class="text-red-400/70 text-xs font-geist mt-1" id="error-message">Please try again or use a different wallet.</p>
+                  </div>
+                </div>
+              </div>
+              <button id="retry-btn" class="w-full py-3 px-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-md text-sm font-medium font-geist transition-all">
+                Try Again
+              </button>
+            </div>
+
+            <div class="mt-6 pt-6 border-t border-dashed border-white/10">
+              <div class="flex items-center justify-center gap-2 text-xs text-slate-500 font-geist">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#ffffff]"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg>
+                <span>Non-custodial · Your keys, your crypto</span>
+              </div>
+            </div>
+
+            <p class="text-center mt-6 text-[10px] text-slate-500 font-geist">
+              New to Solana?
+              <a href="https://phantom.app" target="_blank" class="text-white hover:text-[#ffffff] transition-colors ml-1 border-b border-transparent hover:border-[#ffffff]">
+                Get a wallet
+              </a>
+            </p>
+          </div>
+
+          <div class="mt-8 flex justify-center gap-8 text-[10px] text-slate-600 uppercase tracking-widest font-geist">
+            <a href="#" class="hover:text-slate-400 transition-colors">
+              Privacy
+            </a>
+            <a href="#" class="hover:text-slate-400 transition-colors">Terms</a>
+            <a href="#" class="hover:text-slate-400 transition-colors">
+              Contact
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer / Logos -->
+
+    <script type="module">
+      lucide.createIcons();
+
+      // Wallet Standard Integration
+      const SOLANA_MAINNET_CHAIN = 'solana:mainnet';
+
+      // State Management
+      let registeredWallets = [];
+      let connectedWallet = null;
+      let connectedAccount = null;
+
+      // DOM Elements
+      const walletSelection = document.getElementById('wallet-selection');
+      const connectedState = document.getElementById('connected-state');
+      const loadingState = document.getElementById('loading-state');
+      const errorState = document.getElementById('error-state');
+      const walletAddressEl = document.getElementById('wallet-address');
+      const walletBalanceEl = document.getElementById('wallet-balance');
+      const walletsContainer = document.getElementById('wallets-container');
+
+      function showState(state) {
+        walletSelection.classList.add('hidden');
+        connectedState.classList.add('hidden');
+        loadingState.classList.add('hidden');
+        errorState.classList.add('hidden');
+        state.classList.remove('hidden');
+      }
+
+      function shortenAddress(address) {
+        return address.slice(0, 4) + '...' + address.slice(-4);
+      }
+
+      function base58ToHex(base58) {
+        return base58;
+      }
+
+      async function getBalance(publicKey) {
+        try {
+          const connection = new solanaWeb3.Connection(
+            'https://api.mainnet-beta.solana.com',
+            'confirmed'
+          );
+          const balance = await connection.getBalance(new solanaWeb3.PublicKey(publicKey));
+          return (balance / 1e9).toFixed(4) + ' SOL';
+        } catch (e) {
+          console.error('Balance error:', e);
+          return 'Balance unavailable';
+        }
+      }
+
+      // Wallet Standard: Get all registered wallets
+      function initWalletStandard() {
+        if (!window.getWallets) {
+          console.log('Wallet Standard not loaded yet, retrying...');
+          setTimeout(initWalletStandard, 500);
+          return;
+        }
+
+        const { get, on } = window.getWallets();
+
+        // Get initial wallets
+        registeredWallets = get();
+        console.log('Registered wallets:', registeredWallets.map(w => w.name));
+
+        // Listen for new wallets
+        on('register', (...wallets) => {
+          registeredWallets.push(...wallets);
+          console.log('New wallets registered:', wallets.map(w => w.name));
+          renderWalletButtons();
+        });
+
+        on('unregister', (...wallets) => {
+          registeredWallets = registeredWallets.filter(w => !wallets.includes(w));
+          renderWalletButtons();
+        });
+
+        renderWalletButtons();
+        checkExistingConnection();
+      }
+
+      // Render wallet buttons dynamically
+      function renderWalletButtons() {
+        if (!walletsContainer) return;
+
+        // Filter Solana-compatible wallets
+        const solanaWallets = registeredWallets.filter(wallet => {
+          return wallet.chains?.some(chain => chain.startsWith('solana:'));
+        });
+
+        if (solanaWallets.length === 0) {
+          walletsContainer.innerHTML = `
+            <div class="text-center py-4 text-slate-400 text-sm font-geist">
+              <p>No Solana wallets detected.</p>
+              <a href="https://phantom.app" target="_blank" class="text-white underline mt-2 inline-block">Install Phantom</a>
+            </div>
+          `;
+          return;
+        }
+
+        walletsContainer.innerHTML = solanaWallets.map((wallet, index) => {
+          const isFirst = index === 0;
+          const btnClass = isFirst
+            ? 'bg-[#ffffff] hover:bg-gray-100 text-black'
+            : 'bg-white/5 hover:bg-white/10 border border-white/10 text-white';
+
+          return `
+            <button data-wallet-index="${index}" class="wallet-standard-btn w-full flex items-center justify-between ${btnClass} font-medium py-4 px-5 rounded-md text-sm transition-all font-geist group">
+              <div class="flex items-center gap-3">
+                <img src="${wallet.icon}" alt="${wallet.name}" class="w-6 h-6 rounded">
+                <span>${wallet.name}</span>
+              </div>
+              ${isFirst ? '<span class="text-xs opacity-70">Detected</span>' : ''}
+            </button>
+          `;
+        }).join('');
+
+        // Add click handlers
+        document.querySelectorAll('.wallet-standard-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const index = parseInt(btn.dataset.walletIndex);
+            const wallet = solanaWallets[index];
+            connectWithWalletStandard(wallet);
+          });
+        });
+      }
+
+      // Connect using Wallet Standard
+      async function connectWithWalletStandard(wallet) {
+        showState(loadingState);
+
+        try {
+          // Check if wallet supports standard:connect
+          const connectFeature = wallet.features['standard:connect'];
+          if (!connectFeature) {
+            throw new Error(`${wallet.name} does not support standard:connect`);
+          }
+
+          // Connect
+          const { accounts } = await connectFeature.connect();
+
+          if (!accounts || accounts.length === 0) {
+            throw new Error('No accounts returned');
+          }
+
+          const account = accounts[0];
+          connectedWallet = wallet;
+          connectedAccount = account;
+
+          // Get public key (base58 encoded)
+          const publicKey = account.address;
+
+          // Store in localStorage
+          localStorage.setItem('connectedWalletName', wallet.name);
+          localStorage.setItem('walletAddress', publicKey);
+
+          // Update UI
+          walletAddressEl.textContent = shortenAddress(publicKey);
+          walletBalanceEl.textContent = 'Loading...';
+          showState(connectedState);
+
+          // Fetch balance
+          walletBalanceEl.textContent = await getBalance(publicKey);
+
+          // Listen for disconnect
+          if (wallet.features['standard:events']) {
+            wallet.features['standard:events'].on('change', ({ accounts }) => {
+              if (!accounts || accounts.length === 0) {
+                handleDisconnect();
+              }
+            });
+          }
+
+        } catch (error) {
+          console.error('Connection error:', error);
+          document.getElementById('error-message').textContent = error.message || 'Connection failed. Please try again.';
+          showState(errorState);
+        }
+      }
+
+      // Disconnect wallet
+      async function handleDisconnect() {
+        try {
+          if (connectedWallet?.features['standard:disconnect']) {
+            await connectedWallet.features['standard:disconnect'].disconnect();
+          }
+        } catch (e) {
+          console.error('Disconnect error:', e);
+        }
+
+        connectedWallet = null;
+        connectedAccount = null;
+        localStorage.removeItem('connectedWalletName');
+        localStorage.removeItem('walletAddress');
+        showState(walletSelection);
+      }
+
+      // Check for existing connection
+      async function checkExistingConnection() {
+        const savedWalletName = localStorage.getItem('connectedWalletName');
+        const savedAddress = localStorage.getItem('walletAddress');
+
+        if (savedWalletName && savedAddress) {
+          const wallet = registeredWallets.find(w => w.name === savedWalletName);
+
+          if (wallet) {
+            // Check if still connected
+            const accounts = wallet.accounts || [];
+            const stillConnected = accounts.some(acc => acc.address === savedAddress);
+
+            if (stillConnected) {
+              connectedWallet = wallet;
+              connectedAccount = accounts.find(acc => acc.address === savedAddress);
+
+              walletAddressEl.textContent = shortenAddress(savedAddress);
+              walletBalanceEl.textContent = 'Loading...';
+              showState(connectedState);
+
+              walletBalanceEl.textContent = await getBalance(savedAddress);
+              return;
+            }
+          }
+
+          // Clear stale connection
+          localStorage.removeItem('connectedWalletName');
+          localStorage.removeItem('walletAddress');
+        }
+      }
+
+      // Copy address
+      document.getElementById('copy-address-btn').addEventListener('click', () => {
+        const address = localStorage.getItem('walletAddress');
+        if (address) {
+          navigator.clipboard.writeText(address);
+          const btn = document.getElementById('copy-address-btn');
+          btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-400"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+          setTimeout(() => {
+            btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>';
+          }, 1500);
+        }
+      });
+
+      // Disconnect button
+      document.getElementById('disconnect-btn').addEventListener('click', handleDisconnect);
+
+      // Retry button
+      document.getElementById('retry-btn').addEventListener('click', () => showState(walletSelection));
+
+      // Initialize on DOM ready
+      document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(initWalletStandard, 300);
+      });
+    </script>
+
+</body></html>
