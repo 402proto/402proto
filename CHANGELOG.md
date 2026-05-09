@@ -39,3 +39,9 @@ this is an early protocol. the envelope shape is unlikely to change in v0.2, but
 ## [unreleased]
 
 planning v0.2. see [ROADMAP.md](ROADMAP.md).
+
+
+## release sign-off
+
+- spec frozen as of 2026-05-09
+- v0.1.0 tag follows
