@@ -73,7 +73,7 @@ export function listTools(): ToolSpec[] {
       required: [],
     };
     return {
-      name: id.replace(/\./g, "_"),
+      name: id.replace(/\./g, "_").toLowerCase(),
       description: schema.description + ` (est. ${e.estPriceUsdc} USDC per call)`,
       inputSchema: {
         type: "object",
