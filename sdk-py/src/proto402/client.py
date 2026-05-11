@@ -18,7 +18,7 @@ from proto402.types import Quote
 
 log = structlog.get_logger(__name__)
 
-USER_AGENT = "proto402-py/0.1.0"
+USER_AGENT = "proto402-py/0.1.0 (+https://402proto.xyz)"
 
 
 class Client:
