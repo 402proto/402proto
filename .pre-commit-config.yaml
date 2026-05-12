@@ -1,0 +1,50 @@
+# pre-commit hooks for 402proto.
+#
+# install:
+#   pip install pre-commit
+#   pre-commit install
+#
+# run on all files:
+#   pre-commit run --all-files
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: ^spec/test-vectors/.*\.json$
+      - id: end-of-file-fixer
+        exclude: ^spec/test-vectors/.*\.json$
+      - id: check-yaml
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-added-large-files
+        args: ["--maxkb=512"]
+      - id: mixed-line-ending
+        args: ["--fix=lf"]
+      - id: no-commit-to-branch
+        args: ["--branch=main"]
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.4.10
+    hooks:
+      - id: ruff
+        files: ^sdk-py/
+        args: ["--fix"]
+      - id: ruff-format
+        files: ^sdk-py/
+
+  - repo: https://github.com/doublify/pre-commit-rust
+    rev: v1.0
+    hooks:
+      - id: fmt
+        files: ^router-rs/
+        args: ["--manifest-path", "router-rs/Cargo.toml", "--"]
+
+  - repo: local
+    hooks:
+      - id: forbid-real-wallet-addresses
+        name: reject obvious real solana addresses in fixtures
+        entry: bash -c 'if grep -rE "[1-9A-HJ-NP-Za-km-z]{43,44}" spec/test-vectors/ examples/ | grep -vE "(xxxx|placeholder|RECIP|7xKp1HCNNeF9xUg5dM4PdJzQ5R8fY3MtPbE2WLwK9mT4)"; then echo "potential real address in fixtures"; exit 1; fi'
+        language: system
+        pass_filenames: false
