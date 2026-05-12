@@ -1,0 +1,95 @@
+{
+  "spec_version": "0.1",
+  "comment": "envelope header parse + emit test vectors. every sdk MUST round-trip these without loss.",
+  "request_envelope": [
+    {
+      "name": "minimal",
+      "headers": {
+        "x-402proto-version": "0.1",
+        "x-402proto-client": "proto402-py/0.1.0",
+        "x-402proto-wallet": "7xKp1HCNNeF9xUg5dM4PdJzQ5R8fY3MtPbE2WLwK9mT4"
+      }
+    },
+    {
+      "name": "with_cap",
+      "headers": {
+        "x-402proto-version": "0.1",
+        "x-402proto-client": "@402proto/sdk/0.1.0",
+        "x-402proto-wallet": "7xKp1HCNNeF9xUg5dM4PdJzQ5R8fY3MtPbE2WLwK9mT4",
+        "x-402proto-max-price": "0.005"
+      }
+    },
+    {
+      "name": "with_idempotency",
+      "headers": {
+        "x-402proto-version": "0.1",
+        "x-402proto-client": "proto402-router/0.1.0",
+        "x-402proto-wallet": "7xKp1HCNNeF9xUg5dM4PdJzQ5R8fY3MtPbE2WLwK9mT4",
+        "x-402proto-max-price": "0.1",
+        "x-402proto-idempotency-key": "550e8400-e29b-41d4-a716-446655440000"
+      }
+    }
+  ],
+  "response_402": [
+    {
+      "name": "pyth_basic",
+      "status": 402,
+      "headers": {
+        "x-402proto-version": "0.1",
+        "x-402proto-provider": "pyth.oracle",
+        "x-402proto-method": "price.get",
+        "x-402proto-price": "0.001",
+        "x-402proto-currency": "USDC",
+        "x-402proto-recipient": "7xKpRECIPxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "x-402proto-ttl": "12",
+        "x-402proto-chain": "solana-mainnet",
+        "x-402proto-quote-id": "q_AB42xZ",
+        "x-402proto-nonce": "2c4e8a7f1d3b5e6a9f8c0d2e4b6a8c1e"
+      },
+      "_expected_parse": {
+        "version": "0.1",
+        "provider": "pyth.oracle",
+        "method": "price.get",
+        "price": 0.001,
+        "currency": "USDC",
+        "ttl_seconds": 12,
+        "chain": "solana-mainnet"
+      }
+    }
+  ],
+  "rejection_cases": [
+    {
+      "name": "missing_required_header_price",
+      "status": 402,
+      "headers": {
+        "x-402proto-version": "0.1",
+        "x-402proto-provider": "pyth.oracle",
+        "x-402proto-method": "price.get",
+        "x-402proto-currency": "USDC",
+        "x-402proto-recipient": "r",
+        "x-402proto-ttl": "12",
+        "x-402proto-chain": "solana-mainnet",
+        "x-402proto-quote-id": "q",
+        "x-402proto-nonce": "n"
+      },
+      "_expected_error_code": "bad-envelope"
+    },
+    {
+      "name": "non_numeric_price",
+      "status": 402,
+      "headers": {
+        "x-402proto-version": "0.1",
+        "x-402proto-provider": "pyth.oracle",
+        "x-402proto-method": "price.get",
+        "x-402proto-price": "free",
+        "x-402proto-currency": "USDC",
+        "x-402proto-recipient": "r",
+        "x-402proto-ttl": "12",
+        "x-402proto-chain": "solana-mainnet",
+        "x-402proto-quote-id": "q",
+        "x-402proto-nonce": "n"
+      },
+      "_expected_error_code": "bad-envelope"
+    }
+  ]
+}

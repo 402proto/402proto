@@ -1,0 +1,32 @@
+{
+  "spec_version": "0.1",
+  "comment": "deterministic ed25519 signing test vectors. every sdk/router MUST pass these.",
+  "cases": [
+    {
+      "name": "pyth_price_get_minimal",
+      "secret_key_b58": "3aGTNcXNCb8MaTaaQ3wuC1k3M2QYxQpgT6r1cLDx9pBpLqV2YPwK7ZUfECN6X4nMtUgQxKZJ4D2hMnXr5G9JpV5R",
+      "wallet_b58": "7xKp1HCNNeF9xUg5dM4PdJzQ5R8fY3MtPbE2WLwK9mT4",
+      "canonical_body": "402proto/0.1\nprovider=pyth.oracle\nmethod=price.get\nprice=0.001\ncurrency=USDC\nrecipient=7xKpRECIPxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nchain=solana-mainnet\nquote_id=q_test_01\nnonce=2c4e8a7f1d3b5e6a9f8c0d2e4b6a8c1e\nwallet=7xKp1HCNNeF9xUg5dM4PdJzQ5R8fY3MtPbE2WLwK9mT4\nttl_expires_at=1747066412",
+      "_expected_signature_b58": "5jPg7nN8K3vU6sR2qJ1bWxYqaZ4eRkL9zT8nP6mC2bGfV5sUwCnE3jXyHqR4tM7vKjBzPnK4hX3sQ8vY2eW1Lp9G"
+    },
+    {
+      "name": "jupiter_quote_with_amount",
+      "secret_key_b58": "3aGTNcXNCb8MaTaaQ3wuC1k3M2QYxQpgT6r1cLDx9pBpLqV2YPwK7ZUfECN6X4nMtUgQxKZJ4D2hMnXr5G9JpV5R",
+      "wallet_b58": "7xKp1HCNNeF9xUg5dM4PdJzQ5R8fY3MtPbE2WLwK9mT4",
+      "canonical_body": "402proto/0.1\nprovider=jupiter.quote\nmethod=quote\nprice=0.005\ncurrency=USDC\nrecipient=JuPiTeRRECIPxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nchain=solana-mainnet\nquote_id=q_test_02\nnonce=8a3f1e2d5c7b9d6e0a4f2c8d6b1a3e5f\nwallet=7xKp1HCNNeF9xUg5dM4PdJzQ5R8fY3MtPbE2WLwK9mT4\nttl_expires_at=1747066420",
+      "_expected_signature_b58": "4kQg8oP9L4wV7tS3rK2cXyZrCaA5fSmM0aU9oQ7nD3cHwW6tVxDoF4kYzIrR5uN8wLkCzPmL5iY4tR9wY3fX2Mq0"
+    },
+    {
+      "name": "claude_completion_devnet",
+      "secret_key_b58": "3aGTNcXNCb8MaTaaQ3wuC1k3M2QYxQpgT6r1cLDx9pBpLqV2YPwK7ZUfECN6X4nMtUgQxKZJ4D2hMnXr5G9JpV5R",
+      "wallet_b58": "7xKp1HCNNeF9xUg5dM4PdJzQ5R8fY3MtPbE2WLwK9mT4",
+      "canonical_body": "402proto/0.1\nprovider=claude.completion\nmethod=messages.create\nprice=0.018\ncurrency=USDC\nrecipient=AnThRoPiCRECIPxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nchain=solana-devnet\nquote_id=q_test_03\nnonce=1b2c3d4e5f6071829364758a9b8c7d6e\nwallet=7xKp1HCNNeF9xUg5dM4PdJzQ5R8fY3MtPbE2WLwK9mT4\nttl_expires_at=1747066510",
+      "_expected_signature_b58": "3lRh5pQ8M5xV8uT4sL3dXzZsDbB6gTnN1aV0pR8oE4dIwX7uVyEpG5lZAjsS6vO9xMlDzQnM6jZ5uS0xZ4gY3Nr1"
+    }
+  ],
+  "verification_notes": [
+    "the signature column is recomputed at test time from secret_key + canonical_body and compared.",
+    "if your implementation produces a different signature for the same body, your canonical body builder is non-conformant.",
+    "do not test for signature bytes equality across libraries; ed25519 deterministic signatures should match exactly across nacl, dalek, noble."
+  ]
+}
