@@ -388,9 +388,11 @@
           // Get public key (base58 encoded)
           const publicKey = account.address;
 
-          // Store in localStorage
+          // Store in localStorage — shared handoff with /Dashboard.html
           localStorage.setItem('connectedWalletName', wallet.name);
           localStorage.setItem('walletAddress', publicKey);
+          localStorage.setItem('402proto.connectedWallet', publicKey);
+          localStorage.setItem('402proto.connectedWalletName', wallet.name);
 
           // Update UI
           walletAddressEl.textContent = shortenAddress(publicKey);
@@ -430,6 +432,8 @@
         connectedAccount = null;
         localStorage.removeItem('connectedWalletName');
         localStorage.removeItem('walletAddress');
+        localStorage.removeItem('402proto.connectedWallet');
+        localStorage.removeItem('402proto.connectedWalletName');
         showState(walletSelection);
       }
 
@@ -462,6 +466,8 @@
           // Clear stale connection
           localStorage.removeItem('connectedWalletName');
           localStorage.removeItem('walletAddress');
+          localStorage.removeItem('402proto.connectedWallet');
+          localStorage.removeItem('402proto.connectedWalletName');
         }
       }
 

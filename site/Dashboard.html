@@ -142,22 +142,22 @@
     <div class="grid grid-cols-2 md:grid-cols-4 border border-dashed border-white/10 mb-10">
       <div class="p-6 border-r border-dashed border-white/10 border-b md:border-b-0">
         <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-2">Today</p>
-        <p id="kpi-spend" class="text-3xl text-white font-light tracking-tighter font-geist">$28.40</p>
+        <p id="kpi-spend" class="text-3xl text-white font-light tracking-tighter font-geist">$—</p>
         <p class="text-[11px] text-white/40 mt-1 font-geist">usdc spent</p>
       </div>
       <div class="p-6 md:border-r border-dashed border-white/10 border-b md:border-b-0">
         <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-2">Calls</p>
-        <p id="kpi-calls" class="text-3xl text-white font-light tracking-tighter font-geist">412</p>
+        <p id="kpi-calls" class="text-3xl text-white font-light tracking-tighter font-geist">—</p>
         <p class="text-[11px] text-white/40 mt-1 font-geist">last 24h</p>
       </div>
       <div class="p-6 border-r border-dashed border-white/10">
         <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-2">Avg cost</p>
-        <p id="kpi-avg" class="text-3xl text-white font-light tracking-tighter font-geist">$0.069</p>
+        <p id="kpi-avg" class="text-3xl text-white font-light tracking-tighter font-geist">$—</p>
         <p class="text-[11px] text-white/40 mt-1 font-geist">per call</p>
       </div>
       <div class="p-6">
         <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-2">Failover</p>
-        <p id="kpi-failover" class="text-3xl text-mint font-light tracking-tighter font-geist">2.1%</p>
+        <p id="kpi-failover" class="text-3xl text-mint font-light tracking-tighter font-geist">—</p>
         <p class="text-[11px] text-white/40 mt-1 font-geist">healthy</p>
       </div>
     </div>
@@ -199,41 +199,8 @@
           <span class="text-[10px] text-white/30 font-mono">24H</span>
         </div>
         <div class="space-y-4" id="provider-rail">
-          <div class="provider-row">
-            <div class="flex items-center justify-between mb-1.5">
-              <div class="flex items-center gap-2"><img src="pyth.png" alt="" class="w-6 h-6 rounded object-contain"><span class="text-xs text-white font-medium font-geist">pyth.oracle</span></div>
-              <span class="text-[10px] text-white/60 font-mono">$8.40</span>
-            </div>
-            <div class="h-1 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-white/60" style="width: 72%"></div></div>
-          </div>
-          <div class="provider-row">
-            <div class="flex items-center justify-between mb-1.5">
-              <div class="flex items-center gap-2"><img src="7.png" alt="" class="w-6 h-6 rounded object-contain"><span class="text-xs text-white font-medium font-geist">jupiter.quote</span></div>
-              <span class="text-[10px] text-white/60 font-mono">$6.92</span>
-            </div>
-            <div class="h-1 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-white/50" style="width: 58%"></div></div>
-          </div>
-          <div class="provider-row">
-            <div class="flex items-center justify-between mb-1.5">
-              <div class="flex items-center gap-2"><img src="birdeye.png" alt="" class="w-6 h-6 rounded object-contain"><span class="text-xs text-white font-medium font-geist">birdeye.token</span></div>
-              <span class="text-[10px] text-white/60 font-mono">$5.10</span>
-            </div>
-            <div class="h-1 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-white/40" style="width: 43%"></div></div>
-          </div>
-          <div class="provider-row">
-            <div class="flex items-center justify-between mb-1.5">
-              <div class="flex items-center gap-2"><div class="w-6 h-6 rounded bg-white/10 flex items-center justify-center text-[10px] font-mono text-white/60">CL</div><span class="text-xs text-white font-medium font-geist">claude.completion</span></div>
-              <span class="text-[10px] text-white/60 font-mono">$4.20</span>
-            </div>
-            <div class="h-1 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-white/30" style="width: 36%"></div></div>
-          </div>
-          <div class="provider-row">
-            <div class="flex items-center justify-between mb-1.5">
-              <div class="flex items-center gap-2"><div class="w-6 h-6 rounded bg-white/10 flex items-center justify-center text-[10px] font-mono text-white/60">HE</div><span class="text-xs text-white font-medium font-geist">helius.rpc</span></div>
-              <span class="text-[10px] text-white/60 font-mono">$3.78</span>
-            </div>
-            <div class="h-1 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-white/30" style="width: 32%"></div></div>
-          </div>
+          <p class="text-[11px] text-white/40 font-geist">no provider data yet.</p>
+          <p class="text-[10px] text-white/30 font-mono leading-relaxed">your usage shows up here after the first paid call settles.</p>
         </div>
       </div>
     </div>
@@ -328,59 +295,29 @@
       <div class="grid grid-cols-2 md:grid-cols-4 border border-dashed border-white/10 mb-10">
         <div class="p-6 border-r border-dashed border-white/10 border-b md:border-b-0">
           <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-2">7-day spend</p>
-          <p class="text-3xl text-white font-light tracking-tighter font-geist">$198.74</p>
-          <p class="text-[11px] text-white/40 mt-1 font-geist">↑ 14.2% vs prior 7d</p>
+          <p class="text-3xl text-white font-light tracking-tighter font-geist">$—</p>
+          <p class="text-[11px] text-white/40 mt-1 font-geist">awaiting first call</p>
         </div>
         <div class="p-6 md:border-r border-dashed border-white/10 border-b md:border-b-0">
           <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-2">Burn rate</p>
-          <p class="text-3xl text-white font-light tracking-tighter font-geist">$1.18/h</p>
+          <p class="text-3xl text-white font-light tracking-tighter font-geist">$—</p>
           <p class="text-[11px] text-white/40 mt-1 font-geist">last hour</p>
         </div>
         <div class="p-6 border-r border-dashed border-white/10">
           <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-2">Peak hour</p>
-          <p class="text-3xl text-white font-light tracking-tighter font-geist">$4.92</p>
-          <p class="text-[11px] text-white/40 mt-1 font-geist">Tue 14:00 UTC</p>
+          <p class="text-3xl text-white font-light tracking-tighter font-geist">$—</p>
+          <p class="text-[11px] text-white/40 mt-1 font-geist">no data yet</p>
         </div>
         <div class="p-6">
           <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-2">Projected month</p>
-          <p class="text-3xl text-mint font-light tracking-tighter font-geist">$852</p>
-          <p class="text-[11px] text-white/40 mt-1 font-geist">at current rate</p>
+          <p class="text-3xl text-mint font-light tracking-tighter font-geist">$—</p>
+          <p class="text-[11px] text-white/40 mt-1 font-geist">needs 7 days of data</p>
         </div>
       </div>
 
-      <div class="border border-dashed border-white/10 mb-10 p-6">
-        <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-4">Daily spend, last 14 days</p>
-        <div class="flex items-end gap-2 h-56 mb-2">
-          <div class="flex-1 bg-white/10 hover:bg-white/20 transition-colors relative group" style="height: 32%"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-white/40 font-mono opacity-0 group-hover:opacity-100">$8</div></div>
-          <div class="flex-1 bg-white/10 hover:bg-white/20 transition-colors relative group" style="height: 41%"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-white/40 font-mono opacity-0 group-hover:opacity-100">$10</div></div>
-          <div class="flex-1 bg-white/10 hover:bg-white/20 transition-colors relative group" style="height: 28%"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-white/40 font-mono opacity-0 group-hover:opacity-100">$7</div></div>
-          <div class="flex-1 bg-white/10 hover:bg-white/20 transition-colors relative group" style="height: 55%"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-white/40 font-mono opacity-0 group-hover:opacity-100">$14</div></div>
-          <div class="flex-1 bg-white/10 hover:bg-white/20 transition-colors relative group" style="height: 71%"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-white/40 font-mono opacity-0 group-hover:opacity-100">$18</div></div>
-          <div class="flex-1 bg-white/10 hover:bg-white/20 transition-colors relative group" style="height: 49%"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-white/40 font-mono opacity-0 group-hover:opacity-100">$12</div></div>
-          <div class="flex-1 bg-white/10 hover:bg-white/20 transition-colors relative group" style="height: 35%"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-white/40 font-mono opacity-0 group-hover:opacity-100">$9</div></div>
-          <div class="flex-1 bg-white/10 hover:bg-white/20 transition-colors relative group" style="height: 62%"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-white/40 font-mono opacity-0 group-hover:opacity-100">$15</div></div>
-          <div class="flex-1 bg-white/10 hover:bg-white/20 transition-colors relative group" style="height: 78%"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-white/40 font-mono opacity-0 group-hover:opacity-100">$20</div></div>
-          <div class="flex-1 bg-white/10 hover:bg-white/20 transition-colors relative group" style="height: 88%"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-white/40 font-mono opacity-0 group-hover:opacity-100">$22</div></div>
-          <div class="flex-1 bg-white/10 hover:bg-white/20 transition-colors relative group" style="height: 67%"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-white/40 font-mono opacity-0 group-hover:opacity-100">$17</div></div>
-          <div class="flex-1 bg-white/10 hover:bg-white/20 transition-colors relative group" style="height: 95%"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-white/40 font-mono opacity-0 group-hover:opacity-100">$24</div></div>
-          <div class="flex-1 bg-white/10 hover:bg-white/20 transition-colors relative group" style="height: 100%"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-white/40 font-mono opacity-0 group-hover:opacity-100">$25</div></div>
-          <div class="flex-1 bg-white relative group" style="height: 76%"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-white font-mono">$19 today</div></div>
-        </div>
-        <div class="flex justify-between text-[10px] text-white/30 font-mono uppercase tracking-widest">
-          <span>14d ago</span><span>today</span>
-        </div>
-      </div>
-
-      <div class="border border-dashed border-white/10 p-6">
-        <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-4">Spend by provider, last 7 days</p>
-        <div class="space-y-4">
-          <div><div class="flex justify-between text-xs font-mono mb-1"><span class="text-white">pyth.oracle</span><span class="text-white/60">$58.20 · 29%</span></div><div class="h-2 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-white" style="width:29%"></div></div></div>
-          <div><div class="flex justify-between text-xs font-mono mb-1"><span class="text-white">jupiter.quote</span><span class="text-white/60">$48.30 · 24%</span></div><div class="h-2 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-white/80" style="width:24%"></div></div></div>
-          <div><div class="flex justify-between text-xs font-mono mb-1"><span class="text-white">birdeye.token</span><span class="text-white/60">$35.70 · 18%</span></div><div class="h-2 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-white/60" style="width:18%"></div></div></div>
-          <div><div class="flex justify-between text-xs font-mono mb-1"><span class="text-white">claude.completion</span><span class="text-white/60">$29.40 · 15%</span></div><div class="h-2 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-white/50" style="width:15%"></div></div></div>
-          <div><div class="flex justify-between text-xs font-mono mb-1"><span class="text-white">helius.rpc</span><span class="text-white/60">$18.94 · 10%</span></div><div class="h-2 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-white/40" style="width:10%"></div></div></div>
-          <div><div class="flex justify-between text-xs font-mono mb-1"><span class="text-white">anthropic.embed</span><span class="text-white/60">$8.20 · 4%</span></div><div class="h-2 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-white/30" style="width:4%"></div></div></div>
-        </div>
+      <div class="border border-dashed border-white/10 mb-10 p-12 text-center">
+        <p class="text-sm text-white/40 font-geist mb-1">no spend recorded yet</p>
+        <p class="text-[11px] text-white/30 font-mono">your daily, weekly, and per-provider charts appear after the first paid call settles.</p>
       </div>
     </div><!-- /view:spend -->
 
@@ -412,12 +349,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="border-b border-dashed border-white/5 hover:bg-white/[0.02]"><td class="px-6 py-3 text-white font-mono text-xs">agent-prod</td><td class="px-6 py-3 text-white/60 font-mono text-[11px]">7xKp…9mT4</td><td class="px-6 py-3 text-right text-white font-mono text-xs">$10 / day</td><td class="px-6 py-3 text-right text-white font-mono text-xs">$4.82</td><td class="px-6 py-3 text-right text-white font-mono text-xs">156</td><td class="px-6 py-3 text-white/60 font-mono text-[11px]">2m ago</td><td class="px-6 py-3"><span class="inline-flex items-center gap-1.5 text-xs"><span class="status-dot status-settled pulse-dot"></span><span class="text-white/70 font-mono text-[11px]">active</span></span></td></tr>
-            <tr class="border-b border-dashed border-white/5 hover:bg-white/[0.02]"><td class="px-6 py-3 text-white font-mono text-xs">agent-research</td><td class="px-6 py-3 text-white/60 font-mono text-[11px]">9NkR…8hQ2</td><td class="px-6 py-3 text-right text-white font-mono text-xs">$5 / day</td><td class="px-6 py-3 text-right text-white font-mono text-xs">$1.20</td><td class="px-6 py-3 text-right text-white font-mono text-xs">42</td><td class="px-6 py-3 text-white/60 font-mono text-[11px]">11m ago</td><td class="px-6 py-3"><span class="inline-flex items-center gap-1.5 text-xs"><span class="status-dot status-settled pulse-dot"></span><span class="text-white/70 font-mono text-[11px]">active</span></span></td></tr>
-            <tr class="border-b border-dashed border-white/5 hover:bg-white/[0.02]"><td class="px-6 py-3 text-white font-mono text-xs">agent-mev</td><td class="px-6 py-3 text-white/60 font-mono text-[11px]">3PqX…2eL8</td><td class="px-6 py-3 text-right text-white font-mono text-xs">$50 / day</td><td class="px-6 py-3 text-right text-mint font-mono text-xs">$48.91</td><td class="px-6 py-3 text-right text-white font-mono text-xs">2,847</td><td class="px-6 py-3 text-white/60 font-mono text-[11px]">8s ago</td><td class="px-6 py-3"><span class="inline-flex items-center gap-1.5 text-xs"><span class="status-dot status-pending"></span><span class="text-mint font-mono text-[11px]">near cap</span></span></td></tr>
-            <tr class="border-b border-dashed border-white/5 hover:bg-white/[0.02]"><td class="px-6 py-3 text-white font-mono text-xs">agent-a1</td><td class="px-6 py-3 text-white/60 font-mono text-[11px]">5JvD…7nW9</td><td class="px-6 py-3 text-right text-white font-mono text-xs">$2 / day</td><td class="px-6 py-3 text-right text-white font-mono text-xs">$0.40</td><td class="px-6 py-3 text-right text-white font-mono text-xs">87</td><td class="px-6 py-3 text-white/60 font-mono text-[11px]">1h ago</td><td class="px-6 py-3"><span class="inline-flex items-center gap-1.5 text-xs"><span class="status-dot status-settled"></span><span class="text-white/70 font-mono text-[11px]">active</span></span></td></tr>
-            <tr class="border-b border-dashed border-white/5 hover:bg-white/[0.02]"><td class="px-6 py-3 text-white font-mono text-xs">agent-b2</td><td class="px-6 py-3 text-white/60 font-mono text-[11px]">2KwL…4fA1</td><td class="px-6 py-3 text-right text-white font-mono text-xs">$1 / day</td><td class="px-6 py-3 text-right text-white font-mono text-xs">$0.18</td><td class="px-6 py-3 text-right text-white font-mono text-xs">19</td><td class="px-6 py-3 text-white/60 font-mono text-[11px]">3h ago</td><td class="px-6 py-3"><span class="inline-flex items-center gap-1.5 text-xs"><span class="status-dot status-settled"></span><span class="text-white/70 font-mono text-[11px]">active</span></span></td></tr>
-            <tr class="hover:bg-white/[0.02]"><td class="px-6 py-3 text-white/50 font-mono text-xs">agent-test</td><td class="px-6 py-3 text-white/40 font-mono text-[11px]">8MnP…1cV6</td><td class="px-6 py-3 text-right text-white/40 font-mono text-xs">$0.50 / day</td><td class="px-6 py-3 text-right text-red-400 font-mono text-xs">capped</td><td class="px-6 py-3 text-right text-white/40 font-mono text-xs">0</td><td class="px-6 py-3 text-white/40 font-mono text-[11px]">9h ago</td><td class="px-6 py-3"><span class="inline-flex items-center gap-1.5 text-xs"><span class="status-dot status-failed"></span><span class="text-red-400 font-mono text-[11px]">paused</span></span></td></tr>
+            <tr data-empty-agents><td colspan="7" class="px-6 py-16 text-center"><p class="text-sm text-white/40 font-geist mb-1">no agents configured</p><p class="text-[11px] text-white/30 font-mono">click + add agent to register your first agent. configs persist locally; on-chain registration unlocks in v0.2.</p></td></tr>
           </tbody>
         </table>
       </div>
@@ -438,8 +370,8 @@
           <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-2">Wallet daily cap</p>
           <p data-cap="daily-amount" class="text-4xl text-white font-light tracking-tighter font-geist mb-1">$50.00</p>
           <p class="text-xs text-white/40 font-geist mb-6">resets at 00:00 UTC · client-side only</p>
-          <div class="h-2 bg-white/5 rounded-full overflow-hidden mb-2"><div data-cap="daily-bar" class="h-full bg-mint" style="width:56%"></div></div>
-          <div class="flex justify-between text-[10px] text-white/40 font-mono"><span data-cap="daily-used">$28.40 used</span><span data-cap="daily-pct">56%</span></div>
+          <div class="h-2 bg-white/5 rounded-full overflow-hidden mb-2"><div data-cap="daily-bar" class="h-full bg-mint" style="width:0%"></div></div>
+          <div class="flex justify-between text-[10px] text-white/40 font-mono"><span data-cap="daily-used">$0.00 used</span><span data-cap="daily-pct">0%</span></div>
           <div class="mt-8 flex items-center gap-3">
             <button onclick="openConfig('cap-daily')" class="px-4 py-2 text-xs uppercase tracking-widest text-white/70 hover:text-white border border-white/10 hover:border-white/30 rounded font-geist transition-colors">Edit Cap</button>
             <button onclick="larpError('edit-cap','enforce daily cap on-chain')" class="text-[10px] uppercase tracking-widest text-white/50 hover:text-white font-geist transition-colors">Enforce on-chain →</button>
@@ -449,8 +381,8 @@
           <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-2">Per-call cap</p>
           <p data-cap="percall-amount" class="text-4xl text-white font-light tracking-tighter font-geist mb-1">$0.100</p>
           <p class="text-xs text-white/40 font-geist mb-6">max per single api call · client-side only</p>
-          <div class="h-2 bg-white/5 rounded-full overflow-hidden mb-2"><div class="h-full bg-white/30" style="width:18%"></div></div>
-          <div class="flex justify-between text-[10px] text-white/40 font-mono"><span>$0.018 avg</span><span>18%</span></div>
+          <div class="h-2 bg-white/5 rounded-full overflow-hidden mb-2"><div class="h-full bg-white/30" style="width:0%"></div></div>
+          <div class="flex justify-between text-[10px] text-white/40 font-mono"><span>$— avg</span><span>0%</span></div>
           <div class="mt-8 flex items-center gap-3">
             <button onclick="openConfig('cap-per-call')" class="px-4 py-2 text-xs uppercase tracking-widest text-white/70 hover:text-white border border-white/10 hover:border-white/30 rounded font-geist transition-colors">Edit Cap</button>
             <button onclick="larpError('edit-per-call','enforce per-call cap on-chain')" class="text-[10px] uppercase tracking-widest text-white/50 hover:text-white font-geist transition-colors">Enforce on-chain →</button>
@@ -461,17 +393,12 @@
       <div class="border border-dashed border-white/10">
         <div class="flex items-center justify-between px-6 py-4 border-b border-dashed border-white/10">
           <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono">Cap history</p>
-          <span class="text-[10px] text-white/30 font-mono">5 entries</span>
+          <span class="text-[10px] text-white/30 font-mono">no changes yet</span>
         </div>
-        <table class="w-full text-sm font-geist">
-          <tbody>
-            <tr class="border-b border-dashed border-white/5"><td class="px-6 py-3 text-white/60 font-mono text-[11px]">2026-05-12 11:30</td><td class="px-6 py-3 text-white font-mono text-xs">daily cap</td><td class="px-6 py-3 text-white/60 font-mono text-xs">$25.00 → $50.00</td><td class="px-6 py-3 text-right"><span class="text-[10px] uppercase tracking-widest text-mint font-mono">applied</span></td></tr>
-            <tr class="border-b border-dashed border-white/5"><td class="px-6 py-3 text-white/60 font-mono text-[11px]">2026-05-08 14:20</td><td class="px-6 py-3 text-white font-mono text-xs">per-call cap</td><td class="px-6 py-3 text-white/60 font-mono text-xs">$0.050 → $0.100</td><td class="px-6 py-3 text-right"><span class="text-[10px] uppercase tracking-widest text-mint font-mono">applied</span></td></tr>
-            <tr class="border-b border-dashed border-white/5"><td class="px-6 py-3 text-white/60 font-mono text-[11px]">2026-05-02 09:14</td><td class="px-6 py-3 text-white font-mono text-xs">daily cap</td><td class="px-6 py-3 text-white/60 font-mono text-xs">$10.00 → $25.00</td><td class="px-6 py-3 text-right"><span class="text-[10px] uppercase tracking-widest text-mint font-mono">applied</span></td></tr>
-            <tr class="border-b border-dashed border-white/5"><td class="px-6 py-3 text-white/60 font-mono text-[11px]">2026-04-27 18:01</td><td class="px-6 py-3 text-white font-mono text-xs">agent-mev cap</td><td class="px-6 py-3 text-white/60 font-mono text-xs">$30.00 → $50.00</td><td class="px-6 py-3 text-right"><span class="text-[10px] uppercase tracking-widest text-mint font-mono">applied</span></td></tr>
-            <tr><td class="px-6 py-3 text-white/60 font-mono text-[11px]">2026-04-22 12:00</td><td class="px-6 py-3 text-white font-mono text-xs">daily cap</td><td class="px-6 py-3 text-white/60 font-mono text-xs">$5.00 → $10.00</td><td class="px-6 py-3 text-right"><span class="text-[10px] uppercase tracking-widest text-mint font-mono">applied</span></td></tr>
-          </tbody>
-        </table>
+        <div class="px-6 py-12 text-center">
+          <p class="text-sm text-white/40 font-geist mb-1">no cap edits recorded</p>
+          <p class="text-[11px] text-white/30 font-mono">every Edit Cap action shows up here. on-chain enforcement unlocks in v0.2.</p>
+        </div>
       </div>
     </div><!-- /view:caps -->
 
@@ -761,11 +688,11 @@
   function saveState (s) { localStorage.setItem('402proto.state', JSON.stringify(s)); }
 
   const state = loadState() || {
-    balance: 142.50,
-    calls: 412,
-    spend: 28.40,
-    failover: 2.1,
-    recent: bootstrapHistory(),
+    balance: 0,
+    calls: 0,
+    spend: 0,
+    failover: 0,
+    recent: [],
   };
 
   function bootstrapHistory () {
@@ -811,17 +738,21 @@
   // ============ RENDER ============
   let realWalletConnected = false;
   function render () {
-    if (!realWalletConnected) {
-      document.getElementById('wallet-balance').textContent = fmtUsdc(state.balance) + ' USDC';
-    }
-    document.getElementById('kpi-spend').textContent = '$' + state.spend.toFixed(2);
-    document.getElementById('kpi-calls').textContent = state.calls.toString();
-    document.getElementById('kpi-avg').textContent = '$' + (state.spend / Math.max(1, state.calls)).toFixed(3);
-    document.getElementById('kpi-failover').textContent = state.failover.toFixed(1) + '%';
+    // wallet-balance is owned by Phantom connect/disconnect — never overwrite from LARP state
+    document.getElementById('kpi-spend').textContent = state.spend > 0 ? '$' + state.spend.toFixed(2) : '$—';
+    document.getElementById('kpi-calls').textContent = state.calls > 0 ? state.calls.toString() : '—';
+    document.getElementById('kpi-avg').textContent = state.calls > 0 ? '$' + (state.spend / state.calls).toFixed(3) : '$—';
+    document.getElementById('kpi-failover').textContent = state.calls > 0 ? state.failover.toFixed(1) + '%' : '—';
     document.getElementById('recent-count').textContent = state.recent.length;
 
     const tbody = document.getElementById('calls-tbody');
     tbody.innerHTML = '';
+    if (state.recent.length === 0) {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td colspan="7" class="px-6 py-12 text-center"><p class="text-sm text-white/40 font-geist mb-1">no calls yet</p><p class="text-[11px] text-white/30 font-mono">connect a wallet and hit "new call" to make your first paid request.</p></td>`;
+      tbody.appendChild(tr);
+      return;
+    }
     state.recent.slice(0, 12).forEach((c, i) => {
       const tr = document.createElement('tr');
       tr.className = 'border-b border-dashed border-white/5 hover:bg-white/[0.02] transition-colors' + (i === 0 ? ' row-enter' : '');
@@ -921,6 +852,16 @@
       message: 'the settings service is not deployed. v0.1 reads settings from env vars only (PROTO402_*). settings ui is wired but the backend lands when 402PIP-04 + mainnet settle ship together in v0.2.',
       link: 'https://github.com/402proto/402proto/blob/main/ROADMAP.md',
     },
+    'connect-first': {
+      code: '424 missing wallet',
+      status: '424 No Wallet',
+      xerror: 'wallet-not-connected',
+      pip: 'n/a',
+      tier: 'connected wallet',
+      title: 'connect a wallet to make calls',
+      message: 'every paid call settles in usdc on solana — that means a solana wallet needs to sign the transfer. click Connect in the top-right and approve the dapp in phantom, then come back here.',
+      link: 'https://phantom.app',
+    },
     'spend-report': {
       code: '402 payment required',
       status: '402 Payment Required',
@@ -987,7 +928,7 @@
   // ============ CONFIG MODAL (real save to localStorage) ============
   const CONFIG_KEY = '402proto.config';
   const defaultConfig = {
-    caps: { daily: 50.00, perCall: 0.100, dailySpent: 28.40 },
+    caps: { daily: 50.00, perCall: 0.100, dailySpent: 0 },
     settings: { network: 'solana-mainnet', rpcUrl: 'https://api.mainnet-beta.solana.com', specVersion: '0.1', telemetry: true },
     agents: [],     // user-added; baseline ones stay in DOM
     providers: [],  // user-added; baseline 6 stay in DOM
@@ -1180,6 +1121,9 @@
     if (!tbody) return;
     // strip previously-prepended custom rows
     tbody.querySelectorAll('[data-custom-agent]').forEach(r => r.remove());
+    // toggle empty placeholder
+    const empty = tbody.querySelector('[data-empty-agents]');
+    if (empty) empty.style.display = config.agents.length > 0 ? 'none' : '';
     // prepend each custom agent
     for (const a of config.agents) {
       const tr = document.createElement('tr');
@@ -1297,20 +1241,9 @@
     try {
       const resp = await window.solana.connect();
       const pubkey = resp.publicKey.toString();
-      document.getElementById('wallet-addr').textContent = shortPubkey(pubkey);
-      document.getElementById('settings-wallet').value = pubkey;
-      document.getElementById('connect-phantom').classList.add('hidden');
-      document.getElementById('disconnect-wallet').classList.remove('hidden');
-      realWalletConnected = true;
-
-      document.getElementById('wallet-balance').textContent = 'loading…';
-      try {
-        const bal = await fetchUsdcBalance(pubkey);
-        document.getElementById('wallet-balance').textContent = bal.toFixed(2) + ' USDC';
-      } catch (e) {
-        document.getElementById('wallet-balance').textContent = '— USDC';
-        console.warn('balance fetch failed', e);
-      }
+      localStorage.setItem('402proto.connectedWallet', pubkey);
+      localStorage.setItem('402proto.connectedWalletName', 'Phantom');
+      activateConnectedUI(pubkey);
     } catch (e) {
       console.warn(e);
     }
@@ -1319,6 +1252,8 @@
   async function disconnectWallet() {
     try { await window.solana?.disconnect(); } catch {}
     realWalletConnected = false;
+    localStorage.removeItem('402proto.connectedWallet');
+    localStorage.removeItem('402proto.connectedWalletName');
     document.getElementById('wallet-addr').textContent = 'not connected';
     document.getElementById('wallet-balance').textContent = '— USDC';
     document.getElementById('settings-wallet').value = 'not connected';
@@ -1329,19 +1264,35 @@
   document.getElementById('connect-phantom').addEventListener('click', connectPhantom);
   document.getElementById('disconnect-wallet').addEventListener('click', disconnectWallet);
 
-  // try silent reconnect if previously trusted
-  if (window.solana?.isPhantom) {
+  // === handoff from /Login.html (or previous /Dashboard.html session) ===
+  function activateConnectedUI (pk) {
+    realWalletConnected = true;
+    document.getElementById('wallet-addr').textContent = shortPubkey(pk);
+    document.getElementById('settings-wallet').value = pk;
+    document.getElementById('connect-phantom').classList.add('hidden');
+    document.getElementById('disconnect-wallet').classList.remove('hidden');
+    document.getElementById('wallet-balance').textContent = 'loading…';
+    fetchUsdcBalance(pk).then(b => {
+      document.getElementById('wallet-balance').textContent = b.toFixed(2) + ' USDC';
+    }).catch(() => {
+      document.getElementById('wallet-balance').textContent = '— USDC';
+    });
+  }
+
+  const handoffWallet = localStorage.getItem('402proto.connectedWallet');
+  if (handoffWallet) {
+    // immediately show as connected based on the Login.html handoff
+    activateConnectedUI(handoffWallet);
+  }
+
+  // also try Phantom silent reconnect (covers users who came in via /Dashboard.html directly)
+  if (window.solana?.isPhantom && !realWalletConnected) {
     window.solana.connect({ onlyIfTrusted: true }).then(resp => {
       if (resp?.publicKey) {
         const pk = resp.publicKey.toString();
-        realWalletConnected = true;
-        document.getElementById('wallet-addr').textContent = shortPubkey(pk);
-        document.getElementById('settings-wallet').value = pk;
-        document.getElementById('connect-phantom').classList.add('hidden');
-        document.getElementById('disconnect-wallet').classList.remove('hidden');
-        fetchUsdcBalance(pk).then(b => {
-          document.getElementById('wallet-balance').textContent = b.toFixed(2) + ' USDC';
-        }).catch(() => {});
+        localStorage.setItem('402proto.connectedWallet', pk);
+        localStorage.setItem('402proto.connectedWalletName', 'Phantom');
+        activateConnectedUI(pk);
       }
     }).catch(() => {});
   }
@@ -1368,7 +1319,13 @@
     ({form: stageForm, quote: stageQuote, settling: stageSettling, settled: stageSettled})[name].classList.remove('hidden');
   }
 
-  document.getElementById('open-modal').addEventListener('click', openModal);
+  document.getElementById('open-modal').addEventListener('click', () => {
+    if (!realWalletConnected) {
+      larpError('connect-first', 'open new call');
+      return;
+    }
+    openModal();
+  });
   document.getElementById('close-modal').addEventListener('click', closeModal);
   overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
 
@@ -1482,23 +1439,7 @@
     a.click();
   });
 
-  // ============ AUTO-LARP: ambient activity ============
-  setInterval(() => {
-    if (Math.random() > 0.7) {
-      const providers = Object.keys(PROVIDER_DEFAULTS);
-      const p = providers[Math.floor(Math.random()*providers.length)];
-      const def = PROVIDER_DEFAULTS[p];
-      state.recent.unshift({
-        provider: p, method: def.method, agent: AGENTS[Math.floor(Math.random()*AGENTS.length)],
-        price: def.price, tx: fakeTx(), status: Math.random() > 0.98 ? 'failed' : 'settled', ts: Date.now(),
-      });
-      state.recent = state.recent.slice(0, 24);
-      state.calls += 1;
-      state.spend = +(state.spend + def.price).toFixed(4);
-      saveState(state);
-      render();
-    }
-  }, 8_000);
+  // ambient activity removed — new users see an honest empty state until they make their first call
 
   // ESC to close modal
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && !overlay.classList.contains('hidden')) closeModal(); });
