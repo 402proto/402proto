@@ -392,7 +392,7 @@
           <h1 class="text-3xl md:text-4xl text-white font-light tracking-tighter font-geist">your fleet.</h1>
           <p class="text-sm text-white/50 mt-2 font-geist max-w-md">every agent runs under its own wallet with its own cap. nothing shares state with anything.</p>
         </div>
-        <button onclick="larpError('add-agent','register new agent')" class="px-4 py-2 text-xs uppercase tracking-widest bg-white text-black hover:bg-gray-200 rounded font-geist font-medium transition-colors flex items-center gap-2">
+        <button onclick="openConfig('new-agent')" class="px-4 py-2 text-xs uppercase tracking-widest bg-white text-black hover:bg-gray-200 rounded font-geist font-medium transition-colors flex items-center gap-2">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
           Add Agent
         </button>
@@ -436,19 +436,25 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 border border-white/10 mb-10">
         <div class="bg-[#05080A] p-8">
           <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-2">Wallet daily cap</p>
-          <p class="text-4xl text-white font-light tracking-tighter font-geist mb-1">$50.00</p>
-          <p class="text-xs text-white/40 font-geist mb-6">resets at 00:00 UTC</p>
-          <div class="h-2 bg-white/5 rounded-full overflow-hidden mb-2"><div class="h-full bg-mint" style="width:56%"></div></div>
-          <div class="flex justify-between text-[10px] text-white/40 font-mono"><span>$28.40 used</span><span>56%</span></div>
-          <button onclick="larpError('edit-cap','edit daily cap')" class="mt-8 px-4 py-2 text-xs uppercase tracking-widest text-white/70 hover:text-white border border-white/10 hover:border-white/30 rounded font-geist transition-colors">Edit Cap</button>
+          <p data-cap="daily-amount" class="text-4xl text-white font-light tracking-tighter font-geist mb-1">$50.00</p>
+          <p class="text-xs text-white/40 font-geist mb-6">resets at 00:00 UTC · client-side only</p>
+          <div class="h-2 bg-white/5 rounded-full overflow-hidden mb-2"><div data-cap="daily-bar" class="h-full bg-mint" style="width:56%"></div></div>
+          <div class="flex justify-between text-[10px] text-white/40 font-mono"><span data-cap="daily-used">$28.40 used</span><span data-cap="daily-pct">56%</span></div>
+          <div class="mt-8 flex items-center gap-3">
+            <button onclick="openConfig('cap-daily')" class="px-4 py-2 text-xs uppercase tracking-widest text-white/70 hover:text-white border border-white/10 hover:border-white/30 rounded font-geist transition-colors">Edit Cap</button>
+            <button onclick="larpError('edit-cap','enforce daily cap on-chain')" class="text-[10px] uppercase tracking-widest text-white/50 hover:text-white font-geist transition-colors">Enforce on-chain →</button>
+          </div>
         </div>
         <div class="bg-[#05080A] p-8">
           <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-2">Per-call cap</p>
-          <p class="text-4xl text-white font-light tracking-tighter font-geist mb-1">$0.100</p>
-          <p class="text-xs text-white/40 font-geist mb-6">max per single api call</p>
+          <p data-cap="percall-amount" class="text-4xl text-white font-light tracking-tighter font-geist mb-1">$0.100</p>
+          <p class="text-xs text-white/40 font-geist mb-6">max per single api call · client-side only</p>
           <div class="h-2 bg-white/5 rounded-full overflow-hidden mb-2"><div class="h-full bg-white/30" style="width:18%"></div></div>
           <div class="flex justify-between text-[10px] text-white/40 font-mono"><span>$0.018 avg</span><span>18%</span></div>
-          <button onclick="larpError('edit-per-call','edit per-call cap')" class="mt-8 px-4 py-2 text-xs uppercase tracking-widest text-white/70 hover:text-white border border-white/10 hover:border-white/30 rounded font-geist transition-colors">Edit Cap</button>
+          <div class="mt-8 flex items-center gap-3">
+            <button onclick="openConfig('cap-per-call')" class="px-4 py-2 text-xs uppercase tracking-widest text-white/70 hover:text-white border border-white/10 hover:border-white/30 rounded font-geist transition-colors">Edit Cap</button>
+            <button onclick="larpError('edit-per-call','enforce per-call cap on-chain')" class="text-[10px] uppercase tracking-widest text-white/50 hover:text-white font-geist transition-colors">Enforce on-chain →</button>
+          </div>
         </div>
       </div>
 
@@ -477,7 +483,7 @@
           <h1 class="text-3xl md:text-4xl text-white font-light tracking-tighter font-geist">72+ paid apis, one wallet.</h1>
           <p class="text-sm text-white/50 mt-2 font-geist max-w-md">v0.1 ships six providers. catalog opens up in v0.2 once 402PIP-04 lands.</p>
         </div>
-        <button onclick="larpError('add-provider','register new provider')" class="px-4 py-2 text-xs uppercase tracking-widest bg-white text-black hover:bg-gray-200 rounded font-geist font-medium transition-colors flex items-center gap-2">
+        <button onclick="openConfig('new-provider')" class="px-4 py-2 text-xs uppercase tracking-widest bg-white text-black hover:bg-gray-200 rounded font-geist font-medium transition-colors flex items-center gap-2">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
           Add Provider
         </button>
@@ -512,25 +518,28 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6 border-b border-dashed border-white/10">
           <label class="text-[10px] uppercase tracking-widest text-white/40 font-mono">Network</label>
-          <select class="md:col-span-2 bg-[#05080A] border border-white/10 rounded px-3 py-2 text-xs font-mono text-white"><option>solana-mainnet</option><option>solana-devnet</option></select>
+          <select disabled class="md:col-span-2 bg-[#05080A] border border-white/10 rounded px-3 py-2 text-xs font-mono text-white opacity-80 cursor-not-allowed"><option>solana-mainnet</option><option>solana-devnet</option></select>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6 border-b border-dashed border-white/10">
           <label class="text-[10px] uppercase tracking-widest text-white/40 font-mono">RPC endpoint</label>
-          <input type="text" value="https://api.mainnet-beta.solana.com" class="md:col-span-2 bg-[#05080A] border border-white/10 rounded px-3 py-2 text-xs font-mono text-white">
+          <input type="text" value="https://api.mainnet-beta.solana.com" readonly class="md:col-span-2 bg-[#05080A] border border-white/10 rounded px-3 py-2 text-xs font-mono text-white opacity-80 cursor-not-allowed">
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6 border-b border-dashed border-white/10">
           <label class="text-[10px] uppercase tracking-widest text-white/40 font-mono">Default spec version</label>
-          <input type="text" value="0.1" class="md:col-span-2 bg-[#05080A] border border-white/10 rounded px-3 py-2 text-xs font-mono text-white">
+          <input type="text" value="0.1" readonly class="md:col-span-2 bg-[#05080A] border border-white/10 rounded px-3 py-2 text-xs font-mono text-white opacity-80 cursor-not-allowed">
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6">
           <label class="text-[10px] uppercase tracking-widest text-white/40 font-mono">Telemetry</label>
-          <div class="md:col-span-2 flex items-center gap-2 text-xs text-white/60 font-mono"><input type="checkbox" checked class="accent-white"><span>send anonymous usage metrics (helps prioritize providers)</span></div>
+          <div class="md:col-span-2 flex items-center gap-2 text-xs text-white/60 font-mono"><input type="checkbox" checked disabled class="accent-white"><span>send anonymous usage metrics (helps prioritize providers)</span></div>
         </div>
       </div>
 
       <div class="flex items-center justify-between flex-wrap gap-3">
-        <p class="text-[11px] text-white/40 font-mono">changes apply on save. they do not retroactively affect signed quotes.</p>
-        <button onclick="larpError('save-settings','save settings')" class="px-6 py-3 text-xs uppercase tracking-widest bg-white text-black hover:bg-gray-200 rounded font-geist font-medium transition-colors">Save Settings</button>
+        <p class="text-[11px] text-white/40 font-mono">edits persist locally in this browser. on-chain sync arrives with 402PIP-04.</p>
+        <div class="flex items-center gap-3">
+          <button onclick="larpError('save-settings','sync settings to chain')" class="text-[10px] uppercase tracking-widest text-white/50 hover:text-white font-geist transition-colors">Sync to chain →</button>
+          <button onclick="openConfig('settings')" class="px-6 py-3 text-xs uppercase tracking-widest bg-white text-black hover:bg-gray-200 rounded font-geist font-medium transition-colors">Edit Settings</button>
+        </div>
       </div>
     </div><!-- /view:settings -->
 
@@ -541,6 +550,45 @@
     </div>
 
   </main>
+</div>
+
+<!-- CONFIG MODAL (real save) -->
+<div id="config-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+  <div id="config-card" class="modal-in bg-[#0B0F13] border border-white/10 rounded-lg shadow-2xl w-full max-w-lg overflow-hidden">
+    <div class="flex items-center justify-between px-6 py-4 border-b border-dashed border-white/10">
+      <div>
+        <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-1" id="config-kind">configure</p>
+        <h3 class="text-lg text-white font-medium font-geist" id="config-title">edit</h3>
+      </div>
+      <button id="close-config" class="text-white/40 hover:text-white p-2 rounded hover:bg-white/5">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+      </button>
+    </div>
+    <div class="p-6">
+      <div id="config-fields" class="space-y-4 mb-6"></div>
+      <p class="text-[11px] text-white/40 font-mono mb-4" id="config-help">saved to local storage. v0.1 does not sync configs on-chain. v0.2 enables on-chain enforcement via 402PIP-04.</p>
+      <div class="flex items-center justify-between gap-3 flex-wrap">
+        <button id="config-onchain" class="text-[10px] uppercase tracking-widest text-white/50 hover:text-white font-geist transition-colors">Activate on-chain →</button>
+        <div class="flex gap-2">
+          <button id="config-cancel" class="px-3 py-2 text-[10px] uppercase tracking-widest text-white/70 hover:text-white border border-white/10 hover:border-white/30 rounded font-geist transition-colors">Cancel</button>
+          <button id="config-save" class="px-4 py-2 text-[10px] uppercase tracking-widest bg-white text-black hover:bg-gray-200 rounded font-geist font-medium transition-colors">Save Locally</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="fixed bottom-6 right-6 z-50 hidden bg-[#0B0F13] border border-white/20 rounded-lg shadow-2xl px-4 py-3 max-w-sm">
+  <div class="flex items-start gap-3">
+    <div class="w-6 h-6 rounded-full bg-white/10 border border-white/20 flex items-center justify-center shrink-0">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-mint"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    </div>
+    <div class="flex-1 min-w-0">
+      <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-1" id="toast-kind">saved</p>
+      <p class="text-xs text-white font-geist" id="toast-message">config persisted</p>
+    </div>
+  </div>
 </div>
 
 <!-- LARP ERROR MODAL -->
@@ -935,6 +983,271 @@
     });
   }
   window.copyErrorForTweet = copyErrorForTweet;
+
+  // ============ CONFIG MODAL (real save to localStorage) ============
+  const CONFIG_KEY = '402proto.config';
+  const defaultConfig = {
+    caps: { daily: 50.00, perCall: 0.100, dailySpent: 28.40 },
+    settings: { network: 'solana-mainnet', rpcUrl: 'https://api.mainnet-beta.solana.com', specVersion: '0.1', telemetry: true },
+    agents: [],     // user-added; baseline ones stay in DOM
+    providers: [],  // user-added; baseline 6 stay in DOM
+  };
+
+  function loadConfig () {
+    try {
+      const parsed = JSON.parse(localStorage.getItem(CONFIG_KEY)) || {};
+      return { ...defaultConfig, ...parsed, caps: { ...defaultConfig.caps, ...(parsed.caps||{}) }, settings: { ...defaultConfig.settings, ...(parsed.settings||{}) }, agents: parsed.agents || [], providers: parsed.providers || [] };
+    } catch { return JSON.parse(JSON.stringify(defaultConfig)); }
+  }
+  function saveConfig (c) { localStorage.setItem(CONFIG_KEY, JSON.stringify(c)); }
+  const config = loadConfig();
+
+  function toast (kind, message) {
+    const el = document.getElementById('toast');
+    document.getElementById('toast-kind').textContent = kind;
+    document.getElementById('toast-message').textContent = message;
+    el.classList.remove('hidden');
+    clearTimeout(window._toastTimer);
+    window._toastTimer = setTimeout(() => el.classList.add('hidden'), 3200);
+  }
+
+  const CONFIG_RECIPES = {
+    'cap-daily': {
+      kind: 'spend caps',
+      title: 'daily usdc cap',
+      fields: [
+        { name: 'daily', label: 'daily cap (usdc)', type: 'number', step: '0.01', min: '0', value: () => config.caps.daily },
+      ],
+      onSave: (v) => { config.caps.daily = parseFloat(v.daily) || 0; saveConfig(config); rerenderCaps(); },
+      onChainKind: 'edit-cap',
+    },
+    'cap-per-call': {
+      kind: 'spend caps',
+      title: 'per-call usdc cap',
+      fields: [
+        { name: 'perCall', label: 'max usdc / call', type: 'number', step: '0.0001', min: '0', value: () => config.caps.perCall },
+      ],
+      onSave: (v) => { config.caps.perCall = parseFloat(v.perCall) || 0; saveConfig(config); rerenderCaps(); },
+      onChainKind: 'edit-per-call',
+    },
+    'new-agent': {
+      kind: 'agents',
+      title: 'register a new agent',
+      fields: [
+        { name: 'name', label: 'agent name', type: 'text', placeholder: 'agent-new', value: () => '' },
+        { name: 'wallet', label: 'wallet pubkey (base58)', type: 'text', placeholder: '7xKp...', value: () => '' },
+        { name: 'cap', label: 'daily cap (usdc)', type: 'number', step: '0.01', min: '0', value: () => 5 },
+        { name: 'maxPerCall', label: 'max per-call (usdc)', type: 'number', step: '0.0001', min: '0', value: () => 0.05 },
+      ],
+      onSave: (v) => {
+        if (!v.name || !v.wallet) { toast('rejected', 'name and wallet are required'); return false; }
+        config.agents.unshift({
+          name: v.name, wallet: v.wallet, cap: parseFloat(v.cap) || 0, maxPerCall: parseFloat(v.maxPerCall) || 0,
+          spent: 0, calls: 0, lastCall: null, status: 'configured',
+        });
+        saveConfig(config);
+        rerenderAgents();
+        return true;
+      },
+      onChainKind: 'add-agent',
+    },
+    'new-provider': {
+      kind: 'providers',
+      title: 'register a new provider',
+      fields: [
+        { name: 'id', label: 'provider id (e.g. mycorp.search)', type: 'text', placeholder: 'mycorp.search', value: () => '' },
+        { name: 'category', label: 'category', type: 'text', placeholder: 'search', value: () => 'search' },
+        { name: 'baseUrl', label: 'base url', type: 'text', placeholder: 'https://api.mycorp.com', value: () => '' },
+        { name: 'methods', label: 'methods (comma-separated)', type: 'text', placeholder: 'search.text, search.images', value: () => '' },
+        { name: 'price', label: 'est. price / call (usdc)', type: 'number', step: '0.0001', min: '0', value: () => 0.001 },
+      ],
+      onSave: (v) => {
+        if (!v.id || !v.baseUrl) { toast('rejected', 'id and base url are required'); return false; }
+        config.providers.unshift({
+          id: v.id, category: v.category || 'other', baseUrl: v.baseUrl,
+          methods: (v.methods || '').split(',').map(s => s.trim()).filter(Boolean),
+          price: parseFloat(v.price) || 0, status: 'configured',
+        });
+        saveConfig(config);
+        rerenderProviders();
+        return true;
+      },
+      onChainKind: 'add-provider',
+    },
+    'settings': {
+      kind: 'settings',
+      title: 'how 402proto talks to your wallet',
+      fields: [
+        { name: 'network', label: 'network', type: 'select', options: ['solana-mainnet','solana-devnet'], value: () => config.settings.network },
+        { name: 'rpcUrl', label: 'rpc endpoint', type: 'text', value: () => config.settings.rpcUrl },
+        { name: 'specVersion', label: 'spec version', type: 'text', value: () => config.settings.specVersion },
+        { name: 'telemetry', label: 'send anonymous usage metrics', type: 'checkbox', value: () => config.settings.telemetry },
+      ],
+      onSave: (v) => {
+        config.settings.network = v.network;
+        config.settings.rpcUrl = v.rpcUrl;
+        config.settings.specVersion = v.specVersion;
+        config.settings.telemetry = !!v.telemetry;
+        saveConfig(config);
+        rerenderSettings();
+      },
+      onChainKind: 'save-settings',
+    },
+  };
+
+  const configOverlay = document.getElementById('config-overlay');
+
+  function openConfig (kind) {
+    const recipe = CONFIG_RECIPES[kind];
+    if (!recipe) return;
+    document.getElementById('config-kind').textContent = recipe.kind;
+    document.getElementById('config-title').textContent = recipe.title;
+    const fieldsEl = document.getElementById('config-fields');
+    fieldsEl.innerHTML = '';
+    for (const f of recipe.fields) {
+      const wrap = document.createElement('div');
+      const labelHtml = `<label class="block text-[10px] uppercase tracking-widest text-white/40 font-mono mb-2">${escapeHtmlSafe(f.label)}</label>`;
+      if (f.type === 'select') {
+        wrap.innerHTML = labelHtml + `<select data-field="${f.name}" class="w-full bg-[#05080A] border border-white/10 rounded px-3 py-2 text-sm text-white font-mono focus:outline-none focus:border-white/30">${f.options.map(o => `<option value="${o}" ${o===f.value()?'selected':''}>${o}</option>`).join('')}</select>`;
+      } else if (f.type === 'checkbox') {
+        wrap.innerHTML = `<label class="flex items-center gap-3 text-xs text-white/70 font-mono cursor-pointer"><input data-field="${f.name}" type="checkbox" ${f.value() ? 'checked' : ''} class="accent-white w-4 h-4"><span>${escapeHtmlSafe(f.label)}</span></label>`;
+      } else {
+        wrap.innerHTML = labelHtml + `<input data-field="${f.name}" type="${f.type}" ${f.step?`step="${f.step}"`:''} ${f.min?`min="${f.min}"`:''} placeholder="${escapeHtmlSafe(f.placeholder||'')}" value="${escapeHtmlSafe(String(f.value()))}" class="w-full bg-[#05080A] border border-white/10 rounded px-3 py-2 text-sm text-white font-mono focus:outline-none focus:border-white/30">`;
+      }
+      fieldsEl.appendChild(wrap);
+    }
+    window._currentConfigRecipe = recipe;
+    configOverlay.classList.remove('hidden');
+    configOverlay.classList.add('flex');
+    setTimeout(() => fieldsEl.querySelector('input,select')?.focus(), 50);
+  }
+  window.openConfig = openConfig;
+
+  function closeConfig () {
+    configOverlay.classList.add('hidden');
+    configOverlay.classList.remove('flex');
+    window._currentConfigRecipe = null;
+  }
+
+  document.getElementById('close-config').addEventListener('click', closeConfig);
+  document.getElementById('config-cancel').addEventListener('click', closeConfig);
+  configOverlay.addEventListener('click', (e) => { if (e.target.id === 'config-overlay') closeConfig(); });
+
+  document.getElementById('config-save').addEventListener('click', () => {
+    const recipe = window._currentConfigRecipe;
+    if (!recipe) return;
+    const values = {};
+    document.querySelectorAll('#config-fields [data-field]').forEach(el => {
+      values[el.dataset.field] = el.type === 'checkbox' ? el.checked : el.value;
+    });
+    const ok = recipe.onSave(values);
+    if (ok === false) return; // validation failed; toast shown by onSave
+    toast('saved', `${recipe.kind} updated · only persisted locally`);
+    closeConfig();
+  });
+
+  document.getElementById('config-onchain').addEventListener('click', () => {
+    const recipe = window._currentConfigRecipe;
+    if (!recipe) return;
+    closeConfig();
+    larpError(recipe.onChainKind, 'activate on-chain');
+  });
+
+  function escapeHtmlSafe (s) {
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  // ============ RERENDERERS ============
+  function rerenderCaps () {
+    const dailyEl = document.querySelector('[data-cap="daily-amount"]');
+    const dailyPctEl = document.querySelector('[data-cap="daily-pct"]');
+    const dailyBarEl = document.querySelector('[data-cap="daily-bar"]');
+    const dailyUsedEl = document.querySelector('[data-cap="daily-used"]');
+    if (dailyEl) {
+      dailyEl.textContent = '$' + config.caps.daily.toFixed(2);
+      const used = Math.min(config.caps.dailySpent, config.caps.daily);
+      const pct = config.caps.daily > 0 ? Math.round((used / config.caps.daily) * 100) : 0;
+      if (dailyBarEl) dailyBarEl.style.width = pct + '%';
+      if (dailyPctEl) dailyPctEl.textContent = pct + '%';
+      if (dailyUsedEl) dailyUsedEl.textContent = '$' + used.toFixed(2) + ' used';
+    }
+    const perCallEl = document.querySelector('[data-cap="percall-amount"]');
+    if (perCallEl) perCallEl.textContent = '$' + config.caps.perCall.toFixed(3);
+  }
+
+  function rerenderAgents () {
+    const tbody = document.querySelector('[data-view="agents"] tbody');
+    if (!tbody) return;
+    // strip previously-prepended custom rows
+    tbody.querySelectorAll('[data-custom-agent]').forEach(r => r.remove());
+    // prepend each custom agent
+    for (const a of config.agents) {
+      const tr = document.createElement('tr');
+      tr.dataset.customAgent = '1';
+      tr.className = 'border-b border-dashed border-white/5 hover:bg-white/[0.02]';
+      const walletShort = a.wallet.length > 12 ? a.wallet.slice(0,4) + '…' + a.wallet.slice(-4) : a.wallet;
+      tr.innerHTML = `
+        <td class="px-6 py-3 text-white font-mono text-xs">${escapeHtmlSafe(a.name)}</td>
+        <td class="px-6 py-3 text-white/60 font-mono text-[11px]">${escapeHtmlSafe(walletShort)}</td>
+        <td class="px-6 py-3 text-right text-white font-mono text-xs">$${a.cap.toFixed(2)} / day</td>
+        <td class="px-6 py-3 text-right text-white/40 font-mono text-xs">$0.00</td>
+        <td class="px-6 py-3 text-right text-white/40 font-mono text-xs">0</td>
+        <td class="px-6 py-3 text-white/40 font-mono text-[11px]">never</td>
+        <td class="px-6 py-3"><span class="inline-flex items-center gap-1.5 text-xs"><span class="status-dot" style="background:#eab308"></span><span class="text-mint font-mono text-[11px]">configured</span> <button onclick="larpError('add-agent','activate on-chain')" class="ml-2 text-[9px] uppercase tracking-widest text-white/40 hover:text-white">activate →</button></span></td>
+      `;
+      tbody.prepend(tr);
+    }
+  }
+
+  function rerenderProviders () {
+    const grid = document.querySelector('[data-view="providers"] .grid');
+    if (!grid) return;
+    grid.querySelectorAll('[data-custom-provider]').forEach(c => c.remove());
+    for (const p of config.providers) {
+      const card = document.createElement('div');
+      card.dataset.customProvider = '1';
+      card.className = 'bg-[#05080A] p-6';
+      const initials = p.id.split('.')[0].slice(0,2).toUpperCase();
+      card.innerHTML = `
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded bg-mint/10 border border-mint/30 flex items-center justify-center text-xs font-mono text-mint">${initials}</div>
+          <div>
+            <p class="text-sm text-white font-mono">${escapeHtmlSafe(p.id)}</p>
+            <p class="text-[10px] text-white/40 uppercase tracking-widest font-mono">${escapeHtmlSafe(p.category)}</p>
+          </div>
+        </div>
+        <p class="text-xs text-white/60 font-geist mb-3">${escapeHtmlSafe(p.baseUrl)}</p>
+        ${p.methods.length ? `<p class="text-[10px] text-white/40 font-mono mb-4">methods: ${escapeHtmlSafe(p.methods.join(', '))}</p>` : ''}
+        <div class="flex items-center justify-between text-[11px] font-mono">
+          <span class="text-white/40">$${p.price.toFixed(4)} / call</span>
+          <button onclick="larpError('add-provider','register on-chain')" class="inline-flex items-center gap-1 text-mint hover:text-white">
+            <span class="status-dot" style="background:#eab308"></span>configured · register →
+          </button>
+        </div>
+      `;
+      grid.prepend(card);
+    }
+  }
+
+  function rerenderSettings () {
+    const w = document.getElementById('settings-wallet');
+    // Network select
+    const settingsView = document.querySelector('[data-view="settings"]');
+    if (!settingsView) return;
+    const networkSelect = settingsView.querySelector('select');
+    if (networkSelect) networkSelect.value = config.settings.network;
+    const inputs = settingsView.querySelectorAll('input[type="text"]');
+    if (inputs[1]) inputs[1].value = config.settings.rpcUrl;     // RPC
+    if (inputs[2]) inputs[2].value = config.settings.specVersion; // spec version
+    const cb = settingsView.querySelector('input[type="checkbox"]');
+    if (cb) cb.checked = config.settings.telemetry;
+  }
+
+  // initial render of persisted state
+  rerenderCaps();
+  rerenderAgents();
+  rerenderProviders();
+  rerenderSettings();
 
   // ============ PHANTOM WALLET CONNECT ============
   const USDC_MINT_MAINNET = 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v';
