@@ -449,7 +449,7 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6 border-b border-dashed border-white/10">
           <label class="text-[10px] uppercase tracking-widest text-white/40 font-mono">RPC endpoint</label>
-          <input type="text" value="https://api.mainnet-beta.ethereum.com" readonly class="md:col-span-2 bg-[#05080A] border border-white/10 rounded px-3 py-2 text-xs font-mono text-white opacity-80 cursor-not-allowed">
+          <input type="text" value="https://eth.llamarpc.com" readonly class="md:col-span-2 bg-[#05080A] border border-white/10 rounded px-3 py-2 text-xs font-mono text-white opacity-80 cursor-not-allowed">
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6 border-b border-dashed border-white/10">
           <label class="text-[10px] uppercase tracking-widest text-white/40 font-mono">Default spec version</label>
@@ -929,7 +929,7 @@
   const CONFIG_KEY = '402proto.config';
   const defaultConfig = {
     caps: { daily: 50.00, perCall: 0.100, dailySpent: 0 },
-    settings: { network: 'ethereum-mainnet', rpcUrl: 'https://api.mainnet-beta.ethereum.com', specVersion: '0.1', telemetry: true },
+    settings: { network: 'ethereum-mainnet', rpcUrl: 'https://eth.llamarpc.com', specVersion: '0.1', telemetry: true },
     agents: [],     // user-added; baseline ones stay in DOM
     providers: [],  // user-added; baseline 6 stay in DOM
   };
@@ -1195,7 +1195,7 @@
 
   // ============ METAMASK WALLET CONNECT ============
   const USDC_MINT_MAINNET = 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v';
-  const ETHEREUM_RPC = 'https://api.mainnet-beta.ethereum.com';
+  const ETHEREUM_RPC = 'https://eth.llamarpc.com';
 
   function shortPubkey(pk) { return pk.slice(0,4) + '…' + pk.slice(-4); }
 

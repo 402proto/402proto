@@ -276,7 +276,7 @@
       async function getBalance(publicKey) {
         try {
           const connection = new ethereumWeb3.Connection(
-            'https://api.mainnet-beta.ethereum.com',
+            'https://eth.llamarpc.com',
             'confirmed'
           );
           const balance = await connection.getBalance(new ethereumWeb3.PublicKey(publicKey));
