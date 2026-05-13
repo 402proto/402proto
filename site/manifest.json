@@ -1,0 +1,14 @@
+{
+  "name": "402proto",
+  "short_name": "402proto",
+  "description": "open payment protocol for paid apis. http 402, settled in usdc on ethereum.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#05080A",
+  "background_color": "#05080A",
+  "icons": [
+    { "src": "/402proto-logo.png", "sizes": "500x500", "type": "image/png", "purpose": "any" },
+    { "src": "/favicon.ico", "sizes": "64x64 48x48 32x32 16x16", "type": "image/x-icon" }
+  ]
+}

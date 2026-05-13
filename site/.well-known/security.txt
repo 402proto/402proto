@@ -1,0 +1,6 @@
+Contact: https://github.com/402proto/402proto/security/advisories/new
+Contact: mailto:hello@402proto.xyz
+Expires: 2027-05-13T00:00:00Z
+Preferred-Languages: en
+Canonical: https://402proto.xyz/.well-known/security.txt
+Policy: https://github.com/402proto/402proto/blob/main/SECURITY.md
