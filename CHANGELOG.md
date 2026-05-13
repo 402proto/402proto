@@ -45,6 +45,8 @@ this is an early protocol. the envelope shape is unlikely to change in v0.2, but
 - **sdk-ts**: parallel real on-chain settle in `src/settle.ts` using `@solana/web3.js` + `@solana/spl-token` (peer-optional). `Client.settle()` now routes through it; previously it inlined a `fakeSignature()` helper.
 - **sdk-ts**: `src/settle.test.ts` covering mint mapping, base-unit conversion, and the peer-deps-missing branch.
 - **mcp-server**: http transport (`src/transport-http.ts`) alongside stdio. enable with `--http :PORT` or `--http HOST:PORT` (env `PROTO402_HTTP`). exposes `GET /healthz` and accepts JSON-RPC POSTs at any path. CORS open by default.
+- **catalog**: 19 candidate providers wired across `sdk-py`, `sdk-ts`, and `spec/providers.md` — switchboard, chainlink, triton, quicknode, syndica, defillama, dune, thegraph, tavily, exa, brave, openai, mistral, groq, gemini, xai, arweave, irys, walrus. all marked 🟡 candidate (resolvable but not routed by default until upstream implements the envelope).
+- **catalog**: new `PRODUCTION_PROVIDERS` set in both SDKs to distinguish v0.1 production providers from v0.2 candidates.
 
 ### changed
 - **sdk-py**: bump to `0.2.0.dev0`.
@@ -61,7 +63,6 @@ this is an early protocol. the envelope shape is unlikely to change in v0.2, but
 - provider self-registration via `proto402 register`
 - router-rs prometheus metrics endpoint
 - envelope v0.2: revocable quotes, batched calls
-- catalog expansion (see ROADMAP.md)
 
 
 ## release sign-off

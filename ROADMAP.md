@@ -20,16 +20,10 @@ target: expand catalog to 72+ providers, settle on mainnet.
 - [x] real on-chain settle in sdk-py — `settle.submit_transfer` builds and submits the actual spl-token transfer + memo via solders + solana-py. install `proto402[chain]` to enable.
 - [x] real on-chain settle in sdk-ts — `settle.submitTransfer` paired with sdk-py; uses @solana/web3.js + @solana/spl-token as optional peer deps.
 - [x] http transport for mcp-server — `--http :PORT` flag enables a JSON-RPC HTTP listener alongside stdio.
+- [x] catalog expansion — 19 candidate providers wired in `sdk-py`, `sdk-ts`, and `spec/providers.md` (switchboard, chainlink, triton, quicknode, syndica, defillama, dune, thegraph, tavily, exa, brave, openai, mistral, groq, gemini, xai, arweave, irys, walrus). status 🟡 candidate; promoted to 🟢 once upstream ships the 402 envelope.
 - [ ] provider self-registration via `proto402 register`
 - [ ] router metrics exposed via prometheus
 - [ ] envelope v0.2: revocable quotes, batched calls
-- [ ] catalog expansion targets:
-  - oracles: switchboard, chainlink
-  - rpc: triton, quicknode, syndica
-  - data: defillama, dune, the graph
-  - search: tavily, exa, brave
-  - llm: openai, mistral, groq, gemini, xai
-  - storage: arweave, irys, walrus
 
 ## v0.3 — planned
 
