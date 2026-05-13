@@ -18,9 +18,9 @@
 target: expand catalog to 72+ providers, settle on mainnet.
 
 - [x] real on-chain settle in sdk-py — `settle.submit_transfer` builds and submits the actual spl-token transfer + memo via solders + solana-py. install `proto402[chain]` to enable.
-- [ ] real on-chain settle in sdk-ts (still stubbed)
+- [x] real on-chain settle in sdk-ts — `settle.submitTransfer` paired with sdk-py; uses @solana/web3.js + @solana/spl-token as optional peer deps.
+- [x] http transport for mcp-server — `--http :PORT` flag enables a JSON-RPC HTTP listener alongside stdio.
 - [ ] provider self-registration via `proto402 register`
-- [ ] http transport for mcp-server (not just stdio)
 - [ ] router metrics exposed via prometheus
 - [ ] envelope v0.2: revocable quotes, batched calls
 - [ ] catalog expansion targets:
