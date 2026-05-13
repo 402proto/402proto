@@ -10,14 +10,14 @@
 ```
 
 ### open payment protocol for paid apis
-no signup. no api keys. agents quote, sign, settle in usdc on solana.
+no signup. no api keys. agents quote, sign, settle in usdc on ethereum.
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-white.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/status-beta-yellow.svg)]()
 [![CI](https://img.shields.io/badge/ci-passing-brightgreen.svg)]()
 [![Spec](https://img.shields.io/badge/spec-v0.1-blue.svg)](spec/)
 
-[![Solana](https://img.shields.io/badge/solana-mainnet-9945FF.svg)]()
+[![Ethereum](https://img.shields.io/badge/ethereum-mainnet-627EEA.svg)]()
 [![USDC](https://img.shields.io/badge/settle-USDC-2775CA.svg)]()
 [![Python](https://img.shields.io/badge/python-3.9+-3776AB.svg)]()
 [![Rust](https://img.shields.io/badge/rust-stable-orange.svg)]()
@@ -37,20 +37,20 @@ no signup. no api keys. agents quote, sign, settle in usdc on solana.
 
 ## what it is
 
-402proto is an open payment protocol that lets ai agents and cli tools call paid apis without signup, without api keys, without monthly billing. every call is a tiny usdc transfer on solana, signed by the agent wallet, settled in under two seconds.
+402proto is an open payment protocol that lets ai agents and cli tools call paid apis without signup, without api keys, without monthly billing. every call is a tiny usdc transfer on ethereum, signed by the agent wallet, settled in under two seconds.
 
 three properties define it:
 
 - **non-custodial.** the agent wallet pays. nothing escrows funds. no third party holds your usdc.
 - **open spec.** the http 402 envelope is mit-licensed. anyone can implement a provider or a client.
-- **on-chain ledger.** every paid call is a signed solana transaction. queryable, exportable, audit-grade.
+- **on-chain ledger.** every paid call is a signed ethereum transaction. queryable, exportable, audit-grade.
 
 402proto is **not a payment processor.** it is a wire format plus a router plus a settlement contract. providers and clients run their own infrastructure.
 
 ## how a call works
 
 ```
-  agent                router               provider              solana
+  agent                router               provider              ethereum
     |                    |                     |                    |
     |-- request -------->|                     |                    |
     |                    |-- forward --------->|                    |
@@ -74,7 +74,7 @@ three drop-in surfaces. pick whichever fits your agent.
 
 ```bash
 npm i -g 402proto
-402proto call pyth.oracle price.get --params '{"symbol":"SOL/USD"}' --max 0.005
+402proto call chainlink.feed price.get --params '{"symbol":"ETH/USD"}' --max 0.005
 ```
 
 ### python sdk
@@ -88,9 +88,9 @@ from proto402 import Client
 
 client = Client(wallet=os.environ["PROTO402_WALLET"], cap="10 USDC/day")
 quote = client.call(
-    provider="pyth.oracle",
+    provider="chainlink.feed",
     method="price.get",
-    params={"symbol": "SOL/USD"},
+    params={"symbol": "ETH/USD"},
     max_price=0.005,
 )
 print(quote.payload, quote.tx_signature)
@@ -107,9 +107,9 @@ import { Client } from "@402proto/sdk";
 
 const client = new Client({ wallet: process.env.PROTO402_WALLET, cap: "10 USDC/day" });
 const quote = await client.call({
-  provider: "pyth.oracle",
+  provider: "chainlink.feed",
   method: "price.get",
-  params: { symbol: "SOL/USD" },
+  params: { symbol: "ETH/USD" },
   maxPrice: 0.005,
 });
 console.log(quote.payload, quote.txSignature);
@@ -154,10 +154,10 @@ shipped in v0.1 — 6 providers, expanding to 72+ in v0.2.
 
 | provider | method | est. price | status |
 |---|---|---|---|
-| pyth.oracle | `price.get` | $0.001 | 🟢 |
-| jupiter.quote | `quote` | $0.005 | 🟢 |
-| birdeye.token | `token.meta` | $0.002 | 🟢 |
-| helius.rpc | `getAccountInfo` | $0.0008 | 🟢 |
+| chainlink.feed | `price.get` | $0.001 | 🟢 |
+| uniswap.quote | `quote` | $0.005 | 🟢 |
+| dexscreener.token | `token.meta` | $0.002 | 🟢 |
+| alchemy.rpc | `getAccountInfo` | $0.0008 | 🟢 |
 | claude.completion | `messages.create` | varies | 🟡 ready |
 | anthropic.embed | `embeddings` | $0.0004 | 🟡 ready |
 
@@ -175,7 +175,7 @@ shipped in v0.1 — 6 providers, expanding to 72+ in v0.2.
 we're early. quick wins for new contributors:
 
 - add a provider integration in `sdk-py/src/proto402/providers/` (mark them in `spec/providers.md`)
-- write a recipe in `examples/` (e.g. "claude code + 402proto + jupiter")
+- write a recipe in `examples/` (e.g. "claude code + 402proto + uniswap")
 - improve the router retry policy in `router-rs/src/retry.rs`
 - file an issue with an api you wish 402proto supported
 

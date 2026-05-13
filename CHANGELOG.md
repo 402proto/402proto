@@ -6,7 +6,7 @@ format follows [keep a changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [v0.1.0] — 2026-05-12
 
-first public release. the envelope is stable, the sdk shells are usable, the router round-trips on devnet.
+first public release. the envelope is stable, the sdk shells are usable, the router round-trips on sepolia.
 
 ### added
 - **spec/** — http 402 envelope spec v0.1 (request, response, headers, signing rules)
@@ -15,13 +15,13 @@ first public release. the envelope is stable, the sdk shells are usable, the rou
 - **router-rs/** — rust quote router with retry + failover
 - **mcp-server/** — node mcp server (`@402proto/mcp`) for claude code / cursor
 - **site/** — landing + dashboard console (mock state, real wallet ui pending)
-- six provider integrations: pyth.oracle, jupiter.quote, birdeye.token, helius.rpc, claude.completion, anthropic.embed
-- examples: pyth price feed, jupiter quote, claude completion, end-to-end agent loop
+- six provider integrations: chainlink.feed, uniswap.quote, dexscreener.token, alchemy.rpc, claude.completion, anthropic.embed
+- examples: pyth price feed, uniswap quote, claude completion, end-to-end agent loop
 
 ### what is NOT in v0.1
-- no mainnet settlement contract (devnet only). agents quote and settle against a test usdc mint.
+- no mainnet settlement contract (sepolia only). agents quote and settle against a test usdc mint.
 - no provider self-registration. catalog is hard-coded in `spec/providers.md`.
-- no l2 settlement. solana mainnet + devnet only.
+- no l2 settlement. ethereum mainnet + sepolia only.
 - no fleet/team wallet abstraction. one wallet per client instance.
 - mcp server is stdio-only. http transport in v0.2.
 

@@ -5,13 +5,13 @@
 ## v0.1 — shipped 2026-05-12
 
 - envelope spec v0.1 (request, response, headers)
-- signing rules (ed25519 over canonical body)
+- signing rules (secp256k1 over canonical body)
 - python sdk + cli
 - typescript sdk
 - rust router + retry + failover
 - node mcp server
 - six provider integrations
-- devnet end-to-end demo
+- sepolia end-to-end demo
 
 ## v0.2 — in progress
 
@@ -38,7 +38,7 @@ target: enterprise fleet support, volume pricing.
 - [ ] team wallets with role-based signers
 - [ ] volume tier pricing (markup decreases with monthly volume)
 - [ ] per-agent caps enforced by a guard contract
-- [ ] csv ledger export from solana rpc, no off-chain log
+- [ ] csv ledger export from ethereum rpc, no off-chain log
 
 ## v0.4 — planned
 
