@@ -1,7 +1,7 @@
 {
   "name": "402proto",
   "short_name": "402proto",
-  "description": "open payment protocol for paid apis. http 402, settled in usdc on ethereum.",
+  "description": "open payment protocol for paid apis. http 402, settled in usdc on solana.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
