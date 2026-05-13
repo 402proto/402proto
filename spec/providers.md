@@ -15,6 +15,34 @@ a provider is anything that speaks the 402proto envelope. v0.1 ships a curated l
 
 URLs above are placeholders. the actual production routing is done via the router, which abstracts the underlying endpoint.
 
+## v0.2 candidate catalog
+
+these 19 providers are wired into `sdk-py/src/proto402/providers/__init__.py` and `sdk-ts/src/catalog.ts` but disabled in the router until their upstream implements the 402proto envelope. status: 🟡 candidate.
+
+| id | category | base url | methods | est. price (USDC) |
+|---|---|---|---|---|
+| `switchboard.oracle` | oracle | https://api.switchboard.example.com | `price.get` | 0.001 |
+| `chainlink.oracle` | oracle | https://api.chainlink.example.com | `price.get` | 0.001 |
+| `triton.rpc` | rpc | https://rpc.triton.example.com | `getAccountInfo`, `sendTransaction` | 0.0008 |
+| `quicknode.rpc` | rpc | https://rpc.quicknode.example.com | `getAccountInfo`, `sendTransaction` | 0.0008 |
+| `syndica.rpc` | rpc | https://rpc.syndica.example.com | `getAccountInfo`, `sendTransaction` | 0.0008 |
+| `defillama.data` | data | https://api.defillama.example.com | `protocol.tvl`, `token.price` | 0.001 |
+| `dune.data` | data | https://api.dune.example.com | `query.run` | 0.01 |
+| `thegraph.data` | data | https://api.thegraph.example.com | `subgraph.query` | 0.002 |
+| `tavily.search` | search | https://api.tavily.example.com | `search.web` | 0.005 |
+| `exa.search` | search | https://api.exa.example.com | `search.web` | 0.005 |
+| `brave.search` | search | https://api.brave.example.com | `search.web` | 0.003 |
+| `openai.completion` | llm | https://api.openai.example.com | `chat.completions` | 0.02 |
+| `mistral.completion` | llm | https://api.mistral.example.com | `chat.completions` | 0.008 |
+| `groq.completion` | llm | https://api.groq.example.com | `chat.completions` | 0.002 |
+| `gemini.completion` | llm | https://api.gemini.example.com | `generate.content` | 0.01 |
+| `xai.completion` | llm | https://api.xai.example.com | `chat.completions` | 0.015 |
+| `arweave.storage` | storage | https://api.arweave.example.com | `upload`, `fetch` | 0.05 / 0.001 |
+| `irys.storage` | storage | https://api.irys.example.com | `upload`, `fetch` | 0.03 / 0.001 |
+| `walrus.storage` | storage | https://api.walrus.example.com | `blob.put`, `blob.get` | 0.02 / 0.001 |
+
+once an upstream provider implements 402, their entry promotes from 🟡 → 🟢 in the next release. routers refuse to settle against 🟡 candidates by default — clients must explicitly opt-in per provider.
+
 ## provider id format
 
 ```
