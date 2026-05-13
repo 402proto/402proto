@@ -13,10 +13,11 @@ import {
   type Envelope,
 } from "./envelope.js";
 import { CapExceededError, fromCode } from "./errors.js";
+import { submitTransfer } from "./settle.js";
 import { derivePubkey, sign } from "./signing.js";
 import type { CallParams, ClientOptions, Quote } from "./types.js";
 
-const USER_AGENT = "@402proto/sdk/0.1.0";
+const USER_AGENT = "@402proto/sdk/0.2.0";
 
 export class Client {
   private wallet: string;
@@ -116,9 +117,15 @@ export class Client {
     }
   }
 
-  private async settle(_cb: CanonicalBody): Promise<string> {
-    // placeholder: real spl-transfer with memo lives in v0.1.1
-    return fakeSignature();
+  private async settle(cb: CanonicalBody): Promise<string> {
+    return submitTransfer({
+      rpcUrl: this.rpcUrl,
+      network: this.network,
+      walletSecret: bs58.decode(this.wallet),
+      recipient: cb.recipient,
+      amountUsdc: Number(cb.price),
+      memo: `402proto/0.2 q=${cb.quoteId}`,
+    });
   }
 }
 
@@ -128,11 +135,4 @@ function parseCap(cap?: string): number | null {
   const cleaned = s.replace(/\/(day|d|per day)$/, "").trim();
   const n = parseFloat(cleaned);
   return Number.isFinite(n) ? n : null;
-}
-
-function fakeSignature(): string {
-  const chars = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
-  let s = "";
-  for (let i = 0; i < 88; i++) s += chars[Math.floor(Math.random() * chars.length)];
-  return s;
 }
