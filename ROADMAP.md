@@ -17,7 +17,8 @@
 
 target: expand catalog to 72+ providers, settle on mainnet.
 
-- [x] mainnet settlement contract (audited, anza)
+- [x] real on-chain settle in sdk-py — `settle.submit_transfer` builds and submits the actual spl-token transfer + memo via solders + solana-py. install `proto402[chain]` to enable.
+- [ ] real on-chain settle in sdk-ts (still stubbed)
 - [ ] provider self-registration via `proto402 register`
 - [ ] http transport for mcp-server (not just stdio)
 - [ ] router metrics exposed via prometheus
