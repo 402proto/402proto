@@ -444,7 +444,7 @@
               'system-overview': {
                 category: 'QUICKSTART',
                 title: 'Quickstart',
-                subtitle: "install pay, point at a wallet, call any paid api. usdc settles on solana per call.",
+                subtitle: "install pay, point at a wallet, call any paid api. usdc settles on ethereum per call.",
                 toc: ['Install', 'Three lines', 'How a call works', 'Caps'],
                 content: \`
                   <div class="mb-12 p-1 bg-gradient-to-r from-[#ffffff]/20 to-transparent rounded-lg border border-[#ffffff]/20">
@@ -455,7 +455,7 @@
                       <div>
                         <h4 class="text-white font-medium text-sm mb-1">Design</h4>
                         <p class="text-sm text-slate-400 leading-relaxed">
-                          http 402 + usdc on solana. agent calls, server quotes, wallet signs, response returns. no api keys, no escrow, no monthly bill. non-custodial.
+                          http 402 + usdc on ethereum. agent calls, server quotes, wallet signs, response returns. no api keys, no escrow, no monthly bill. non-custodial.
                         </p>
                       </div>
                     </div>
@@ -488,7 +488,7 @@
                       <div class="relative"><span class="absolute -left-[41px] top-0 flex h-6 w-6 items-center justify-center rounded-full bg-[#05080A] border border-white/20 text-[10px] font-semibold text-white ring-4 ring-[#05080A]">2</span><h3 class="text-white font-medium mb-1">Server responds 402</h3><p class="text-sm text-slate-400">provider returns http 402 with usdc price quote</p></div>
                       <div class="relative"><span class="absolute -left-[41px] top-0 flex h-6 w-6 items-center justify-center rounded-full bg-[#05080A] border border-white/20 text-[10px] font-semibold text-white ring-4 ring-[#05080A]">3</span><h3 class="text-white font-medium mb-1">Router compares</h3><p class="text-sm text-slate-400">402proto picks the cheapest provider satisfying the call</p></div>
                       <div class="relative"><span class="absolute -left-[41px] top-0 flex h-6 w-6 items-center justify-center rounded-full bg-[#05080A] border border-white/20 text-[10px] font-semibold text-white ring-4 ring-[#05080A]">4</span><h3 class="text-white font-medium mb-1">Cap check</h3><p class="text-sm text-slate-400">enforce per-agent or per-fleet daily usdc cap</p></div>
-                      <div class="relative"><span class="absolute -left-[41px] top-0 flex h-6 w-6 items-center justify-center rounded-full bg-[#05080A] border border-white/20 text-[10px] font-semibold text-white ring-4 ring-[#05080A]">5</span><h3 class="text-white font-medium mb-1">Wallet signs</h3><p class="text-sm text-slate-400">usdc transfer on solana, signed by your agent wallet</p></div>
+                      <div class="relative"><span class="absolute -left-[41px] top-0 flex h-6 w-6 items-center justify-center rounded-full bg-[#05080A] border border-white/20 text-[10px] font-semibold text-white ring-4 ring-[#05080A]">5</span><h3 class="text-white font-medium mb-1">Wallet signs</h3><p class="text-sm text-slate-400">usdc transfer on ethereum, signed by your agent wallet</p></div>
                       <div class="relative"><span class="absolute -left-[41px] top-0 flex h-6 w-6 items-center justify-center rounded-full bg-[#05080A] border border-white/20 text-[10px] font-semibold text-white ring-4 ring-[#05080A]">6</span><h3 class="text-white font-medium mb-1">Settle</h3><p class="text-sm text-slate-400">transfer confirms, provider gets paid, agent gets response</p></div>
                       <div class="relative"><span class="absolute -left-[41px] top-0 flex h-6 w-6 items-center justify-center rounded-full bg-[#05080A] border border-white/20 text-[10px] font-semibold text-white ring-4 ring-[#05080A]">7</span><h3 class="text-white font-medium mb-1">Failover</h3><p class="text-sm text-slate-400">if provider fails, router signs against the next cheapest</p></div>
                       <div class="relative"><span class="absolute -left-[41px] top-0 flex h-6 w-6 items-center justify-center rounded-full bg-[#ffffff] text-black text-[10px] font-semibold ring-4 ring-[#05080A]">8</span><h3 class="text-white font-medium mb-1">Log</h3><p class="text-sm text-slate-400">tx hash + payload logged on-chain, exportable as csv</p></div>
@@ -533,8 +533,8 @@
                         </tr></thead>
                         <tbody class="divide-y divide-dashed divide-white/10">
                           <tr><td class="py-3 px-4 border-r border-dashed border-white/10 text-white">Pyth/Switchboard</td><td class="py-3 px-4 border-r border-dashed border-white/10 font-mono text-slate-400">400ms</td><td class="py-3 px-4 text-slate-400">Price feeds, confidence</td></tr>
-                          <tr><td class="py-3 px-4 border-r border-dashed border-white/10 text-white">Birdeye/Jupiter</td><td class="py-3 px-4 border-r border-dashed border-white/10 font-mono text-slate-400">1s</td><td class="py-3 px-4 text-slate-400">Token metrics, routes</td></tr>
-                          <tr><td class="py-3 px-4 border-r border-dashed border-white/10 text-white">Helius/Triton</td><td class="py-3 px-4 border-r border-dashed border-white/10 font-mono text-slate-400">Per block</td><td class="py-3 px-4 text-slate-400">Transaction streams</td></tr>
+                          <tr><td class="py-3 px-4 border-r border-dashed border-white/10 text-white">DexScreener/Uniswap</td><td class="py-3 px-4 border-r border-dashed border-white/10 font-mono text-slate-400">1s</td><td class="py-3 px-4 text-slate-400">Token metrics, routes</td></tr>
+                          <tr><td class="py-3 px-4 border-r border-dashed border-white/10 text-white">Alchemy/Triton</td><td class="py-3 px-4 border-r border-dashed border-white/10 font-mono text-slate-400">Per block</td><td class="py-3 px-4 text-slate-400">Transaction streams</td></tr>
                           <tr><td class="py-3 px-4 border-r border-dashed border-white/10 text-white">Protocol APIs</td><td class="py-3 px-4 border-r border-dashed border-white/10 font-mono text-slate-400">5s</td><td class="py-3 px-4 text-slate-400">Drift, Orca, Kamino state</td></tr>
                           <tr><td class="py-3 px-4 border-r border-dashed border-white/10 text-white">Social Feeds</td><td class="py-3 px-4 border-r border-dashed border-white/10 font-mono text-slate-400">10s</td><td class="py-3 px-4 text-slate-400">Twitter, Discord, Telegram</td></tr>
                           <tr><td class="py-3 px-4 border-r border-dashed border-white/10 text-white">Macro Data</td><td class="py-3 px-4 border-r border-dashed border-white/10 font-mono text-slate-400">60s</td><td class="py-3 px-4 text-slate-400">BTC dominance, fear/greed</td></tr>
@@ -742,8 +742,8 @@
               'frameworks': {
                 category: 'EXECUTION',
                 title: 'Agent Frameworks',
-                subtitle: "ElizaOS for cognitive processing and Solana Agent Kit (Sendai) for blockchain execution.",
-                toc: ['ElizaOS', 'Solana Agent Kit (Sendai)'],
+                subtitle: "ElizaOS for cognitive processing and Ethereum Agent Kit (Sendai) for blockchain execution.",
+                toc: ['ElizaOS', 'Ethereum Agent Kit (Sendai)'],
                 content: `
                   <div class="prose prose-invert prose-slate max-w-none">
                     <h2 class="text-2xl font-medium text-white tracking-tight mb-6">ElizaOS</h2>
@@ -755,7 +755,7 @@
                       <div class="p-3 border border-white/10 rounded bg-white/[0.02] text-sm text-slate-400">Multi-model support</div>
                     </div>
 
-                    <h2 class="text-2xl font-medium text-white tracking-tight mb-6">Solana Agent Kit (Sendai)</h2>
+                    <h2 class="text-2xl font-medium text-white tracking-tight mb-6">Ethereum Agent Kit (Sendai)</h2>
                     <p class="mb-4 text-sm text-slate-400">Blockchain execution capabilities.</p>
                     <div class="overflow-hidden rounded-lg border border-white/10 mb-12">
                       <table class="w-full text-left text-sm border-collapse">
@@ -765,7 +765,7 @@
                         </tr></thead>
                         <tbody class="divide-y divide-dashed divide-white/10">
                           <tr><td class="py-3 px-4 border-r border-dashed border-white/10 text-white">Drift</td><td class="py-3 px-4 text-slate-400">Position management, funding payments</td></tr>
-                          <tr><td class="py-3 px-4 border-r border-dashed border-white/10 text-white">Jupiter</td><td class="py-3 px-4 text-slate-400">Swap routing, aggregation</td></tr>
+                          <tr><td class="py-3 px-4 border-r border-dashed border-white/10 text-white">Uniswap</td><td class="py-3 px-4 text-slate-400">Swap routing, aggregation</td></tr>
                           <tr><td class="py-3 px-4 border-r border-dashed border-white/10 text-white">Orca</td><td class="py-3 px-4 text-slate-400">LP management, concentrated liquidity</td></tr>
                           <tr><td class="py-3 px-4 border-r border-dashed border-white/10 text-white">Kamino</td><td class="py-3 px-4 text-slate-400">Vault deposits, yield optimization</td></tr>
                           <tr><td class="py-3 px-4 border-r border-dashed border-white/10 text-white">MarginFi/Solend</td><td class="py-3 px-4 text-slate-400">Lending, borrowing, liquidations</td></tr>

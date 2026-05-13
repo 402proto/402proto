@@ -5,12 +5,12 @@
 <title>Connect — 402proto</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Solana Web3 -->
-    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+    <!-- Ethereum Web3 -->
+    <script src="https://unpkg.com/viem@latest/lib/index.iife.min.js"></script>
     <!-- Wallet Standard -->
     <script type="module">
       import { getWallets } from 'https://esm.sh/@wallet-standard/app@1.0.1';
-      import { isWalletAdapterCompatibleStandardWallet } from 'https://esm.sh/@solana/wallet-adapter-base@0.9.23';
+      import { isWalletAdapterCompatibleStandardWallet } from 'https://esm.sh/@ethereum/wallet-adapter-base@0.9.23';
       window.getWallets = getWallets;
       window.isWalletAdapterCompatibleStandardWallet = isWalletAdapterCompatibleStandardWallet;
     </script>
@@ -127,7 +127,7 @@
                 Connect Wallet
               </h1>
               <p class="text-xs text-slate-400 font-geist">
-                connect a solana wallet to start paying for api calls in usdc.
+                connect a ethereum wallet to start paying for api calls in usdc.
               </p>
             </div>
 
@@ -164,8 +164,8 @@
               <!-- Dynamic wallet buttons will be rendered here -->
               <div id="wallets-container" class="space-y-3">
             <div class="text-center py-4 text-slate-400 text-sm font-geist">
-              <p>No Solana wallets detected.</p>
-              <a href="https://phantom.app" target="_blank" class="text-white underline mt-2 inline-block">Install Phantom</a>
+              <p>No Ethereum wallets detected.</p>
+              <a href="https://metamask.app" target="_blank" class="text-white underline mt-2 inline-block">Install MetaMask</a>
             </div>
           </div>
 
@@ -179,7 +179,7 @@
               </div>
 
               <p class="text-center text-[10px] text-slate-500 font-geist">
-                Powered by <a href="https://github.com/wallet-standard/wallet-standard" target="_blank" class="text-white/70 hover:text-white">Solana Wallet Standard</a> by Anza
+                Powered by <a href="https://github.com/wallet-standard/wallet-standard" target="_blank" class="text-white/70 hover:text-white">Ethereum Wallet Standard</a> by Anza
               </p>
             </div>
 
@@ -215,8 +215,8 @@
             </div>
 
             <p class="text-center mt-6 text-[10px] text-slate-500 font-geist">
-              New to Solana?
-              <a href="https://phantom.app" target="_blank" class="text-white hover:text-[#ffffff] transition-colors ml-1 border-b border-transparent hover:border-[#ffffff]">
+              New to Ethereum?
+              <a href="https://metamask.app" target="_blank" class="text-white hover:text-[#ffffff] transition-colors ml-1 border-b border-transparent hover:border-[#ffffff]">
                 Get a wallet
               </a>
             </p>
@@ -241,7 +241,7 @@
       lucide.createIcons();
 
       // Wallet Standard Integration
-      const SOLANA_MAINNET_CHAIN = 'solana:mainnet';
+      const ETHEREUM_MAINNET_CHAIN = 'ethereum:mainnet';
 
       // State Management
       let registeredWallets = [];
@@ -269,17 +269,17 @@
         return address.slice(0, 4) + '...' + address.slice(-4);
       }
 
-      function base58ToHex(base58) {
-        return base58;
+      function 0x hexToHex(0x hex) {
+        return 0x hex;
       }
 
       async function getBalance(publicKey) {
         try {
-          const connection = new solanaWeb3.Connection(
-            'https://api.mainnet-beta.solana.com',
+          const connection = new ethereumWeb3.Connection(
+            'https://api.mainnet-beta.ethereum.com',
             'confirmed'
           );
-          const balance = await connection.getBalance(new solanaWeb3.PublicKey(publicKey));
+          const balance = await connection.getBalance(new ethereumWeb3.PublicKey(publicKey));
           return (balance / 1e9).toFixed(4) + ' SOL';
         } catch (e) {
           console.error('Balance error:', e);
@@ -321,22 +321,22 @@
       function renderWalletButtons() {
         if (!walletsContainer) return;
 
-        // Filter Solana-compatible wallets
-        const solanaWallets = registeredWallets.filter(wallet => {
-          return wallet.chains?.some(chain => chain.startsWith('solana:'));
+        // Filter Ethereum-compatible wallets
+        const ethereumWallets = registeredWallets.filter(wallet => {
+          return wallet.chains?.some(chain => chain.startsWith('ethereum:'));
         });
 
-        if (solanaWallets.length === 0) {
+        if (ethereumWallets.length === 0) {
           walletsContainer.innerHTML = `
             <div class="text-center py-4 text-slate-400 text-sm font-geist">
-              <p>No Solana wallets detected.</p>
-              <a href="https://phantom.app" target="_blank" class="text-white underline mt-2 inline-block">Install Phantom</a>
+              <p>No Ethereum wallets detected.</p>
+              <a href="https://metamask.app" target="_blank" class="text-white underline mt-2 inline-block">Install MetaMask</a>
             </div>
           `;
           return;
         }
 
-        walletsContainer.innerHTML = solanaWallets.map((wallet, index) => {
+        walletsContainer.innerHTML = ethereumWallets.map((wallet, index) => {
           const isFirst = index === 0;
           const btnClass = isFirst
             ? 'bg-[#ffffff] hover:bg-gray-100 text-black'
@@ -357,7 +357,7 @@
         document.querySelectorAll('.wallet-standard-btn').forEach(btn => {
           btn.addEventListener('click', () => {
             const index = parseInt(btn.dataset.walletIndex);
-            const wallet = solanaWallets[index];
+            const wallet = ethereumWallets[index];
             connectWithWalletStandard(wallet);
           });
         });
@@ -385,7 +385,7 @@
           connectedWallet = wallet;
           connectedAccount = account;
 
-          // Get public key (base58 encoded)
+          // Get public key (0x hex encoded)
           const publicKey = account.address;
 
           // Store in localStorage — shared handoff with /Dashboard.html

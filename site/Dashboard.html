@@ -61,7 +61,7 @@
     </div>
 
     <div class="col-span-3 flex items-center justify-end px-6 gap-3">
-      <button id="connect-phantom" class="hidden md:inline-flex items-center gap-2 px-3 py-1.5 text-[10px] uppercase tracking-widest font-geist font-medium bg-white text-black hover:bg-gray-200 rounded transition-colors">
+      <button id="connect-metamask" class="hidden md:inline-flex items-center gap-2 px-3 py-1.5 text-[10px] uppercase tracking-widest font-geist font-medium bg-white text-black hover:bg-gray-200 rounded transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
         Connect
       </button>
@@ -125,7 +125,7 @@
       <div>
         <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-2">Call Activity</p>
         <h1 class="text-3xl md:text-4xl text-white font-light tracking-tighter font-geist">your fleet, in real time.</h1>
-        <p class="text-sm text-white/50 mt-2 font-geist max-w-md">every paid call routed through 402proto, settled on solana. nothing buffered, nothing batched.</p>
+        <p class="text-sm text-white/50 mt-2 font-geist max-w-md">every paid call routed through 402proto, settled on ethereum. nothing buffered, nothing batched.</p>
       </div>
       <div class="flex items-center gap-3">
         <button id="export-csv" class="px-4 py-2 text-xs uppercase tracking-widest text-white/70 hover:text-white border border-white/10 hover:border-white/30 rounded font-geist transition-colors">
@@ -210,7 +210,7 @@
       <div class="flex items-center justify-between px-6 py-4 border-b border-dashed border-white/10">
         <div>
           <p class="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-1">Recent calls</p>
-          <p class="text-sm text-white/70 font-geist">every entry is a usdc transfer on solana mainnet</p>
+          <p class="text-sm text-white/70 font-geist">every entry is a usdc transfer on ethereum mainnet</p>
         </div>
         <div class="flex items-center gap-2 text-[10px] text-white/30 font-mono uppercase tracking-widest">
           <span id="recent-count">12</span><span>entries</span>
@@ -417,10 +417,10 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/10">
-        <div class="bg-[#05080A] p-6"><div class="flex items-center gap-3 mb-4"><img src="pyth.png" alt="" class="w-10 h-10 rounded object-contain"><div><p class="text-sm text-white font-mono">pyth.oracle</p><p class="text-[10px] text-white/40 uppercase tracking-widest font-mono">oracle</p></div></div><p class="text-xs text-white/60 font-geist mb-4">real-time price feeds with confidence intervals. one call, one usdc transfer.</p><div class="flex items-center justify-between text-[11px] font-mono"><span class="text-white/40">$0.001 / call</span><span class="inline-flex items-center gap-1 text-mint"><span class="status-dot status-settled"></span>active</span></div></div>
-        <div class="bg-[#05080A] p-6"><div class="flex items-center gap-3 mb-4"><img src="7.png" alt="" class="w-10 h-10 rounded object-contain"><div><p class="text-sm text-white font-mono">jupiter.quote</p><p class="text-[10px] text-white/40 uppercase tracking-widest font-mono">dex</p></div></div><p class="text-xs text-white/60 font-geist mb-4">swap quoting and route building across solana liquidity. quote per call.</p><div class="flex items-center justify-between text-[11px] font-mono"><span class="text-white/40">$0.005 / call</span><span class="inline-flex items-center gap-1 text-mint"><span class="status-dot status-settled"></span>active</span></div></div>
-        <div class="bg-[#05080A] p-6"><div class="flex items-center gap-3 mb-4"><img src="birdeye.png" alt="" class="w-10 h-10 rounded object-contain"><div><p class="text-sm text-white font-mono">birdeye.token</p><p class="text-[10px] text-white/40 uppercase tracking-widest font-mono">data</p></div></div><p class="text-xs text-white/60 font-geist mb-4">token metadata, holders, volumes. pull data when your agent asks, pay when it gets it.</p><div class="flex items-center justify-between text-[11px] font-mono"><span class="text-white/40">$0.002 / call</span><span class="inline-flex items-center gap-1 text-mint"><span class="status-dot status-settled"></span>active</span></div></div>
-        <div class="bg-[#05080A] p-6"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded bg-white/10 flex items-center justify-center text-xs font-mono text-white/60">HE</div><div><p class="text-sm text-white font-mono">helius.rpc</p><p class="text-[10px] text-white/40 uppercase tracking-widest font-mono">rpc</p></div></div><p class="text-xs text-white/60 font-geist mb-4">solana rpc — getAccountInfo, sendTransaction, archive nodes. paid per request.</p><div class="flex items-center justify-between text-[11px] font-mono"><span class="text-white/40">$0.0008 / call</span><span class="inline-flex items-center gap-1 text-mint"><span class="status-dot status-settled"></span>active</span></div></div>
+        <div class="bg-[#05080A] p-6"><div class="flex items-center gap-3 mb-4"><img src="pyth.png" alt="" class="w-10 h-10 rounded object-contain"><div><p class="text-sm text-white font-mono">chainlink.feed</p><p class="text-[10px] text-white/40 uppercase tracking-widest font-mono">oracle</p></div></div><p class="text-xs text-white/60 font-geist mb-4">real-time price feeds with confidence intervals. one call, one usdc transfer.</p><div class="flex items-center justify-between text-[11px] font-mono"><span class="text-white/40">$0.001 / call</span><span class="inline-flex items-center gap-1 text-mint"><span class="status-dot status-settled"></span>active</span></div></div>
+        <div class="bg-[#05080A] p-6"><div class="flex items-center gap-3 mb-4"><img src="7.png" alt="" class="w-10 h-10 rounded object-contain"><div><p class="text-sm text-white font-mono">uniswap.quote</p><p class="text-[10px] text-white/40 uppercase tracking-widest font-mono">dex</p></div></div><p class="text-xs text-white/60 font-geist mb-4">swap quoting and route building across ethereum liquidity. quote per call.</p><div class="flex items-center justify-between text-[11px] font-mono"><span class="text-white/40">$0.005 / call</span><span class="inline-flex items-center gap-1 text-mint"><span class="status-dot status-settled"></span>active</span></div></div>
+        <div class="bg-[#05080A] p-6"><div class="flex items-center gap-3 mb-4"><img src="dexscreener.png" alt="" class="w-10 h-10 rounded object-contain"><div><p class="text-sm text-white font-mono">dexscreener.token</p><p class="text-[10px] text-white/40 uppercase tracking-widest font-mono">data</p></div></div><p class="text-xs text-white/60 font-geist mb-4">token metadata, holders, volumes. pull data when your agent asks, pay when it gets it.</p><div class="flex items-center justify-between text-[11px] font-mono"><span class="text-white/40">$0.002 / call</span><span class="inline-flex items-center gap-1 text-mint"><span class="status-dot status-settled"></span>active</span></div></div>
+        <div class="bg-[#05080A] p-6"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded bg-white/10 flex items-center justify-center text-xs font-mono text-white/60">HE</div><div><p class="text-sm text-white font-mono">alchemy.rpc</p><p class="text-[10px] text-white/40 uppercase tracking-widest font-mono">rpc</p></div></div><p class="text-xs text-white/60 font-geist mb-4">ethereum rpc — getAccountInfo, sendTransaction, archive nodes. paid per request.</p><div class="flex items-center justify-between text-[11px] font-mono"><span class="text-white/40">$0.0008 / call</span><span class="inline-flex items-center gap-1 text-mint"><span class="status-dot status-settled"></span>active</span></div></div>
         <div class="bg-[#05080A] p-6"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded bg-white/10 flex items-center justify-center text-xs font-mono text-white/60">CL</div><div><p class="text-sm text-white font-mono">claude.completion</p><p class="text-[10px] text-white/40 uppercase tracking-widest font-mono">llm</p></div></div><p class="text-xs text-white/60 font-geist mb-4">claude messages.create through the 402proto envelope. by-token pricing surfaced as a quote.</p><div class="flex items-center justify-between text-[11px] font-mono"><span class="text-white/40">~$0.018 / call</span><span class="inline-flex items-center gap-1 text-mint"><span class="status-dot status-settled"></span>active</span></div></div>
         <div class="bg-[#05080A] p-6"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded bg-white/10 flex items-center justify-center text-xs font-mono text-white/60">AE</div><div><p class="text-sm text-white font-mono">anthropic.embed</p><p class="text-[10px] text-white/40 uppercase tracking-widest font-mono">llm</p></div></div><p class="text-xs text-white/60 font-geist mb-4">embeddings via anthropic. cheap, deterministic, settled per call.</p><div class="flex items-center justify-between text-[11px] font-mono"><span class="text-white/40">$0.0004 / call</span><span class="inline-flex items-center gap-1 text-mint"><span class="status-dot status-settled"></span>active</span></div></div>
       </div>
@@ -445,11 +445,11 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6 border-b border-dashed border-white/10">
           <label class="text-[10px] uppercase tracking-widest text-white/40 font-mono">Network</label>
-          <select disabled class="md:col-span-2 bg-[#05080A] border border-white/10 rounded px-3 py-2 text-xs font-mono text-white opacity-80 cursor-not-allowed"><option>solana-mainnet</option><option>solana-devnet</option></select>
+          <select disabled class="md:col-span-2 bg-[#05080A] border border-white/10 rounded px-3 py-2 text-xs font-mono text-white opacity-80 cursor-not-allowed"><option>ethereum-mainnet</option><option>ethereum-sepolia</option></select>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6 border-b border-dashed border-white/10">
           <label class="text-[10px] uppercase tracking-widest text-white/40 font-mono">RPC endpoint</label>
-          <input type="text" value="https://api.mainnet-beta.solana.com" readonly class="md:col-span-2 bg-[#05080A] border border-white/10 rounded px-3 py-2 text-xs font-mono text-white opacity-80 cursor-not-allowed">
+          <input type="text" value="https://api.mainnet-beta.ethereum.com" readonly class="md:col-span-2 bg-[#05080A] border border-white/10 rounded px-3 py-2 text-xs font-mono text-white opacity-80 cursor-not-allowed">
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6 border-b border-dashed border-white/10">
           <label class="text-[10px] uppercase tracking-widest text-white/40 font-mono">Default spec version</label>
@@ -572,11 +572,11 @@
       <div>
         <label class="block text-[10px] uppercase tracking-widest text-white/40 font-mono mb-2">Provider</label>
         <select id="form-provider" class="w-full bg-[#05080A] border border-white/10 rounded px-3 py-3 text-sm text-white font-mono focus:outline-none focus:border-white/30">
-          <option value="pyth.oracle">pyth.oracle  ·  $0.001</option>
-          <option value="jupiter.quote">jupiter.quote  ·  $0.005</option>
-          <option value="birdeye.token">birdeye.token  ·  $0.002</option>
+          <option value="chainlink.feed">chainlink.feed  ·  $0.001</option>
+          <option value="uniswap.quote">uniswap.quote  ·  $0.005</option>
+          <option value="dexscreener.token">dexscreener.token  ·  $0.002</option>
           <option value="claude.completion">claude.completion  ·  $0.018</option>
-          <option value="helius.rpc">helius.rpc  ·  $0.0008</option>
+          <option value="alchemy.rpc">alchemy.rpc  ·  $0.0008</option>
           <option value="anthropic.embed">anthropic.embed  ·  $0.0004</option>
         </select>
       </div>
@@ -586,7 +586,7 @@
       </div>
       <div>
         <label class="block text-[10px] uppercase tracking-widest text-white/40 font-mono mb-2">Params</label>
-        <textarea id="form-params" rows="3" class="w-full bg-[#05080A] border border-white/10 rounded px-3 py-3 text-sm text-white font-mono focus:outline-none focus:border-white/30 resize-none">{ "symbol": "SOL/USD" }</textarea>
+        <textarea id="form-params" rows="3" class="w-full bg-[#05080A] border border-white/10 rounded px-3 py-3 text-sm text-white font-mono focus:outline-none focus:border-white/30 resize-none">{ "symbol": "ETH/USD" }</textarea>
       </div>
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-3 text-[10px] uppercase tracking-widest text-white/40 font-mono">
@@ -604,12 +604,12 @@
     <div id="stage-quote" class="p-6 space-y-5 hidden">
       <div class="bg-[#05080A] border border-white/10 rounded p-4 font-mono text-xs space-y-1">
         <div class="text-white/40">HTTP/1.1 <span class="text-yellow-300">402 Payment Required</span></div>
-        <div class="text-white/40">x-402proto-provider: <span class="text-white" id="quote-provider">pyth.oracle</span></div>
+        <div class="text-white/40">x-402proto-provider: <span class="text-white" id="quote-provider">chainlink.feed</span></div>
         <div class="text-white/40">x-402proto-method: <span class="text-white" id="quote-method">price.get</span></div>
         <div class="text-white/40">x-402proto-price: <span class="text-white" id="quote-price">0.001</span> USDC</div>
         <div class="text-white/40">x-402proto-recipient: <span class="text-white">7xKp...prov</span></div>
         <div class="text-white/40">x-402proto-ttl: <span class="text-white">12s</span></div>
-        <div class="text-white/40">x-402proto-chain: <span class="text-white">solana-mainnet</span></div>
+        <div class="text-white/40">x-402proto-chain: <span class="text-white">ethereum-mainnet</span></div>
       </div>
       <div class="flex items-center justify-between text-xs font-geist">
         <span class="text-white/50">Your wallet</span>
@@ -650,7 +650,7 @@
       <div class="bg-[#05080A] border border-white/10 rounded p-4 font-mono text-[11px] mb-4">
         <p class="text-white/40 mb-2">response payload</p>
         <pre class="text-white/80 whitespace-pre-wrap break-all" id="settle-response">{
-  "symbol": "SOL/USD",
+  "symbol": "ETH/USD",
   "price": 142.387,
   "confidence": 0.04,
   "slot": 312455218
@@ -666,15 +666,15 @@
 (function () {
   // ============ STATE ============
   const PROVIDER_DEFAULTS = {
-    'pyth.oracle':       { price: 0.001,  method: 'price.get',  params: '{ "symbol": "SOL/USD" }',
-      respond: () => ({ symbol: 'SOL/USD', price: +(140 + Math.random()*8).toFixed(3), confidence: +(Math.random()*0.08).toFixed(3), slot: 312000000 + Math.floor(Math.random()*999999) }) },
-    'jupiter.quote':     { price: 0.005,  method: 'quote',      params: '{ "input": "SOL", "output": "USDC", "amount": 1000000 }',
+    'chainlink.feed':       { price: 0.001,  method: 'price.get',  params: '{ "symbol": "ETH/USD" }',
+      respond: () => ({ symbol: 'ETH/USD', price: +(140 + Math.random()*8).toFixed(3), confidence: +(Math.random()*0.08).toFixed(3), slot: 312000000 + Math.floor(Math.random()*999999) }) },
+    'uniswap.quote':     { price: 0.005,  method: 'quote',      params: '{ "input": "SOL", "output": "USDC", "amount": 1000000 }',
       respond: () => ({ inAmount: 1000000, outAmount: 142_320_000 + Math.floor(Math.random()*100000), routes: 3, priceImpact: '0.04%' }) },
-    'birdeye.token':     { price: 0.002,  method: 'token.meta', params: '{ "mint": "So11111111111111111111111111111111111111112" }',
+    'dexscreener.token':     { price: 0.002,  method: 'token.meta', params: '{ "mint": "So11111111111111111111111111111111111111112" }',
       respond: () => ({ symbol: 'SOL', name: 'Wrapped SOL', decimals: 9, volume24h: 2_400_000_000 + Math.floor(Math.random()*100_000_000) }) },
     'claude.completion': { price: 0.018,  method: 'messages.create', params: '{ "model": "claude-3-7-sonnet", "prompt": "summarize this thread" }',
       respond: () => ({ id: 'msg_' + rand(10), model: 'claude-3-7-sonnet', tokens: { input: 1240, output: 380 }, finish: 'end_turn' }) },
-    'helius.rpc':        { price: 0.0008, method: 'getAccountInfo', params: '{ "address": "7xKp...9mT4" }',
+    'alchemy.rpc':        { price: 0.0008, method: 'getAccountInfo', params: '{ "address": "7xKp...9mT4" }',
       respond: () => ({ lamports: 142_500_000_000 + Math.floor(Math.random()*100_000), owner: 'System11111111111111111111111111111111111111', slot: 312000000 + Math.floor(Math.random()*999999) }) },
     'anthropic.embed':   { price: 0.0004, method: 'embeddings',  params: '{ "input": "agent payment protocol", "model": "voyage-3" }',
       respond: () => ({ vector_dim: 1024, model: 'voyage-3', tokens: 8 }) },
@@ -738,7 +738,7 @@
   // ============ RENDER ============
   let realWalletConnected = false;
   function render () {
-    // wallet-balance is owned by Phantom connect/disconnect — never overwrite from LARP state
+    // wallet-balance is owned by MetaMask connect/disconnect — never overwrite from LARP state
     document.getElementById('kpi-spend').textContent = state.spend > 0 ? '$' + state.spend.toFixed(2) : '$—';
     document.getElementById('kpi-calls').textContent = state.calls > 0 ? state.calls.toString() : '—';
     document.getElementById('kpi-avg').textContent = state.calls > 0 ? '$' + (state.spend / state.calls).toFixed(3) : '$—';
@@ -859,8 +859,8 @@
       pip: 'n/a',
       tier: 'connected wallet',
       title: 'connect a wallet to make calls',
-      message: 'every paid call settles in usdc on solana — that means a solana wallet needs to sign the transfer. click Connect in the top-right and approve the dapp in phantom, then come back here.',
-      link: 'https://phantom.app',
+      message: 'every paid call settles in usdc on ethereum — that means a ethereum wallet needs to sign the transfer. click Connect in the top-right and approve the dapp in metamask, then come back here.',
+      link: 'https://metamask.app',
     },
     'spend-report': {
       code: '402 payment required',
@@ -929,7 +929,7 @@
   const CONFIG_KEY = '402proto.config';
   const defaultConfig = {
     caps: { daily: 50.00, perCall: 0.100, dailySpent: 0 },
-    settings: { network: 'solana-mainnet', rpcUrl: 'https://api.mainnet-beta.solana.com', specVersion: '0.1', telemetry: true },
+    settings: { network: 'ethereum-mainnet', rpcUrl: 'https://api.mainnet-beta.ethereum.com', specVersion: '0.1', telemetry: true },
     agents: [],     // user-added; baseline ones stay in DOM
     providers: [],  // user-added; baseline 6 stay in DOM
   };
@@ -976,7 +976,7 @@
       title: 'register a new agent',
       fields: [
         { name: 'name', label: 'agent name', type: 'text', placeholder: 'agent-new', value: () => '' },
-        { name: 'wallet', label: 'wallet pubkey (base58)', type: 'text', placeholder: '7xKp...', value: () => '' },
+        { name: 'wallet', label: 'wallet pubkey (0x hex)', type: 'text', placeholder: '7xKp...', value: () => '' },
         { name: 'cap', label: 'daily cap (usdc)', type: 'number', step: '0.01', min: '0', value: () => 5 },
         { name: 'maxPerCall', label: 'max per-call (usdc)', type: 'number', step: '0.0001', min: '0', value: () => 0.05 },
       ],
@@ -1019,7 +1019,7 @@
       kind: 'settings',
       title: 'how 402proto talks to your wallet',
       fields: [
-        { name: 'network', label: 'network', type: 'select', options: ['solana-mainnet','solana-devnet'], value: () => config.settings.network },
+        { name: 'network', label: 'network', type: 'select', options: ['ethereum-mainnet','ethereum-sepolia'], value: () => config.settings.network },
         { name: 'rpcUrl', label: 'rpc endpoint', type: 'text', value: () => config.settings.rpcUrl },
         { name: 'specVersion', label: 'spec version', type: 'text', value: () => config.settings.specVersion },
         { name: 'telemetry', label: 'send anonymous usage metrics', type: 'checkbox', value: () => config.settings.telemetry },
@@ -1193,14 +1193,14 @@
   rerenderProviders();
   rerenderSettings();
 
-  // ============ PHANTOM WALLET CONNECT ============
+  // ============ METAMASK WALLET CONNECT ============
   const USDC_MINT_MAINNET = 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v';
-  const SOLANA_RPC = 'https://api.mainnet-beta.solana.com';
+  const ETHEREUM_RPC = 'https://api.mainnet-beta.ethereum.com';
 
   function shortPubkey(pk) { return pk.slice(0,4) + '…' + pk.slice(-4); }
 
   async function rpcCall(method, params) {
-    const res = await fetch(SOLANA_RPC, {
+    const res = await fetch(ETHEREUM_RPC, {
       method: 'POST',
       headers: {'content-type': 'application/json'},
       body: JSON.stringify({ jsonrpc: '2.0', id: 1, method, params }),
@@ -1226,23 +1226,23 @@
     return total;
   }
 
-  async function connectPhantom() {
-    if (!window.solana || !window.solana.isPhantom) {
+  async function connectMetaMask() {
+    if (!window.ethereum || !window.ethereum.isMetaMask) {
       larpError('add-agent', 'connect wallet');
-      document.getElementById('error-title').textContent = 'phantom not detected';
-      document.getElementById('error-message').textContent = 'install phantom from phantom.app, then refresh this page. 402proto needs a solana wallet to sign per-call usdc transfers.';
-      document.getElementById('error-link').href = 'https://phantom.app';
-      document.getElementById('error-link').textContent = 'phantom.app →';
+      document.getElementById('error-title').textContent = 'metamask not detected';
+      document.getElementById('error-message').textContent = 'install metamask from metamask.app, then refresh this page. 402proto needs a ethereum wallet to sign per-call usdc transfers.';
+      document.getElementById('error-link').href = 'https://metamask.app';
+      document.getElementById('error-link').textContent = 'metamask.app →';
       document.getElementById('error-code').textContent = '424 missing wallet';
       document.getElementById('error-status').textContent = '424 No Wallet';
       document.getElementById('error-x').textContent = 'no-wallet-extension';
       return;
     }
     try {
-      const resp = await window.solana.connect();
+      const resp = await window.ethereum.connect();
       const pubkey = resp.publicKey.toString();
       localStorage.setItem('402proto.connectedWallet', pubkey);
-      localStorage.setItem('402proto.connectedWalletName', 'Phantom');
+      localStorage.setItem('402proto.connectedWalletName', 'MetaMask');
       activateConnectedUI(pubkey);
     } catch (e) {
       console.warn(e);
@@ -1250,18 +1250,18 @@
   }
 
   async function disconnectWallet() {
-    try { await window.solana?.disconnect(); } catch {}
+    try { await window.ethereum?.disconnect(); } catch {}
     realWalletConnected = false;
     localStorage.removeItem('402proto.connectedWallet');
     localStorage.removeItem('402proto.connectedWalletName');
     document.getElementById('wallet-addr').textContent = 'not connected';
     document.getElementById('wallet-balance').textContent = '— USDC';
     document.getElementById('settings-wallet').value = 'not connected';
-    document.getElementById('connect-phantom').classList.remove('hidden');
+    document.getElementById('connect-metamask').classList.remove('hidden');
     document.getElementById('disconnect-wallet').classList.add('hidden');
   }
 
-  document.getElementById('connect-phantom').addEventListener('click', connectPhantom);
+  document.getElementById('connect-metamask').addEventListener('click', connectMetaMask);
   document.getElementById('disconnect-wallet').addEventListener('click', disconnectWallet);
 
   // === handoff from /Login.html (or previous /Dashboard.html session) ===
@@ -1269,7 +1269,7 @@
     realWalletConnected = true;
     document.getElementById('wallet-addr').textContent = shortPubkey(pk);
     document.getElementById('settings-wallet').value = pk;
-    document.getElementById('connect-phantom').classList.add('hidden');
+    document.getElementById('connect-metamask').classList.add('hidden');
     document.getElementById('disconnect-wallet').classList.remove('hidden');
     document.getElementById('wallet-balance').textContent = 'loading…';
     fetchUsdcBalance(pk).then(b => {
@@ -1285,13 +1285,13 @@
     activateConnectedUI(handoffWallet);
   }
 
-  // also try Phantom silent reconnect (covers users who came in via /Dashboard.html directly)
-  if (window.solana?.isPhantom && !realWalletConnected) {
-    window.solana.connect({ onlyIfTrusted: true }).then(resp => {
+  // also try MetaMask silent reconnect (covers users who came in via /Dashboard.html directly)
+  if (window.ethereum?.isMetaMask && !realWalletConnected) {
+    window.ethereum.connect({ onlyIfTrusted: true }).then(resp => {
       if (resp?.publicKey) {
         const pk = resp.publicKey.toString();
         localStorage.setItem('402proto.connectedWallet', pk);
-        localStorage.setItem('402proto.connectedWalletName', 'Phantom');
+        localStorage.setItem('402proto.connectedWalletName', 'MetaMask');
         activateConnectedUI(pk);
       }
     }).catch(() => {});
@@ -1371,7 +1371,7 @@
     const steps = [
       'building quote envelope',
       'signing transaction with wallet',
-      'broadcasting to solana mainnet',
+      'broadcasting to ethereum mainnet',
       'awaiting confirmation',
       'recording receipt on-chain',
     ];
